@@ -3,6 +3,14 @@
   become: true
 
   tasks:
+    # TODO: Passwordless sudo
+    # TODO: dotfiles
+    # TODO: Set my UID to 501
+    # TODO: Wireguard
+    # TODO: Transmission
+    # TODO: Plex
+    # TODO: NFS server
+
     - name: Add my SSH keys
       authorized_key:
         user: joe
