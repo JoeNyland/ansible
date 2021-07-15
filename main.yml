@@ -3,7 +3,6 @@
   become: true
 
   tasks:
-    # TODO: Passwordless sudo
     # TODO: dotfiles
     # TODO: Set my UID to 501
     # TODO: Wireguard
@@ -44,3 +43,11 @@
       alternatives:
         name: editor
         path: /usr/bin/vim.basic
+
+    - name: Allow users in the sudo group to use sudo without providing their password
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^%sudo'
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
