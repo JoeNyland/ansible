@@ -18,7 +18,7 @@
     - name: Disable password
       user:
         name: "{{ ansible_user }}"
-        password_lock: yes
+        password_lock: true
 
     - name: Update package cache
       apt:
@@ -28,8 +28,8 @@
     - name: Upgrade system packages
       apt:
         upgrade: true
-        autoremove: true # Remove old packages
-        purge: true # Purge config files for old packages that were removed
+        autoremove: true  # Remove old packages
+        purge: true  # Purge config files for old packages that were removed
 
     - name: Install utils
       apt:
