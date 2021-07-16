@@ -1,0 +1,22 @@
+---
+name: CI
+
+on:  # yamllint disable-line rule:truthy
+  - push
+  - pull_request
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: yamllint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          strict: true
+
+      - name: ansible-lint
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: "./"
