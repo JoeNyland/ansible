@@ -1,6 +1,6 @@
 ---
 - name: Setup Server
-  hosts: server
+  hosts: all
   become: true
 
   tasks:
