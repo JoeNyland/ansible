@@ -10,6 +10,8 @@
     # TODO: Transmission
     # TODO: Plex
     # TODO: NFS server
+    # TODO: Disable root SSH
+    # TODO: Disable SSH with password
 
     - name: Add my SSH keys
       authorized_key:
