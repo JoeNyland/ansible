@@ -15,12 +15,12 @@
 
     - name: Add my SSH keys
       authorized_key:
-        user: "{{ ansible_user }}"
+        user: joe
         key: https://github.com/joenyland.keys
 
     - name: Disable password
       user:
-        name: "{{ ansible_user }}"
+        name: joe
         password_lock: true
 
     - name: Update package cache
