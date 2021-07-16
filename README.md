@@ -7,5 +7,5 @@ Configuration management for my home server.
 ## Usage
 
 ```bash
-ansible-playbook main.yml
+ansible-playbook playbooks/main.yml
 ```
