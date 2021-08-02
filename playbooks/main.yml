@@ -22,6 +22,7 @@
       authorized_key:
         user: joe
         key: https://github.com/joenyland.keys
+        exclusive: true  # Only allow keys specified here
 
     - name: Update package cache
       apt:
