@@ -13,6 +13,10 @@
     # TODO: Disable root SSH
     # TODO: Disable SSH with password
 
+    - name: Configure user
+      user:
+        name: joe
+
     - name: Add my SSH keys
       authorized_key:
         user: joe
