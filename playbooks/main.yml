@@ -93,3 +93,66 @@
         name: joe
         groups: docker
         append: true
+
+- name: Install Unifi controller
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install required system packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - gnupg
+
+    - name: Add MongoDB apt GPG key
+      apt_key:
+        url: https://www.mongodb.org/static/pgp/server-3.6.asc
+
+    - name: Add MongoDB repository
+      apt_repository:
+        repo: deb https://repo.mongodb.org/apt/debian stretch/mongodb-org/3.6 main
+        filename: mongodb
+
+    - name: Add AdoptOpenJDK apt GPG key
+      apt_key:
+        url: https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
+
+    - name: Add AdoptOpenJDK repository
+      apt_repository:
+        repo: deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb buster main
+        filename: adoptopenjdk
+
+    - name: Add Unifi apt GPG key
+      apt_key:
+        url: https://dl.ui.com/unifi/unifi-repo.gpg
+
+    - name: Add Unifi repository
+      apt_repository:
+        repo: deb https://www.ui.com/downloads/unifi/debian stable ubiquiti
+        filename: unifi
+
+    - name: Install Java
+      apt:
+        name: adoptopenjdk-8-hotspot-jre
+        update_cache: true
+        cache_valid_time: 86400
+
+    - name: Install Unifi controller
+      apt:
+        name: unifi
+        update_cache: true
+        cache_valid_time: 86400
+
+    - name: Set JAVA_HOME in init script for Unifi controller
+      lineinfile:
+        path: /etc/init.d/unifi
+        regexp: 'JAVA_HOME=\/usr\/lib\/jvm\/'
+        line: 'JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-jre-amd64'
+
+    - name: Ensure Unifi controller is started and enabled to start on boot
+      service:
+        name: unifi
+        state: started
+        enabled: true
