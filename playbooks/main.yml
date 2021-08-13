@@ -54,46 +54,6 @@
         line: '%sudo ALL=(ALL) NOPASSWD: ALL'
         validate: 'visudo -cf %s'
 
-- name: Install Docker
-  hosts: all
-  become: true
-
-  tasks:
-    - name: Install required system packages
-      apt:
-        name:
-          - apt-transport-https
-          - ca-certificates
-          - curl
-          - gnupg
-          - lsb-release
-
-    - name: Add Docker apt GPG key
-      apt_key:
-        url: https://download.docker.com/linux/debian/gpg
-
-    - name: Add Docker repository
-      apt_repository:
-        repo: deb https://download.docker.com/linux/debian buster stable
-        filename: docker
-
-    - name: Install Docker
-      apt:
-        name: docker-ce
-        update_cache: true
-        cache_valid_time: 86400
-
-    - name: Enable Docker service
-      service:
-        name: docker
-        enabled: true
-
-    - name: Adding user 'joe' to group 'docker'
-      user:
-        name: joe
-        groups: docker
-        append: true
-
 - name: Install Unifi controller
   hosts: all
   become: true
