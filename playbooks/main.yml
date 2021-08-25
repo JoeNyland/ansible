@@ -116,22 +116,3 @@
         name: unifi
         state: started
         enabled: true
-
-- name: Setup scheduled tasks
-  hosts: all
-
-  tasks:
-    - name: Back up /srv
-      cron:
-        name: Back up /srv
-        hour: 2
-        minute: 0
-        job: >-
-          rsync -avPh /srv/ /mnt/backup/
-          --exclude lost+found
-          --exclude '.*'
-          --include 'Downloads/'
-          --include 'Downloads/In Progress/'
-          --exclude 'Downloads/***'
-          --delete
-          --quiet
