@@ -121,9 +121,9 @@
   hosts: all
 
   tasks:
-    - name: Back up /srv every night
+    - name: Back up /srv
       cron:
-        name: Back up /srv every night
+        name: Back up /srv
         hour: 2
         minute: 0
         job: >-
