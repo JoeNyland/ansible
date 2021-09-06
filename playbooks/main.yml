@@ -4,7 +4,6 @@
   become: true
 
   tasks:
-    # TODO: dotfiles
     # TODO: Wireguard
     # TODO: Transmission
     # TODO: Plex
@@ -52,6 +51,13 @@
         regexp: '^%sudo'
         line: '%sudo ALL=(ALL) NOPASSWD: ALL'
         validate: 'visudo -cf %s'
+
+    - name: Install homeshick
+      become: false
+      git:
+        repo: https://github.com/andsens/homeshick.git
+        dest: /home/joe/.homesick/repos/homeshick
+        force: yes
 
 - name: Install Unifi controller
   hosts: all
