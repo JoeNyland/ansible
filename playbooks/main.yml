@@ -39,7 +39,12 @@
           - multitail
           - vim
           - git
+          - tree
+          - screen
           - gnupg
+          - scdaemon
+          - rsync
+          - bash-completion
 
     - name: Set default editor
       alternatives:
