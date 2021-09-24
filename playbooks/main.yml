@@ -39,6 +39,7 @@
           - multitail
           - vim
           - git
+          - gnupg
 
     - name: Set default editor
       alternatives:
