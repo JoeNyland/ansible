@@ -17,9 +17,3 @@ pip install -r requirements.txt
 ```bash
 ansible-playbook playbooks/main.yml
 ```
-
-## Tests
-
-```bash
-molecule test
-```
