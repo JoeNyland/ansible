@@ -4,7 +4,6 @@
   become: true
 
   tasks:
-    # TODO: Wireguard
     # TODO: Transmission
     # TODO: Plex
     # TODO: NFS server
