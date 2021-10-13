@@ -4,7 +4,6 @@
   become: true
 
   tasks:
-    # TODO: Transmission
     # TODO: Plex
     # TODO: NFS server
     # TODO: Disable root SSH
@@ -71,3 +70,52 @@
         owner: joe
         group: users
         mode: 0755
+
+- name: Setup transmission-daemon
+  hosts: server
+  become: true
+  vars:
+    transmission_download_directory: /srv/Downloads
+    transmission_in_progress_download_directory: /srv/Downloads/In Progress
+    transmission_rpc_whitelist: 127.0.0.1,::1,192.168.1.*
+  tasks:
+    - name: Create /srv/Downloads
+      file:
+        path: /srv/Downloads
+        state: directory
+        owner: joe
+        group: users
+        mode: '2755'
+
+    - name: Create /srv/Downloads/In Progress
+      file:
+        path: /srv/Downloads/In Progress
+        state: directory
+        owner: joe
+        group: users
+        mode: '2755'
+
+    - name: Install transmission-daemon
+      apt:
+        name: transmission-daemon
+
+    - name: Ensure transmission-daemon is started and configured to start automatically
+      service:
+        name: transmission-daemon
+        state: started
+        enabled: true
+
+    - name: Configure transmission-daemon
+      template:
+        dest: /etc/transmission-daemon/settings.json
+        src: ../templates/transmission-daemon/settings.json.j2
+        owner: debian-transmission
+        group: debian-transmission
+        mode: '0600'
+      register: transmission_config
+
+    - name: Apply config changes
+      service:
+        name: transmission-daemon
+        state: reloaded
+      when: transmission_config.changed
