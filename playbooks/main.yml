@@ -63,3 +63,11 @@
         repo: https://github.com/andsens/homeshick.git
         dest: /home/joe/.homesick/repos/homeshick
         force: yes
+
+    - name: Ensure /srv has the correct permissions
+      file:
+        path: /srv
+        state: directory
+        owner: joe
+        group: users
+        mode: 0755
