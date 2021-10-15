@@ -4,8 +4,6 @@
   become: true
 
   tasks:
-    # TODO: NFS server
-
     - name: Configure user
       user:
         name: joe
@@ -80,6 +78,33 @@
         owner: joe
         group: users
         mode: 0755
+
+- name: Setup NFS server
+  hosts: server
+  become: true
+  tasks:
+    - name: Install nfs-server
+      apt:
+        name: nfs-server
+
+    - name: Ensure nfs-server is started and configured to start automatically
+      service:
+        name: nfs-server
+        state: started
+        enabled: true
+
+    - name: Configure nfs-server
+      lineinfile:
+        path: /etc/exports
+        regexp: ^/srv
+        line: /srv  192.168.1.0/24(rw,all_squash,anonuid=1000,anongid=100,insecure,crossmnt)
+      register: exports
+
+    - name: Apply config changes
+      service:
+        name: nfs-server
+        state: reloaded
+      when: exports.changed
 
 - name: Setup transmission-daemon
   hosts: server
