@@ -4,7 +4,6 @@
   become: true
 
   tasks:
-    # TODO: Plex
     # TODO: NFS server
     # TODO: Disable root SSH
     # TODO: Disable SSH with password
@@ -118,3 +117,36 @@
         name: transmission-daemon
         state: reloaded
       when: transmission_config.changed
+
+- name: Setup Plex Media server
+  hosts: server
+  become: true
+
+  tasks:
+    - name: Install packages
+      apt:
+        name: apt-transport-https
+
+    - name: Install GPG key
+      apt_key:
+        url: https://downloads.plex.tv/plex-keys/PlexSign.key
+        state: present
+        keyring: /etc/apt/trusted.gpg.d/plex.gpg
+
+    - name: Install repo
+      apt_repository:
+        repo: 'deb https://downloads.plex.tv/repo/deb/ public main'
+        state: present
+        filename: plex
+
+    - name: Install Plex Media Server
+      apt:
+        name: plexmediaserver
+        update_cache: true
+        cache_valid_time: 86400
+
+    - name: Ensure plexmediaserver is started and configured to start automatically
+      service:
+        name: plexmediaserver
+        state: started
+        enabled: true
