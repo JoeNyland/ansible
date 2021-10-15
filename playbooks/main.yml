@@ -40,7 +40,6 @@
           - tree
           - screen
           - gnupg
-          - scdaemon
           - rsync
           - bash-completion
 
