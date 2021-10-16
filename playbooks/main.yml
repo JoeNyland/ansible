@@ -7,12 +7,23 @@
     - name: Configure user
       user:
         name: joe
+        groups:
+          - sudo
+        append: true
 
     - name: Add my SSH keys
       authorized_key:
         user: joe
         key: https://github.com/joenyland.keys
         exclusive: true  # Only allow keys specified here
+
+    - name: Configure sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^%sudo '
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+        validate: visudo -cf %s
 
     - name: Update package cache
       apt:
