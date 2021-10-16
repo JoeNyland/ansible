@@ -120,7 +120,7 @@
         state: directory
         owner: joe
         group: users
-        mode: '2755'
+        mode: '2775'
 
     - name: Create /srv/Downloads/In Progress
       file:
@@ -128,7 +128,7 @@
         state: directory
         owner: joe
         group: users
-        mode: '2755'
+        mode: '2775'
 
     - name: Install transmission-daemon
       apt:
