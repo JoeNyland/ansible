@@ -157,6 +157,13 @@
         state: started
         enabled: true
 
+    - name: Add transmission-daemon user to the users group
+      user:
+        name: debian-transmission
+        groups:
+          - users
+        append: true
+
     - name: Configure transmission-daemon
       template:
         dest: /etc/transmission-daemon/settings.json
