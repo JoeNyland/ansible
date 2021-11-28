@@ -129,7 +129,7 @@
   vars:
     transmission_download_directory: /srv/Downloads
     transmission_in_progress_download_directory: /srv/Downloads/In Progress
-    transmission_rpc_whitelist: 127.0.0.1,::1,192.168.1.*
+    transmission_rpc_whitelist: 127.0.0.1,::1,192.168.1.*,192.168.8.*
   tasks:
     - name: Create /srv/Downloads
       file:
