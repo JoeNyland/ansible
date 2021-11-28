@@ -1,0 +1,9 @@
+[Interface]
+Address = 192.168.8.1/24
+ListenPort = 51820
+PostUp = wg set %i private-key /etc/wireguard/private.key
+
+# Joe's MacBook Pro
+[Peer]
+PublicKey = 36kGQ2pyWZhjBclmbCPHiDvrkL1nhIoFA9GoA93AiQM=
+AllowedIPs = 192.168.8.2/32

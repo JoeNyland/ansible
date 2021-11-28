@@ -211,3 +211,31 @@
         name: plexmediaserver
         state: started
         enabled: true
+
+- name: Setup WireGuard
+  hosts: server
+  become: true
+
+  tasks:
+    - name: Install WireGuard
+      apt:
+        name: wireguard
+
+    - name: Configure WireGuard
+      template:
+        dest: /etc/wireguard/wg0.conf
+        src: ../templates/wireguard/wg0.conf.j2
+        mode: '0600'
+      register: wireguard_config
+
+    - name: Ensure WireGuard is started and configured to start automatically
+      service:
+        name: wg-quick@wg0
+        state: started
+        enabled: true
+
+    - name: Apply WireGuard config changes
+      service:
+        name: wg-quick@wg0
+        state: restarted
+      when: wireguard_config.changed
