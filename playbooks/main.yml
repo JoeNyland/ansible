@@ -239,3 +239,29 @@
         name: wg-quick@wg0
         state: restarted
       when: wireguard_config.changed
+
+- name: Setup Sambda file server
+  hosts: server
+  become: true
+
+  tasks:
+    - name: Install Samba
+      apt:
+        name: samba
+
+    - name: Configure Samba
+      template:
+        dest: /etc/samba/smb.conf
+        src: ../templates/samba/smb.conf.j2
+      register: samba_config
+
+    - name: Ensure Samba is started and configured to start automatically
+      service:
+        name: smbd
+        state: started
+        enabled: true
+
+    - name: Apply Samba config changes
+      service:
+        name: smbd
+        state: restarted
