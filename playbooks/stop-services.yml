@@ -4,11 +4,6 @@
   become: true
 
   tasks:
-    - name: nfs-server
-      service:
-        name: nfs-server
-        enabled: false
-        state: stopped
     - name: transmission-daemon
       service:
         name: transmission-daemon
