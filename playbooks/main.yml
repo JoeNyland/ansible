@@ -114,7 +114,7 @@
       lineinfile:
         path: /etc/exports
         regexp: ^/srv
-        line: /srv  192.168.1.0/24(rw,all_squash,anonuid=1000,anongid=100,insecure,crossmnt)
+        line: /srv  192.168.10.0/24(rw,all_squash,anonuid=1000,anongid=100,insecure,crossmnt)
       register: exports
 
     - name: Apply config changes
@@ -129,7 +129,7 @@
   vars:
     transmission_download_directory: /srv/Downloads
     transmission_in_progress_download_directory: /srv/Downloads/In Progress
-    transmission_rpc_whitelist: 127.0.0.1,::1,192.168.1.*,192.168.8.*
+    transmission_rpc_whitelist: 127.0.0.1,::1,192.168.10.*,192.168.8.*
   tasks:
     - name: Create /srv/Downloads
       file:
