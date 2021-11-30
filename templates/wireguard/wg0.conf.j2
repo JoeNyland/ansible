@@ -2,6 +2,9 @@
 Address = 192.168.8.1/24
 ListenPort = 51820
 PostUp = wg set %i private-key /etc/wireguard/private.key
+PostUp = iptables -A FORWARD -i %i -j ACCEPT
+PostUp = iptables -A FORWARD -o %i -j ACCEPT
+PostUp = iptables -t nat -A POSTROUTING -o enp2s0 -j MASQUERADE
 
 # Joe's MacBook Pro
 [Peer]

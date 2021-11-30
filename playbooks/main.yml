@@ -240,6 +240,12 @@
         state: restarted
       when: wireguard_config.changed
 
+    - name: Configure IPv4 routing
+      sysctl:
+        name: net.ipv4.ip_forward
+        value: '1'
+        sysctl_file: /etc/sysctl.d/90-ipv4-routing.conf
+
 - name: Setup Sambda file server
   hosts: server
   become: true
