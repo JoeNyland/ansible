@@ -19,3 +19,8 @@
         name: plexmediaserver
         enabled: false
         state: stopped
+    - name: qBittorrent
+      service:
+        name: qbittorrent
+        enabled: false
+        state: stopped
