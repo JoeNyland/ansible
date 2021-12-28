@@ -9,11 +9,6 @@
         name: smbd
         enabled: false
         state: stopped
-    - name: transmission-daemon
-      service:
-        name: transmission-daemon
-        enabled: false
-        state: stopped
     - name: plexmediaserver
       service:
         name: plexmediaserver
