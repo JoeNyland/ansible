@@ -124,11 +124,11 @@
       apt:
         name: transmission-daemon
 
-    - name: Ensure transmission-daemon is started and configured to start automatically
+    - name: Ensure transmission-daemon is stopped and not configured to start automatically
       service:
         name: transmission-daemon
-        state: started
-        enabled: true
+        state: stopped
+        enabled: false
 
     - name: Add transmission-daemon user to the users group
       user:
