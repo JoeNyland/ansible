@@ -229,9 +229,9 @@
         name: samba
 
     - name: Configure Samba
-      template:
+      copy:
         dest: /etc/samba/smb.conf
-        src: ../templates/samba/smb.conf.j2
+        src: ../files/samba/smb.conf
       register: samba_config
 
     - name: Ensure Samba is started and configured to start automatically
