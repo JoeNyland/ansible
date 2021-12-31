@@ -90,12 +90,6 @@
         group: users
         mode: 0755
 
-    - name: Configure IPv6 privacy extensions
-      sysctl:
-        name: net.ipv6.conf.enp2s0.use_tempaddr
-        value: '2'
-        sysctl_file: /etc/sysctl.d/90-ipv6-privacy-ext.conf
-
 - name: Setup Plex Media server
   hosts: server
   become: true
