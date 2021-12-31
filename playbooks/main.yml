@@ -135,7 +135,7 @@
     - name: Configure WireGuard
       template:
         dest: /etc/wireguard/wg0.conf
-        src: ../templates/wireguard/wg0.conf.j2
+        src: ../files/wireguard/wg0.conf
         mode: '0600'
       register: wireguard_config
 
