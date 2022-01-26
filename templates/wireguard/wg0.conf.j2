@@ -1,0 +1,13 @@
+[Interface]
+Address = {{ interface.address }}
+ListenPort = {{ interface.listen_port }}
+{% for command in interface.post_up %}
+PostUp = {{ command }}
+{% endfor %}
+{% for peer in peers %}
+
+# {{ peer.name }}
+[Peer]
+PublicKey = {{ peer.public_key }}
+AllowedIPs = {{ peer.allowed_ips }}
+{% endfor %}
