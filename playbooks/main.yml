@@ -144,11 +144,11 @@
             - wg set %i private-key /etc/wireguard/private.key
             - iptables -A FORWARD -i %i -j ACCEPT
             - iptables -A FORWARD -o %i -j ACCEPT
-            - iptables -t nat -A POSTROUTING -o enp2s0 -j MASQUERADE
+            - iptables -t nat -A POSTROUTING -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
           post_down:
             - iptables -D FORWARD -i %i -j ACCEPT
             - iptables -D FORWARD -o %i -j ACCEPT
-            - iptables -t nat -D POSTROUTING -o enp2s0 -j MASQUERADE
+            - iptables -t nat -D POSTROUTING -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
         peers:
           - name: Joe's MacBook Pro
             public_key: 36kGQ2pyWZhjBclmbCPHiDvrkL1nhIoFA9GoA93AiQM=
