@@ -1,7 +1,7 @@
 [Interface]
 Address = {{ interface.address }}
 ListenPort = {{ interface.listen_port }}
-{% for command in interface.post_up %}
+{% for command in interface.post_up | default([]) %}
 PostUp = {{ command }}
 {% endfor %}
 {% for peer in peers %}
