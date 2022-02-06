@@ -1,6 +1,6 @@
 [Interface]
 Address = {{ interface.address }}
-ListenPort = {{ interface.listen_port }}
+ListenPort = {{ interface.listen_port | default(51820) }}
 {% for command in interface.post_up | default([]) %}
 PostUp = {{ command }}
 {% endfor %}

@@ -140,7 +140,6 @@
       vars:
         interface:
           address: 192.168.8.1/32
-          listen_port: 51820
           post_up:
             - wg set %i private-key /etc/wireguard/private.key
             - iptables -A FORWARD -i %i -j ACCEPT
