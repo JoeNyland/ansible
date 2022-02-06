@@ -4,6 +4,9 @@ ListenPort = {{ interface.listen_port }}
 {% for command in interface.post_up | default([]) %}
 PostUp = {{ command }}
 {% endfor %}
+{% for command in interface.post_down | default([]) %}
+PostDown = {{ command }}
+{% endfor %}
 {% for peer in peers %}
 
 # {{ peer.name }}
