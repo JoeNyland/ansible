@@ -9,7 +9,9 @@ PostDown = {{ command }}
 {% endfor %}
 {% for peer in peers %}
 
+{% if 'name' in peer %}
 # {{ peer.name }}
+{% endif %}
 [Peer]
 PublicKey = {{ peer.public_key }}
 AllowedIPs = {{ peer.allowed_ips }}
