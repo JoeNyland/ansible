@@ -285,14 +285,6 @@
         group: users
         mode: '2775'
 
-    - name: Create /srv/Downloads/Incomplete
-      file:
-        path: /srv/Downloads/Incomplete
-        state: directory
-        owner: joe
-        group: users
-        mode: '2775'
-
   handlers:
     - name: restart_qbittorrent
       service:
