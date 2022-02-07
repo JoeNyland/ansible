@@ -135,7 +135,7 @@
     - name: Configure WireGuard
       template:
         dest: /etc/wireguard/wg0.conf
-        src: ../templates/wireguard/wg0.conf.j2
+        src: wireguard/wg0.conf.j2
         mode: '0600'
       vars:
         interface:
@@ -191,7 +191,7 @@
     - name: Configure Samba
       copy:
         dest: /etc/samba/smb.conf
-        src: ../files/samba/smb.conf
+        src: samba/smb.conf
       notify: restart_samba
 
     - name: Ensure Samba is started and configured to start automatically
@@ -239,7 +239,7 @@
     - name: Create systemd service for qBittorrent
       copy:
         dest: /etc/systemd/system/qbittorrent.service
-        src: ../files/qbittorrent/qbittorrent.service
+        src: qbittorrent/qbittorrent.service
       notify: reload_systemd
 
     - name: Create qbittorrent user home
@@ -259,7 +259,7 @@
     - name: Configure qBittorrent
       copy:
         dest: /var/lib/qbittorrent/.config/qBittorrent/qBittorrent.conf
-        src: ../files/qbittorrent/qbittorrent.conf
+        src: qbittorrent/qbittorrent.conf
         owner: qbittorrent
         group: qbittorrent
         force: false
