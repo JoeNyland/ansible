@@ -219,13 +219,6 @@
         shell: /usr/sbin/nologin
         create_home: false
 
-    - name: Create qbittorrent user home
-      file:
-        name: /var/lib/qbittorrent
-        state: directory
-        owner: qbittorrent
-        group: qbittorrent
-
     - name: Add the qbittorrent user to the users group
       user:
         name: qbittorrent
@@ -241,14 +234,8 @@
       copy:
         dest: /etc/systemd/system/qbittorrent.service
         src: qbittorrent/qbittorrent.service
+        mode: '644'
       notify: reload_systemd
-
-    - name: Create qbittorrent user home
-      file:
-        name: /var/lib/qbittorrent
-        state: directory
-        owner: qbittorrent
-        group: qbittorrent
 
     - name: Create qbittorrent config directory
       file:
@@ -256,6 +243,7 @@
         state: directory
         owner: qbittorrent
         group: qbittorrent
+        mode: '755'
 
     - name: Configure qBittorrent
       copy:
@@ -264,6 +252,7 @@
         owner: qbittorrent
         group: qbittorrent
         force: false
+        mode: '644'
       notify: restart_qbittorrent
 
     - name: Ensure the qbittorrent service is started and configured to start automatically
