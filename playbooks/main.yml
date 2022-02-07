@@ -159,7 +159,7 @@
           - name: Joe's Work MacBook Pro
             public_key: 6bHzIAXxGQUHr5yNaILhi505gat6jE/CbJiUqdzwYAw=
             allowed_ips: 192.168.8.4/32
-      register: wireguard_config
+      notify: restart_wireguard
 
     - name: Ensure WireGuard is started and configured to start automatically
       service:
@@ -167,17 +167,17 @@
         state: started
         enabled: true
 
-    - name: Apply WireGuard config changes
-      service:
-        name: wg-quick@wg0
-        state: restarted
-      when: wireguard_config.changed
-
     - name: Configure IPv4 routing
       sysctl:
         name: net.ipv4.ip_forward
         value: '1'
         sysctl_file: /etc/sysctl.d/90-ipv4-routing.conf
+
+  handlers:
+    - name: restart_wireguard
+      service:
+        name: wg-quick@wg0
+        state: restarted
 
 - name: Setup Sambda file server
   hosts: server
@@ -192,7 +192,7 @@
       copy:
         dest: /etc/samba/smb.conf
         src: ../files/samba/smb.conf
-      register: samba_config
+      notify: restart_samba
 
     - name: Ensure Samba is started and configured to start automatically
       service:
@@ -200,11 +200,11 @@
         state: started
         enabled: true
 
-    - name: Apply Samba config changes
+  handlers:
+    - name: restart_samba
       service:
         name: smbd
         state: restarted
-      when: samba_config.changed
 
 - name: Setup qBittorrent
   hosts: server
@@ -240,13 +240,7 @@
       copy:
         dest: /etc/systemd/system/qbittorrent.service
         src: ../files/qbittorrent/qbittorrent.service
-      register: qbittorrent_service_file
-      notify: restart_qbittorrent
-
-    - name: Reload systemd
-      systemd:
-        daemon_reload: true
-      when: qbittorrent_service_file.changed
+      notify: reload_systemd
 
     - name: Create qbittorrent user home
       file:
@@ -290,3 +284,7 @@
       service:
         name: qbittorrent
         state: restarted
+
+    - name: reload_systemd
+      systemd:
+        daemon_reload: true
