@@ -192,6 +192,7 @@
       copy:
         dest: /etc/samba/smb.conf
         src: samba/smb.conf
+        mode: '640'
       notify: restart_samba
 
     - name: Ensure Samba is started and configured to start automatically
