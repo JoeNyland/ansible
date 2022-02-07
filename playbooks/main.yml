@@ -77,7 +77,7 @@
 
     - name: Install homeshick
       become: false
-      git:
+      git:  # noqa git-latest
         repo: https://github.com/andsens/homeshick.git
         dest: /home/joe/.homesick/repos/homeshick
         force: yes
