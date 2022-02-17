@@ -17,14 +17,6 @@
         key: https://github.com/joenyland.keys
         exclusive: true  # Only allow keys specified here
 
-    - name: Configure sudo
-      lineinfile:
-        dest: /etc/sudoers
-        state: present
-        regexp: '^%sudo '
-        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
-        validate: visudo -cf %s
-
     - name: Update package cache
       apt:
         update_cache: true
@@ -57,7 +49,7 @@
     - name: Allow users in the sudo group to use sudo without providing their password
       lineinfile:
         path: /etc/sudoers
-        regexp: '^%sudo'
+        regexp: '^%sudo '
         line: '%sudo ALL=(ALL) NOPASSWD: ALL'
         validate: 'visudo -cf %s'
 
