@@ -263,6 +263,7 @@
         name: qbittorrent
         state: started
         enabled: true
+      register: qbittorrent_service
 
     - name: Create /srv/Downloads
       file:
@@ -277,6 +278,7 @@
       service:
         name: qbittorrent
         state: restarted
+      when: qbittorrent_service.enabled
 
     - name: reload_systemd
       systemd:
