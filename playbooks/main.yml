@@ -164,11 +164,12 @@
             allowed_ips: 192.168.8.4/32
       notify: restart_wireguard
 
-    - name: Ensure WireGuard is started and configured to start automatically
+    - name: Configure WireGuard service
       service:
         name: wg-quick@wg0
         state: started
         enabled: true
+      register: wg_service
 
     - name: Configure IPv4 routing
       sysctl:
@@ -181,6 +182,7 @@
       service:
         name: wg-quick@wg0
         state: restarted
+      when: wg_service.enabled
 
 - name: Setup Sambda file server
   hosts: server
