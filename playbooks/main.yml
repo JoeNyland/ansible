@@ -120,7 +120,7 @@
         state: present
         filename: plex
 
-    - name: Ensure plexmediaserver is started and configured to start automatically
+    - name: Configure plexmediaserver service
       service:
         name: plexmediaserver
         state: started
