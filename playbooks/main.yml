@@ -258,7 +258,7 @@
         mode: '644'
       notify: restart_qbittorrent
 
-    - name: Ensure the qbittorrent service is started and configured to start automatically
+    - name: Configure qbittorrent service
       service:
         name: qbittorrent
         state: started
