@@ -81,6 +81,35 @@
         group: users
         mode: 0755
 
+- name: Setup NFS server
+  hosts: server
+  become: true
+  tasks:
+    - name: Install nfs-server
+      apt:
+        name: nfs-server
+
+    - name: Configure nfs-server service
+      service:
+        name: nfs-server
+        state: started
+        enabled: true
+      register: nfs_service
+
+    - name: Configure nfs-server
+      lineinfile:
+        path: /etc/exports
+        regexp: ^/srv
+        line: /srv  192.168.10.0/24(rw,all_squash,anonuid=1000,anongid=100,insecure,crossmnt)
+      notify: reload_nfs_server
+
+  handlers:
+    - name: reload_nfs_server
+      service:
+        name: nfs-server
+        state: reloaded
+      when: nfs_service.enabled
+
 - name: Setup Plex Media server
   hosts: server
   become: true
