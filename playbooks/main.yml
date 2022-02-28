@@ -135,6 +135,14 @@
       apt:
         name: wireguard
 
+    - name: Generate a WireGuard keys  # noqa risky-shell-pipe
+      shell: |
+        cd /etc/wireguard
+        umask 077
+        wg genkey | tee private.key | wg pubkey > public.key
+      args:
+        creates: /etc/wireguard/private.key
+
     - name: Configure WireGuard
       template:
         dest: /etc/wireguard/wg0.conf
