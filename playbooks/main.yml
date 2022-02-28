@@ -150,7 +150,7 @@
         mode: '0600'
       vars:
         interface:
-          address: 192.168.8.1/32
+          address: 192.168.8.10/32
           post_up:
             - wg set %i private-key /etc/wireguard/private.key
             - iptables -A FORWARD -i %i -j ACCEPT
@@ -163,13 +163,13 @@
         peers:
           - name: Joe's MacBook Pro
             public_key: 36kGQ2pyWZhjBclmbCPHiDvrkL1nhIoFA9GoA93AiQM=
-            allowed_ips: 192.168.8.2/32
+            allowed_ips: 192.168.8.100/32
           - name: Joe's iPhone
             public_key: +WkWigBbi7OxAPJOAghV7QhbnvsMIk3wO8wL3SrDInw=
-            allowed_ips: 192.168.8.3/32
+            allowed_ips: 192.168.8.101/32
           - name: Joe's Work MacBook Pro
             public_key: 6bHzIAXxGQUHr5yNaILhi505gat6jE/CbJiUqdzwYAw=
-            allowed_ips: 192.168.8.4/32
+            allowed_ips: 192.168.8.102/32
       notify: restart_wireguard
 
     - name: Configure WireGuard service
