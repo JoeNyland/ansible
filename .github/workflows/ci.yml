@@ -15,7 +15,7 @@ jobs:
         with:
           strict: true
       - name: ansible-lint
-        uses: ansible/ansible-lint-action@master
+        uses: ansible/ansible-lint-action@main
         with:
           targets: "./"
           override-deps: rich>=9.5.1,<11.0.0
