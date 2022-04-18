@@ -4,11 +4,6 @@
   become: true
 
   tasks:
-    - name: Update package cache
-      apt:
-        update_cache: true
-        cache_valid_time: 86400
-
     # These packages are installed by default on a normal system, but are not installed in a Debian Docker image
     - name: Install base packages
       apt:
@@ -18,29 +13,9 @@
           - procps
           - ssh
 
-    - name: Install WireGuard (temporarily)
-      apt:
-        name: wireguard
-      notify: remove_wireguard
-
-    - name: Generate a WireGuard private key  # noqa risky-shell-pipe
-      shell: |
-        cd /etc/wireguard
-        umask 077
-        wg genkey | tee private.key | wg pubkey > public.key
-      args:
-        creates: /etc/wireguard/private.key
-
     # These packages are installed by default on a normal system, but are not installed in a Debian Docker image
     - name: Start and enable SSH
       service:
         name: ssh
         state: started
         enabled: true
-
-  handlers:
-    - name: remove_wireguard
-      apt:
-        name: wireguard
-        state: absent
-        autoremove: true
