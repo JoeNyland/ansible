@@ -309,3 +309,15 @@
         name: unifi
         state: started
         enabled: true
+
+- name: Setup abcde
+  hosts: server
+  become: true
+  tasks:
+    - name: Install abcde
+      apt:
+        name: abcde
+    - name: Configure abcde
+      copy:
+        dest: /etc/abcde.conf
+        src: abcde/abcde.conf
