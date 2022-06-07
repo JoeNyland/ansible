@@ -15,10 +15,9 @@ jobs:
         with:
           strict: true
       - name: ansible-lint
-        uses: ansible/ansible-lint-action@main
+        uses: ansible-community/ansible-lint-action@v6
         with:
-          targets: "./"
-          override-deps: rich>=9.5.1,<11.0.0
+          path: "playbooks/"
 
   test:
     runs-on: ubuntu-latest
