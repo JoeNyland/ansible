@@ -1,4 +1,0 @@
-FROM docker.io/debian:bullseye
-# The following packages are needed for Ansible
-RUN apt update && apt install -y python3 sudo systemd
-ENTRYPOINT ["/lib/systemd/systemd"]

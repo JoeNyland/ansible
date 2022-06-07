@@ -1,7 +1,5 @@
 # Ansible playbook for my home server
 
-[![CI](https://github.com/JoeNyland/ansible-playbook-server/actions/workflows/ci.yml/badge.svg)](https://github.com/JoeNyland/ansible-playbook-server/actions/workflows/ci.yml)
-
 Configuration management for my home server.
 
 ## Setup
@@ -16,10 +14,4 @@ pip install -r requirements.txt
 
 ```bash
 ansible-playbook playbooks/main.yml
-```
-
-## Tests
-
-```bash
-molecule test -s default
 ```
