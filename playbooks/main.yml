@@ -100,7 +100,7 @@
       lineinfile:
         path: /etc/exports
         regexp: ^/srv
-        line: /srv  10.10.0.0/16(rw,insecure,crossmnt)
+        line: /srv  10.10.0.0/16(rw,insecure,crossmnt,no_root_squash)
       notify: reload_nfs_server
 
   handlers:
