@@ -155,6 +155,52 @@
         state: started
         enabled: true
 
+- name: Install Docker
+  hosts: server
+  become: true
+
+  tasks:
+    - name: Install required system packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+
+    - name: Add Docker apt GPG key
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+        filename: docker
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        update_cache: true
+        cache_valid_time: 86400
+
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose-plugin
+        update_cache: true
+        cache_valid_time: 86400
+
+    - name: Enable Docker service
+      service:
+        name: docker
+        enabled: true
+
+    - name: Adding user 'joe' to group 'docker'
+      user:
+        name: joe
+        groups: docker
+        append: true
+
 - name: Setup Sambda file server
   hosts: server
   become: true
