@@ -108,13 +108,7 @@
         repo: 'deb https://downloads.plex.tv/repo/deb/ public main'
         state: present
         filename: plex
-      register: plex_repo
-
-    - name: Update package cache  # noqa no-handler
-      apt:
         update_cache: true
-        cache_valid_time: 86400
-      when: plex_repo.changed
 
     - name: Install Plex Media Server
       apt:
@@ -155,11 +149,11 @@
       apt_repository:
         repo: deb https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
         filename: docker
+        update_cache: true
 
     - name: Install Docker
       apt:
         name: docker-ce
-        update_cache: true
         cache_valid_time: 86400
 
     - name: Install Docker Compose
