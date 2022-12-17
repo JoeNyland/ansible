@@ -73,14 +73,6 @@
         dest: /home/joe/.homesick/repos/homeshick
         force: true
 
-    - name: Ensure /srv has the correct permissions
-      file:
-        path: /srv
-        state: directory
-        owner: joe
-        group: users
-        mode: 0755
-
     - name: Enable backports repo
       apt_repository:
         repo: deb http://deb.debian.org/debian {{ ansible_distribution_release }}-backports main contrib
@@ -257,14 +249,6 @@
         state: started
         enabled: true
       register: qbittorrent_service
-
-    - name: Create /srv/Downloads
-      file:
-        path: /srv/Downloads
-        state: directory
-        owner: joe
-        group: users
-        mode: '2775'
 
   handlers:
     - name: restart_qbittorrent
