@@ -1,0 +1,50 @@
+---
+- name: Install postfix
+  apt:
+    name: postfix
+
+- name: Set the mail name
+  template:
+    src: etc/mailname.j2
+    dest: /etc/mailname
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload_postfix
+
+- name: Configure system aliases
+  template:
+    src: etc/aliases.j2
+    dest: /etc/aliases
+    owner: root
+    group: root
+    mode: 0644
+  notify: update_aliases
+
+- name: Configure Postfix
+  template:
+    src: etc/postfix/main.cf.j2
+    dest: /etc/postfix/main.cf
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload_postfix
+
+- name: Configure relay host SASL hash
+  template:
+    src: etc/postfix/sasl/passwd.j2
+    dest: /etc/postfix/sasl/passwd
+    owner: root
+    group: root
+    mode: 0600
+    force: no
+  notify:
+    - update_sasl_hash
+    - reload_postfix
+
+- name: Ensure Postfix is running and set to start at boot
+  service:
+    name: postfix
+    state: "{{ postfix_service.state }}"
+    enabled: "{{ postfix_service.enabled }}"
+  register: postfix_service

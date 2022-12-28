@@ -1,0 +1,28 @@
+---
+postfix_service:
+  enabled: true
+  state: started
+postfix_inet_interfaces: localhost
+postfix_inet_protocols: all
+postfix_mail_name: mail.example.com
+postfix_host_name: mail.example.com
+postfix_destinations:
+  - example.com
+postfix_relay_host:
+  host:
+  port:
+  username:
+  password:
+postfix_aliases:
+  mailer-daemon: postmaster
+  postmaster: root
+  nobody: root
+  hostmaster: root
+  usenet: root
+  news: root
+  webmaster: root
+  www: root
+  ftp: root
+  abuse: root
+  noc: root
+  security: root
