@@ -102,6 +102,17 @@
         filename: '{{ ansible_distribution_release }}-backports'
         update_cache: true
 
+    - name: Set user forwarder
+      template:
+        src: templates/forward.j2
+        dest: /home/joe/.forward
+        owner: joe
+        group: joe
+        mode: 0640
+      vars:
+        destinations:
+          - joenyland@me.com
+
 - name: Setup Plex Media server
   hosts: server
   become: true
