@@ -1,0 +1,6 @@
+---
+- name: restart_samba
+  service:
+    name: smbd
+    state: restarted
+  when: samba_service.enabled

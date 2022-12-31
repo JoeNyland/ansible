@@ -1,0 +1,7 @@
+---
+- name: Enable backports repo
+  apt_repository:
+    repo: deb http://deb.debian.org/debian {{ ansible_distribution_release }}-backports main contrib
+    state: present
+    filename: '{{ ansible_distribution_release }}-backports'
+    update_cache: true

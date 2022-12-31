@@ -1,0 +1,10 @@
+---
+- name: restart_qbittorrent
+  service:
+    name: qbittorrent
+    state: restarted
+  when: qbittorrent_service.enabled
+
+- name: reload_systemd
+  systemd:
+    daemon_reload: true

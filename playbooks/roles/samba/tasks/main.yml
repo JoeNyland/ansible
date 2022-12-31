@@ -1,0 +1,18 @@
+---
+- name: Install
+  apt:
+    name: samba
+
+- name: Configure
+  copy:
+    dest: /etc/samba/smb.conf
+    src: smb.conf
+    mode: '640'
+  notify: restart_samba
+
+- name: Configure service
+  service:
+    name: smbd
+    state: started
+    enabled: true
+  register: samba_service

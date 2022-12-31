@@ -1,0 +1,11 @@
+---
+- name: Update package cache
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+
+- name: Upgrade system packages
+  apt:
+    upgrade: true
+    autoremove: true  # Remove old packages
+    purge: true  # Purge config files for old packages that were removed

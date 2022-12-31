@@ -1,5 +1,5 @@
 ---
-- name: Install postfix
+- name: Install
   apt:
     name: postfix
 
@@ -21,7 +21,7 @@
     mode: 0644
   notify: update_aliases
 
-- name: Configure Postfix
+- name: Configure
   template:
     src: etc/postfix/main.cf.j2
     dest: /etc/postfix/main.cf
@@ -42,7 +42,7 @@
     - update_sasl_hash
     - reload_postfix
 
-- name: Ensure Postfix is running and set to start at boot
+- name: Ensure service is running and set to start at boot
   service:
     name: postfix
     state: "{{ postfix_service.state }}"

@@ -1,0 +1,14 @@
+---
+- name: Install
+  apt:
+    name:
+      - htop
+      - atop
+      - multitail
+      - vim
+      - git
+      - tree
+      - tmux
+      - gnupg
+      - rsync
+      - bash-completion
