@@ -21,8 +21,8 @@
     postfix_aliases:
       root: joe
     postfix_inet_interfaces: all
-    qbittorrent_groups:
-      - users
+    qbittorrent_users:
+      - joe
     ssh_authorized_keys:
       - user: joe
         key: https://github.com/joenyland.keys

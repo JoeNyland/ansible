@@ -6,11 +6,12 @@
     shell: /usr/sbin/nologin
     create_home: false
 
-- name: Add user to groups
+- name: Add users to the group
   user:
-    name: qbittorrent
-    groups: "{{ qbittorrent_groups }}"
+    name: "{{ item }}"
+    groups: qbittorrent
     append: true
+  with_items: "{{ qbittorrent_users }}"
 
 - name: Install
   apt:
