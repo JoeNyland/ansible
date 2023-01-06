@@ -4,8 +4,6 @@
   become: true
 
   vars:
-    docker_users:
-      - joe
     postfix_mail_name: server.home.joe.nyland.io
     postfix_host_name: server.home.joe.nyland.io
     postfix_destinations:
@@ -41,7 +39,6 @@
     - debian-backports
     - postfix
     - plexmediaserver
-    - docker
     - samba
     - qbittorrent
     - abcde
