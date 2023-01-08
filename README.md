@@ -1,6 +1,6 @@
-# Ansible playbook for my home server
+# Ansible playbook for my home systems
 
-Configuration management for my home server.
+Configuration management for my home systems.
 
 ## Usage
 
