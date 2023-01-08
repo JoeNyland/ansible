@@ -4,6 +4,11 @@
   become: true
 
   vars:
+    backup_sources:
+      - /
+      - /boot
+      - /boot/efi
+    backup_destination: /tank/archive/backups/files/{{ansible_hostname}}/{{ansible_hostname}}.tar.gz
     postfix_mail_name: server.home.joe.nyland.io
     postfix_host_name: server.home.joe.nyland.io
     postfix_destinations:
@@ -30,6 +35,7 @@
       - joe
 
   roles:
+    - backup
     - updates
     - sudo
     - ssh

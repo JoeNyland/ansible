@@ -1,0 +1,17 @@
+---
+backup_compression_algorithm_extensions:
+  gzip: gz
+  bzip: bz
+  xz: xz
+backup_sources:
+  - /
+backup_destination: /tmp/{{ansible_hostname}}.tar{% if backup_compression_enabled %}.{{backup_compression_algorithm_extensions[backup_compression_algorithm]}}{% endif %}
+backup_schedule: daily
+backup_excludes:
+  - '*cache/*'
+  - '/tmp/*'
+backup_current_directory: /
+backup_compression_enabled: true
+backup_compression_algorithm: gzip
+backup_one_filesystem: true
+backup_run_as: root
