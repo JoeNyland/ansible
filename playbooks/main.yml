@@ -1,8 +1,29 @@
 ---
+- name: Setup all systems
+  hosts: all
+  vars:
+    ssh_authorized_keys:
+      - user: joe
+        key: https://github.com/joenyland.keys
+    sudo_users:
+      - joe
+  roles:
+    - role: updates
+      become: true
+    - role: sudo
+      become: true
+    - role: ssh
+      become: true
+    - role: vim
+      become: true
+    - role: utils
+      become: true
+    - role: debian-backports
+      become: true
+    - homeshick
+
 - name: Setup Server
   hosts: server
-  become: true
-
   vars:
     backup_sources:
       - /
@@ -28,23 +49,16 @@
     postfix_inet_interfaces: all
     qbittorrent_users:
       - joe
-    ssh_authorized_keys:
-      - user: joe
-        key: https://github.com/joenyland.keys
-    sudo_users:
-      - joe
-
   roles:
-    - backup
-    - updates
-    - sudo
-    - ssh
-    - vim
-    - utils
-    - homeshick
-    - debian-backports
-    - postfix
-    - plexmediaserver
-    - samba
-    - qbittorrent
-    - abcde
+    - role: backup
+      become: true
+    - role: postfix
+      become: true
+    - role: plexmediaserver
+      become: true
+    - role: samba
+      become: true
+    - role: qbittorrent
+      become: true
+    - role: abcde
+      become: true
