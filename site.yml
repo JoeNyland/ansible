@@ -29,7 +29,7 @@
       - /
       - /boot
       - /boot/efi
-    backup_destination: /tank/archive/backups/files/{{ansible_hostname}}/{{ansible_hostname}}.tar.gz
+    backup_destination: /tank/backups/files/{{ansible_hostname}}/{{ansible_hostname}}.tar.gz
     postfix_mail_name: server.home.joe.nyland.io
     postfix_host_name: server.home.joe.nyland.io
     postfix_destinations:
