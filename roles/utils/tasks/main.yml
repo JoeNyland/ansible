@@ -3,8 +3,6 @@
   apt:
     name:
       - htop
-      - atop
-      - multitail
       - vim
       - git
       - tree
