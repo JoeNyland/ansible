@@ -1,0 +1,6 @@
+---
+nfs_exports:
+  /home:
+    client_permissions:
+      10.0.0.0/16:
+        - rw # Allow read/write access
