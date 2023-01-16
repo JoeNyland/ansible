@@ -75,3 +75,29 @@
             10.10.0.0/16:
               - rw # Allow read/write access
               - insecure # Allow ports >1025 (mainly for macOS compatibility)
+    - role: sanoid
+      become: true
+      sanoid_templates:
+        tank:
+          autosnap: 'yes'
+          autoprune: 'yes'
+          frequently: 0
+          hourly: 0
+          daily: 30
+          monthly: 3
+          yearly: 0
+        none:
+          autosnap: 'no'
+          autoprune: 'no'
+          frequently: 0
+          hourly: 0
+          daily: 0
+          monthly: 0
+          yearly: 0
+      sanoid_policies:
+        tank:
+          use_template: tank
+          recursive: 'yes'
+        tank/ds1/downloads:
+          use_template: none
+          recursive: 'yes'

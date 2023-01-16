@@ -1,0 +1,14 @@
+---
+sanoid_templates:
+  tank:
+    autosnap: 'yes'
+    autoprune: 'yes'
+    frequently: 0
+    hourly: 24
+    daily: 30
+    monthly: 12
+    yearly: 3
+sanoid_policies:
+  tank:
+    use_template: tank
+    recursive: 'yes'
