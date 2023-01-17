@@ -70,11 +70,13 @@
             10.10.0.0/16:
               - rw # Allow read/write access
               - insecure # Allow ports >1025 (mainly for macOS compatibility
+              - crossmnt # Allow mounts inside /home to be visible
         /tank:
           client_permissions:
             10.10.0.0/16:
               - rw # Allow read/write access
               - insecure # Allow ports >1025 (mainly for macOS compatibility)
+              - crossmnt # Allow mounts inside /tank to be visible
     - role: sanoid
       become: true
       sanoid_templates:
