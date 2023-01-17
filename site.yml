@@ -71,12 +71,14 @@
               - rw # Allow read/write access
               - insecure # Allow ports >1025 (mainly for macOS compatibility
               - crossmnt # Allow mounts inside /home to be visible
+              - no_root_squash # Do not squash root user access to the anonymous user
         /tank:
           client_permissions:
             10.10.0.0/16:
               - rw # Allow read/write access
               - insecure # Allow ports >1025 (mainly for macOS compatibility)
               - crossmnt # Allow mounts inside /tank to be visible
+              - no_root_squash # Do not squash root user access to the anonymous user
     - role: sanoid
       become: true
       sanoid_templates:
