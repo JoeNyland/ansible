@@ -1,0 +1,64 @@
+---
+backup_sources:
+  - /
+  - /boot
+  - /boot/efi
+backup_destination: /tank/backups/files/{{ansible_hostname}}/{{ansible_hostname}}.tar.gz
+postfix_mail_name: server.home.joe.nyland.io
+postfix_host_name: server.home.joe.nyland.io
+postfix_destinations:
+  - localhost
+  - server
+  - server.home.joe.nyland.io
+  - home.joe.nyland.io
+postfix_networks:
+  - "127.0.0.0/8"
+  - "[::ffff:127.0.0.0]/104"
+  - "[::1]/128"
+postfix_relay_host:
+  host: smtp.postmarkapp.com
+  port: 587
+postfix_aliases:
+  root: joe
+postfix_inet_interfaces: all
+qbittorrent_users:
+  - joe
+nfs_exports:
+  /home:
+    client_permissions:
+      10.10.0.0/16:
+        - rw # Allow read/write access
+        - insecure # Allow ports >1025 (mainly for macOS compatibility
+        - crossmnt # Allow mounts inside /home to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /tank:
+    client_permissions:
+      10.10.0.0/16:
+        - rw # Allow read/write access
+        - insecure # Allow ports >1025 (mainly for macOS compatibility)
+        - crossmnt # Allow mounts inside /tank to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+sanoid_templates:
+  tank:
+    autosnap: 'yes'
+    autoprune: 'yes'
+    frequently: 0
+    hourly: 0
+    daily: 30
+    monthly: 3
+    yearly: 0
+  none:
+    autosnap: 'no'
+    autoprune: 'no'
+    frequently: 0
+    hourly: 0
+    daily: 0
+    monthly: 0
+    yearly: 0
+sanoid_policies:
+  tank:
+    use_template: tank
+    recursive: 'yes'
+  tank/ds1/downloads:
+    use_template: none
+    recursive: 'yes'

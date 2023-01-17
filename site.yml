@@ -1,107 +1,26 @@
 ---
 - name: Setup all systems
   hosts: all
-  vars:
-    ssh_authorized_keys:
-      - user: joe
-        key: https://github.com/joenyland.keys
-    sudo_users:
-      - joe
+  become: true
   roles:
-    - role: updates
-      become: true
-    - role: sudo
-      become: true
-    - role: ssh
-      become: true
-    - role: vim
-      become: true
-    - role: utils
-      become: true
-    - role: debian-backports
-      become: true
-    - homeshick
+    - updates
+    - sudo
+    - ssh
+    - vim
+    - utils
+    - debian-backports
+    - role: homeshick
+      become: false
 
 - name: Setup Server
   hosts: server
-  vars:
-    backup_sources:
-      - /
-      - /boot
-      - /boot/efi
-    backup_destination: /tank/backups/files/{{ansible_hostname}}/{{ansible_hostname}}.tar.gz
-    postfix_mail_name: server.home.joe.nyland.io
-    postfix_host_name: server.home.joe.nyland.io
-    postfix_destinations:
-      - localhost
-      - server
-      - server.home.joe.nyland.io
-      - home.joe.nyland.io
-    postfix_networks:
-      - "127.0.0.0/8"
-      - "[::ffff:127.0.0.0]/104"
-      - "[::1]/128"
-    postfix_relay_host:
-      host: smtp.postmarkapp.com
-      port: 587
-    postfix_aliases:
-      root: joe
-    postfix_inet_interfaces: all
-    qbittorrent_users:
-      - joe
+  become: true
   roles:
-    - role: backup
-      become: true
-    - role: postfix
-      become: true
-    - role: plexmediaserver
-      become: true
-    - role: samba
-      become: true
-    - role: qbittorrent
-      become: true
-    - role: abcde
-      become: true
-    - role: nfs-server
-      become: true
-      nfs_exports:
-        /home:
-          client_permissions:
-            10.10.0.0/16:
-              - rw # Allow read/write access
-              - insecure # Allow ports >1025 (mainly for macOS compatibility
-              - crossmnt # Allow mounts inside /home to be visible
-              - no_root_squash # Do not squash root user access to the anonymous user
-        /tank:
-          client_permissions:
-            10.10.0.0/16:
-              - rw # Allow read/write access
-              - insecure # Allow ports >1025 (mainly for macOS compatibility)
-              - crossmnt # Allow mounts inside /tank to be visible
-              - no_root_squash # Do not squash root user access to the anonymous user
-    - role: sanoid
-      become: true
-      sanoid_templates:
-        tank:
-          autosnap: 'yes'
-          autoprune: 'yes'
-          frequently: 0
-          hourly: 0
-          daily: 30
-          monthly: 3
-          yearly: 0
-        none:
-          autosnap: 'no'
-          autoprune: 'no'
-          frequently: 0
-          hourly: 0
-          daily: 0
-          monthly: 0
-          yearly: 0
-      sanoid_policies:
-        tank:
-          use_template: tank
-          recursive: 'yes'
-        tank/ds1/downloads:
-          use_template: none
-          recursive: 'yes'
+    - backup
+    - postfix
+    - plexmediaserver
+    - samba
+    - qbittorrent
+    - abcde
+    - nfs-server
+    - sanoid
