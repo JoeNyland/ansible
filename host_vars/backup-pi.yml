@@ -1,0 +1,17 @@
+---
+debian_backports_additional_components:
+  - contrib
+wireguard_interface:
+  address: 10.8.0.104/24
+  post_up:
+    - wg set %i private-key /etc/wireguard/private.key
+  dns:
+    - 10.8.0.1
+    - home.joe.nyland.io
+    - lan.home.joe.nyland.io
+wireguard_peers:
+  - name: Router
+    public_key: /0DBGkQ33S1DCK9mz2BG73pA0mLz1oIi0UxY62qQRXA=
+    allowed_ips: 10.8.0.0/24, 10.10.0.0/16
+    endpoint: ipv4.home.joe.nyland.io:51820
+    keep_alive: 25

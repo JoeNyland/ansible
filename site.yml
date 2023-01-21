@@ -24,3 +24,10 @@
     - abcde
     - nfs-server
     - sanoid
+
+- name: Setup backup server
+  hosts: backup-pi
+  become: true
+  roles:
+    - sanoid
+    - wireguard
