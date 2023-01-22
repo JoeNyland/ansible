@@ -4,6 +4,8 @@ backup_sources:
   - /boot
   - /boot/efi
 backup_destination: /tank/backups/files/{{ansible_hostname}}/{{ansible_hostname}}.tar.gz
+debian_backports_additional_components:
+  - contrib
 postfix_mail_name: server.home.joe.nyland.io
 postfix_host_name: server.home.joe.nyland.io
 postfix_destinations:
