@@ -9,3 +9,4 @@
     upgrade: true
     autoremove: true  # Remove old packages
     purge: true  # Purge config files for old packages that were removed
+  notify: Reboot if required
