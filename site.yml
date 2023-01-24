@@ -25,6 +25,14 @@
     - nfs-server
     - sanoid
 
+- name: Setup user for Syncoid
+  hosts: backup-pi,server
+  become: true
+  roles:
+    - role: syncoid-user
+      syncoid_user_destination_host: backup-pi
+      syncoid_user_source_host: server
+
 - name: Setup backup server
   hosts: backup-pi
   become: true
