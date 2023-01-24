@@ -39,3 +39,6 @@
   roles:
     - sanoid
     - wireguard
+    - role: off-site-backup
+      off_site_backup_source: syncoid@server:tank/ds1
+      off_site_backup_destination: off-site/enc/tank/ds1
