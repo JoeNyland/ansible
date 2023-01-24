@@ -1,0 +1,14 @@
+---
+- name: Configure cron to perform off-site backup
+  cron:
+    user: "{{ off_site_backup_user }}"
+    name: Off-site backup
+    job: >
+      [ $(pgrep syncoid) ] || syncoid
+      --no-privilege-elevation
+      --recursive
+      --no-sync-snap
+      --skip-parent
+      {{ off_site_backup_source }}
+      {{ off_site_backup_destination }}
+    special_time: daily
