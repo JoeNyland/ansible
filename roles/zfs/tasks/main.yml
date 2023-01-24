@@ -1,0 +1,19 @@
+---
+- name: Flush handlers
+  meta: flush_handlers # So that a reboot happens, ensuring the latest installed kernel is running
+
+- name: Install kernel sources
+  apt:
+    name: dkms
+
+- name: Install ZFS
+  apt:
+    name: zfsutils-linux
+    default_release: bullseye-backports
+
+- name: Configure datasets
+  zfs:
+    name: "{{ item.key }}"
+    extra_zfs_properties: "{{ item.value or omit }}"
+    state: present
+  with_dict: "{{ zfs_datasets }}"
