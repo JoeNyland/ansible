@@ -5,3 +5,20 @@ ssh_authorized_keys:
     key: https://github.com/joenyland.keys
 sudo_users:
   - joe
+sanoid_templates:
+  tank:
+    autosnap: 'yes'
+    autoprune: 'yes'
+    frequently: 0
+    hourly: 0
+    daily: 30
+    monthly: 3
+    yearly: 0
+  none:
+    autosnap: 'no'
+    autoprune: 'no'
+    frequently: 0
+    hourly: 0
+    daily: 0
+    monthly: 0
+    yearly: 0

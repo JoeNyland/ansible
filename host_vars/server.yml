@@ -40,23 +40,6 @@ nfs_exports:
         - insecure # Allow ports >1025 (mainly for macOS compatibility)
         - crossmnt # Allow mounts inside /tank to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
-sanoid_templates:
-  tank:
-    autosnap: 'yes'
-    autoprune: 'yes'
-    frequently: 0
-    hourly: 0
-    daily: 30
-    monthly: 3
-    yearly: 0
-  none:
-    autosnap: 'no'
-    autoprune: 'no'
-    frequently: 0
-    hourly: 0
-    daily: 0
-    monthly: 0
-    yearly: 0
 sanoid_policies:
   tank:
     use_template: tank
