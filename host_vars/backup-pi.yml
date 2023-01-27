@@ -15,3 +15,7 @@ wireguard_peers:
     allowed_ips: 10.8.0.0/24, 10.10.0.0/16
     endpoint: ipv4.home.joe.nyland.io:51820
     keep_alive: 25
+sanoid_policies:
+  off-site/enc/tank:
+    use_template: tank
+    recursive: 'yes'
