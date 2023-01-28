@@ -24,6 +24,7 @@
     - abcde
     - nfs-server
     - sanoid
+    - zfs
 
 - name: Setup user for Syncoid
   hosts: backup-pi,server
@@ -40,6 +41,7 @@
     - sanoid
     - postfix
     - wireguard
+    - zfs
     - role: off-site-backup
       off_site_backup_source: syncoid@server:tank/ds1
       off_site_backup_destination: off-site/enc/tank/ds1
