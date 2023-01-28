@@ -4,7 +4,7 @@
     user: "{{ off_site_backup_user }}"
     name: Off-site backup
     job: >
-      [ $(pgrep syncoid) ] || syncoid
+      [ $(pgrep syncoid) ] || /usr/sbin/syncoid
       --no-privilege-elevation
       --recursive
       --no-sync-snap
