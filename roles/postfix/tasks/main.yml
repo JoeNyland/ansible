@@ -41,6 +41,7 @@
   notify:
     - update_sasl_hash
     - reload_postfix
+  when: postfix_relay_host is defined
 
 - name: Ensure service is running and set to start at boot
   service:

@@ -4,7 +4,7 @@
 # Debian specific:  Specifying a file name will cause the first
 # line of that file to be used as the name.  The Debian default
 # is /etc/mailname.
-#myorigin = /etc/mailname
+myorigin = /etc/mailname
 
 smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
 biff = no
@@ -31,18 +31,30 @@ smtp_tls_security_level=may
 smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+
 myhostname = {{ postfix_host_name }}
+
+mailbox_size_limit = 0
+
+recipient_delimiter = +
+
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
-myorigin = /etc/mailname
-mydestination = {{ postfix_destinations | join(', ') }}
-relayhost = [{{postfix_relay_host.host}}]:{{postfix_relay_host.port}}
+
 mynetworks = {{ postfix_networks | join(' ') }}
-mailbox_size_limit = 0
-recipient_delimiter = +
-inet_interfaces = {{ postfix_inet_interfaces }}
 inet_protocols = {{ postfix_inet_protocols }}
 
+mydestination = {{ postfix_destinations | join(', ') }}
+
+{% if postfix_relay_host is defined %}
+inet_interfaces = {{ postfix_inet_interfaces }}
+relayhost = [{{postfix_relay_host.host}}]:{{postfix_relay_host.port}}
 smtp_sasl_auth_enable = yes
 smtp_sasl_password_maps = hash:/etc/postfix/sasl/passwd
 smtp_sasl_security_options = noanonymous
+{% else %}
+inet_interfaces = loopback-only
+relayhost =
+default_transport = error
+relay_transport = error
+{% endif %}

@@ -13,14 +13,22 @@ postfix_destinations:
   - server
   - server.home.joe.nyland.io
   - home.joe.nyland.io
-postfix_networks:
-  - "127.0.0.0/8"
-  - "[::ffff:127.0.0.0]/104"
-  - "[::1]/128"
 postfix_relay_host:
   host: smtp.postmarkapp.com
   port: 587
 postfix_aliases:
+  mailer-daemon: postmaster
+  postmaster: root
+  nobody: root
+  hostmaster: root
+  usenet: root
+  news: root
+  webmaster: root
+  www: root
+  ftp: root
+  abuse: root
+  noc: root
+  security: root
   root: joe
 postfix_inet_interfaces: all
 qbittorrent_users:

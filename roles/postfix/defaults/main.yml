@@ -2,17 +2,13 @@
 postfix_service:
   enabled: true
   state: started
-postfix_inet_interfaces: localhost
+postfix_inet_interfaces: loopback-only
 postfix_inet_protocols: all
-postfix_mail_name: mail.example.com
-postfix_host_name: mail.example.com
+postfix_mail_name: "{{ ansible_hostname }}"
+postfix_host_name: "{{ ansible_hostname }}"
 postfix_destinations:
-  - example.com
-postfix_relay_host:
-  host:
-  port:
-  username:
-  password:
+  - "{{ ansible_hostname }}"
+  - localhost
 postfix_aliases:
   mailer-daemon: postmaster
   postmaster: root
@@ -26,3 +22,7 @@ postfix_aliases:
   abuse: root
   noc: root
   security: root
+postfix_networks:
+  - "127.0.0.0/8"
+  - "[::ffff:127.0.0.0]/104"
+  - "[::1]/128"
