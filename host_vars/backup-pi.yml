@@ -1,6 +1,9 @@
 ---
 debian_backports_additional_components:
   - contrib
+postfix_aliases:
+  root: joe
+  syncoid: joe
 wireguard_interface:
   address: 10.8.0.104/24
   post_up:

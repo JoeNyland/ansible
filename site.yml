@@ -38,6 +38,7 @@
   become: true
   roles:
     - sanoid
+    - postfix
     - wireguard
     - role: off-site-backup
       off_site_backup_source: syncoid@server:tank/ds1
