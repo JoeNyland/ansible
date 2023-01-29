@@ -31,3 +31,13 @@ sanoid_policies:
   off-site/enc/tank:
     use_template: tank
     recursive: 'yes'
+zfs_datasets:
+  off-site:
+    mountpoint: 'none'
+    readonly: on
+  off-site/enc:
+    compression: on
+    encryption: aes-256-gcm
+    keyformat: passphrase
+    keylocation: prompt
+  off-site/enc/tank/ds1:

@@ -72,3 +72,33 @@ sanoid_policies:
   tank/ds1/downloads:
     use_template: none
     recursive: 'yes'
+zfs_datasets:
+  tank:
+    mountpoint: 'none'
+  tank/ds1:
+    compression: on
+    mountpoint: /tank
+  tank/ds1/archive/apps:
+  tank/ds1/archive/certificates:
+  tank/ds1/archive/drivers:
+  tank/ds1/archive/firmware:
+  tank/ds1/archive/gaming:
+  tank/ds1/archive/manuals:
+  tank/ds1/archive/os:
+  tank/ds1/archive/vm/templates:
+  tank/ds1/backups/files:
+  tank/ds1/backups/images:
+  tank/ds1/downloads:
+    syncoid:sync: 'false'
+  tank/ds1/git:
+  tank/ds1/home:
+  tank/ds1/home/joe:
+    encryption: aes-256-gcm
+    keyformat: passphrase
+    keylocation: prompt
+  tank/ds1/media/audiobooks:
+  tank/ds1/media/movies:
+  tank/ds1/media/music:
+  tank/ds1/media/photos:
+  tank/ds1/media/tv:
+  tank/ds1/media/videos:
