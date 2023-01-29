@@ -1,6 +1,16 @@
 ---
 - name: Install
-  git:  # noqa latest[git]
+  git:
     repo: https://github.com/andsens/homeshick.git
-    dest: /home/joe/.homesick/repos/homeshick
-    force: true
+    dest: "{{ ansible_user_dir }}/.homesick/repos/homeshick"
+    version: "{{ homeshick_version or omit }}"
+
+- name: Install user dotfiles
+  git:  # noqa latest[git]
+    repo: "{{ item.value }}"
+    dest: "{{ ansible_user_dir }}/.homesick/repos/{{ item.key }}"
+    accept_hostkey: true
+  notify: Link
+  with_dict: "{{ homeshick_dotfiles_repos }}"
+  loop_control:
+    label: "{{ item.key }} -> {{ item.value }}"

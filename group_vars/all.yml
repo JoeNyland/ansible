@@ -1,5 +1,7 @@
 ---
 ansible_python_interpreter: /usr/bin/python3
+homeshick_dotfiles_repos:
+  dotfiles: git@github.com:JoeNyland/dotfiles.git
 ssh_authorized_keys:
   - user: joe
     key: https://github.com/joenyland.keys
