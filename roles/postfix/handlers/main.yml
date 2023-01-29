@@ -1,11 +1,11 @@
 ---
-- name: update_aliases
+- name: Update aliases
   command: newaliases
 
-- name: update_sasl_hash
+- name: Update SASL hash
   command: postmap /etc/postfix/sasl/passwd
 
-- name: reload_postfix
+- name: Reload Postfix
   service:
     name: postfix
     state: reloaded

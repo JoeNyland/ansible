@@ -10,7 +10,7 @@
     owner: root
     group: root
     mode: 0644
-  notify: reload_postfix
+  notify: Reload Postfix
 
 - name: Configure system aliases
   template:
@@ -19,7 +19,7 @@
     owner: root
     group: root
     mode: 0644
-  notify: update_aliases
+  notify: Update aliases
 
 - name: Configure
   template:
@@ -28,7 +28,7 @@
     owner: root
     group: root
     mode: 0644
-  notify: reload_postfix
+  notify: Reload Postfix
 
 - name: Configure relay host SASL hash
   template:
@@ -37,10 +37,10 @@
     owner: root
     group: root
     mode: 0600
-    force: no
+    force: false
   notify:
-    - update_sasl_hash
-    - reload_postfix
+    - Update SASL hash
+    - Reload Postfix
   when: postfix_relay_host is defined
 
 - name: Ensure service is running and set to start at boot

@@ -1,11 +1,11 @@
 ---
 - name: Add users to sudo group
   user:
-    name: "{{item}}"
+    name: "{{ item }}"
     groups:
       - sudo
     append: true
-  with_items: "{{sudo_users}}"
+  with_items: "{{ sudo_users }}"
 
 - name: Allow users in the sudo group to use sudo without providing their password
   lineinfile:

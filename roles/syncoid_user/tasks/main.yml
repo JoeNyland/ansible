@@ -1,26 +1,26 @@
 ---
 - name: Create user on backup destination host
   user:
-    name: "{{syncoid_user}}"
-    generate_ssh_key: yes
-    ssh_key_comment: "{{syncoid_user}}@{{syncoid_user_destination_host}}"
+    name: "{{ syncoid_user }}"
+    generate_ssh_key: true
+    ssh_key_comment: "{{ syncoid_user }}@{{ syncoid_user_destination_host }}"
     system: true
     password_lock: true
-    home: /var/lib/{{syncoid_user}}
+    home: /var/lib/{{ syncoid_user }}
   delegate_to: "{{ syncoid_user_destination_host }}"
   register: syncoid_user_destination_host_user
 
 - name: Create user on backup source server
   user:
-    name: "{{syncoid_user}}"
+    name: "{{ syncoid_user }}"
     system: true
     password_lock: true
-    home: /var/lib/{{syncoid_user}}
+    home: /var/lib/{{ syncoid_user }}
   delegate_to: "{{ syncoid_user_source_host }}"
 
 - name: Install SSH public key in backup source server
   authorized_key:
-    user: "{{syncoid_user}}"
+    user: "{{ syncoid_user }}"
     key: "{{ syncoid_user_destination_host_user.ssh_public_key }}"
   delegate_to: "{{ syncoid_user_source_host }}"
 

@@ -3,7 +3,7 @@ backup_sources:
   - /
   - /boot
   - /boot/efi
-backup_destination: /tank/backups/files/{{ansible_hostname}}/{{ansible_hostname}}.tar.gz
+backup_destination: /tank/backups/files/{{ ansible_hostname }}/{{ ansible_hostname }}.tar.gz
 debian_backports_additional_components:
   - contrib
 postfix_mail_name: server.home.joe.nyland.io
@@ -76,7 +76,7 @@ zfs_datasets:
   tank:
     mountpoint: 'none'
   tank/ds1:
-    compression: on
+    compression: 'on'
     mountpoint: /tank
   tank/ds1/archive/apps:
   tank/ds1/archive/certificates:

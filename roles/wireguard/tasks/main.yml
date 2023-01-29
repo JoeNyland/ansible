@@ -4,7 +4,10 @@
     name: wireguard
 
 - name: Generate keys
-  shell: umask 077; wg genkey | tee private.key | wg pubkey > public.key
+  shell: |
+    set -o pipefail
+    umask 077
+    wg genkey | tee private.key | wg pubkey > public.key
   args:
     chdir: /etc/wireguard
     creates: /etc/wireguard/private.key
@@ -23,6 +26,7 @@
   template:
     dest: /etc/wireguard/wg0.conf
     src: wg0.conf.j2
+    mode: 0600
   notify: Restart Wireguard
 
 - name: Configure service

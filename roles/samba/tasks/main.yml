@@ -8,7 +8,7 @@
     dest: /etc/samba/smb.conf
     src: smb.conf
     mode: '640'
-  notify: reload_samba
+  notify: Reload Samba
 
 - name: Configure service
   service:

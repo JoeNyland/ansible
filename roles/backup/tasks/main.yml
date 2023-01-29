@@ -2,12 +2,12 @@
 - name: Create cron for FS backup
   ansible.builtin.cron:
     name: FS backup
-    special_time: "{{backup_schedule}}"
+    special_time: "{{ backup_schedule }}"
     job: tar
       --create
-      --{{backup_compression_algorithm}}
-      --file={{backup_destination}}
-      --directory={{backup_current_directory}}
+      --{{ backup_compression_algorithm }}
+      --file={{ backup_destination }}
+      --directory={{ backup_current_directory }}
       {% if backup_one_filesystem %}--one-file-system{% endif %}
       {% for exclude_path in backup_excludes %}--exclude '{{ exclude_path }}'{% if loop.index < loop.length %} {% endif %}{% endfor %}
       {{ backup_sources | join(' ') }}

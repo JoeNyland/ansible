@@ -1,6 +1,6 @@
 ---
 - name: Install
-  git:  # noqa git-latest
+  git:  # noqa latest[git]
     repo: https://github.com/andsens/homeshick.git
     dest: /home/joe/.homesick/repos/homeshick
     force: true

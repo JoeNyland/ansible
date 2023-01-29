@@ -8,7 +8,7 @@
     - ssh
     - vim
     - utils
-    - debian-backports
+    - debian_backports
     - role: homeshick
       become: false
 
@@ -22,7 +22,7 @@
     - samba
     - qbittorrent
     - abcde
-    - nfs-server
+    - nfs_server
     - sanoid
     - zfs
 
@@ -30,7 +30,7 @@
   hosts: backup-pi,server
   become: true
   roles:
-    - role: syncoid-user
+    - role: syncoid_user
       syncoid_user_destination_host: backup-pi
       syncoid_user_source_host: server
 
@@ -42,6 +42,6 @@
     - postfix
     - wireguard
     - zfs
-    - role: off-site-backup
+    - role: off_site_backup
       off_site_backup_source: syncoid@server:tank/ds1
       off_site_backup_destination: off-site/enc/tank/ds1

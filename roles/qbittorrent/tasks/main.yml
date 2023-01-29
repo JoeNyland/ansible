@@ -22,7 +22,7 @@
     dest: /etc/systemd/system/qbittorrent.service
     src: qbittorrent.service
     mode: '644'
-  notify: reload_systemd
+  notify: Reload systemd
 
 - name: Create config directory
   file:
@@ -40,7 +40,7 @@
     group: qbittorrent
     force: false
     mode: '644'
-  notify: restart_qbittorrent
+  notify: Restart qBittorrent
 
 - name: Configure service
   service:

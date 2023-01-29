@@ -10,7 +10,7 @@
     enabled: true
   register: nfs_service
 
-- name: Configure nfs-server
+- name: Configure exports
   blockinfile:
     path: /etc/exports
     block: "{{ lookup('template', 'exports.j2') }}"

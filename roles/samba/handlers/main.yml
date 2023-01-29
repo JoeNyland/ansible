@@ -1,5 +1,5 @@
 ---
-- name: reload_samba
+- name: Reload Samba
   service:
     name: smbd
     state: reloaded

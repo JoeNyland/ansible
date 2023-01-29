@@ -34,9 +34,9 @@ sanoid_policies:
 zfs_datasets:
   off-site:
     mountpoint: 'none'
-    readonly: on
+    readonly: 'on'
   off-site/enc:
-    compression: on
+    compression: 'on'
     encryption: aes-256-gcm
     keyformat: passphrase
     keylocation: prompt
