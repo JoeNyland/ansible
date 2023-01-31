@@ -11,7 +11,6 @@ wireguard_interface:
   dns:
     - 10.8.0.1
     - home.joe.nyland.io
-    - lan.home.joe.nyland.io
 wireguard_peers:
   - name: Router
     public_key: /0DBGkQ33S1DCK9mz2BG73pA0mLz1oIi0UxY62qQRXA=
