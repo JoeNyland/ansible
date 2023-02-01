@@ -1,4 +1,9 @@
 ---
+- name: Re-gather facts
+  setup:
+    gather_subset:
+      - user_dir
+
 - name: Install
   git:
     repo: https://github.com/andsens/homeshick.git
