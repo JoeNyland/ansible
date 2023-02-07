@@ -108,9 +108,6 @@ zfs_datasets:
   rpool/ROOT/debian:
     canmount: noauto
     mountpoint: /
-  rpool/home:
-  rpool/home/root:
-    mountpoint: /root
   rpool/srv:
   rpool/usr:
     canmount: 'off'
@@ -143,10 +140,13 @@ zfs_datasets:
     syncoid:sync: 'false'
   tank/ds1/git:
   tank/ds1/home:
+      mountpoint: /home
   tank/ds1/home/joe:
     encryption: aes-256-gcm
     keyformat: raw
     keylocation: file:///etc/zfs/keys/tank.key
+  tank/ds1/home/root:
+    mountpoint: /root
   tank/ds1/media/audiobooks:
   tank/ds1/media/movies:
   tank/ds1/media/music:
