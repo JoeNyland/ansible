@@ -73,6 +73,57 @@ sanoid_policies:
     use_template: none
     recursive: 'yes'
 zfs_datasets:
+  # Boot
+  bpool:
+    devices: 'off'
+    acltype: posix
+    xattr: sa
+    compression: lz4
+    normalization: formD
+    relatime: 'on'
+    canmount: 'off'
+    mountpoint: /boot
+  bpool/BOOT:
+    canmount: 'off'
+    mountpoint: none
+  bpool/BOOT/debian:
+    mountpoint: /boot
+
+  # Root
+  rpool:
+    encryption: aes-256-gcm
+    keylocation: prompt
+    keyformat: passphrase
+    acltype: posix
+    xattr: sa
+    dnodesize: auto
+    compression: lz4
+    normalization: formD
+    relatime: 'on'
+    canmount: 'off'
+    mountpoint: /
+  rpool/ROOT:
+    canmount: 'off'
+    mountpoint: 'none'
+  rpool/ROOT/debian:
+    canmount: noauto
+    mountpoint: /
+  rpool/home:
+  rpool/home/root:
+    mountpoint: /root
+  rpool/srv:
+  rpool/usr:
+    canmount: 'off'
+  rpool/usr/local:
+  rpool/var:
+    canmount: 'off'
+  rpool/var/lib:
+    canmount: 'off'
+  rpool/var/log:
+  rpool/var/mail:
+  rpool/var/spool:
+
+  # Tank
   tank:
     mountpoint: 'none'
   tank/ds1:
