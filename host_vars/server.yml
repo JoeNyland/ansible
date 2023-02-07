@@ -49,6 +49,22 @@ nfs_exports:
         - crossmnt # Allow mounts inside /tank to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
 sanoid_templates:
+  bpool:
+    autosnap: 'yes'
+    autoprune: 'yes'
+    frequently: 0
+    hourly: 0
+    daily: 30
+    monthly: 3
+    yearly: 0
+  rpool:
+    autosnap: 'yes'
+    autoprune: 'yes'
+    frequently: 0
+    hourly: 0
+    daily: 30
+    monthly: 3
+    yearly: 0
   tank:
     autosnap: 'yes'
     autoprune: 'yes'
@@ -66,6 +82,12 @@ sanoid_templates:
     monthly: 0
     yearly: 0
 sanoid_policies:
+  bpool:
+    use_template: bpool
+    recursive: 'yes'
+  rpool:
+    use_template: rpool
+    recursive: 'yes'
   tank:
     use_template: tank
     recursive: 'yes'
