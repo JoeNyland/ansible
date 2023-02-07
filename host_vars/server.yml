@@ -145,8 +145,8 @@ zfs_datasets:
   tank/ds1/home:
   tank/ds1/home/joe:
     encryption: aes-256-gcm
-    keyformat: passphrase
-    keylocation: prompt
+    keyformat: raw
+    keylocation: file:///etc/zfs/keys/tank.key
   tank/ds1/media/audiobooks:
   tank/ds1/media/movies:
   tank/ds1/media/music:
