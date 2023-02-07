@@ -162,7 +162,7 @@ zfs_datasets:
     syncoid:sync: 'false'
   tank/ds1/git:
   tank/ds1/home:
-      mountpoint: /home
+    mountpoint: /home
   tank/ds1/home/joe:
     encryption: aes-256-gcm
     keyformat: raw
