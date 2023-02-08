@@ -16,7 +16,6 @@
   hosts: server
   become: true
   roles:
-    - backup
     - postfix
     - plexmediaserver
     - samba
