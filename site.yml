@@ -44,5 +44,6 @@
     - wireguard
     - zfs
     - role: off_site_backup
-      off_site_backup_source: syncoid@server:tank/ds1
-      off_site_backup_destination: off-site/enc/tank/ds1
+      off_site_backup_tasks:
+        - source: syncoid@server:tank/ds1
+          destination: off-site/enc/tank/ds1

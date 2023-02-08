@@ -1,14 +1,17 @@
 ---
-- name: Configure cron to perform off-site backup
+- name: Configure crons to perform off-site backups
   cron:
     user: "{{ off_site_backup_user }}"
-    name: Off-site backup
+    name: Off-site backup {{ item.source }} -> {{ item.destination }}
     job: >
       [ $(pgrep syncoid) ] || /usr/sbin/syncoid
       --no-privilege-elevation
       --recursive
       --no-sync-snap
       --skip-parent
-      {{ off_site_backup_source }}
-      {{ off_site_backup_destination }}
+      {{ item.source }}
+      {{ item.destination }}
     special_time: daily
+  loop: "{{ off_site_backup_tasks }}"
+  loop_control:
+    label: "{{ item.source }} -> {{ item.destination }}"
