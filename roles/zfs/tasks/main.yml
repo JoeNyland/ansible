@@ -9,7 +9,7 @@
 - name: Install ZFS
   apt:
     name: zfsutils-linux
-    default_release: bullseye-backports
+    default_release: "{{ ansible_distribution_release }}-backports"
 
 - name: Configure datasets
   zfs:
