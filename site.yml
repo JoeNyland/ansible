@@ -45,5 +45,9 @@
     - zfs
     - role: off_site_backup
       off_site_backup_tasks:
+        - source: syncoid@server:bpool
+          destination: off-site/enc/bpool
+        - source: syncoid@server:rpool
+          destination: off-site/enc/rpool
         - source: syncoid@server:tank/ds1
           destination: off-site/enc/tank/ds1
