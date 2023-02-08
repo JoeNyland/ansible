@@ -6,6 +6,7 @@
     - updates
     - sudo
     - ssh
+    - root_user
     - vim
     - utils
     - debian_backports
