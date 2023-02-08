@@ -25,6 +25,7 @@
     - nfs_server
     - sanoid
     - zfs
+    - dropbear
 
 - name: Setup user for Syncoid
   hosts: backup-pi,server

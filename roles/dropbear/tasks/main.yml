@@ -1,0 +1,27 @@
+---
+- name: Install
+  apt:
+    name: dropbear-initramfs
+    install_recommends: false
+
+- name: Create config directory
+  file:
+    path: /etc/dropbear-initramfs
+    state: directory
+    mode: 0750
+
+- name: Add authorised SSH keys
+  authorized_key:
+    user: root
+    key: "{{ item }}"
+    exclusive: true  # Only allow keys specified here
+    path: /etc/dropbear-initramfs/authorized_keys
+  with_items: "{{ dropbear_ssh_authorized_keys }}"
+  notify: Update initramfs
+
+- name: Set command
+  lineinfile:
+    path: /etc/dropbear-initramfs/config
+    insertafter: "^#DROPBEAR_OPTIONS="
+    line: "DROPBEAR_OPTIONS='-c /usr/bin/zfsunlock'"
+  notify: Update initramfs
