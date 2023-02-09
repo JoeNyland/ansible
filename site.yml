@@ -49,5 +49,5 @@
           destination: off-site/enc/bpool
         - source: syncoid@server:rpool
           destination: off-site/enc/rpool
-        - source: syncoid@server:tank/ds1
-          destination: off-site/enc/tank/ds1
+        - source: syncoid@server:tank
+          destination: off-site/enc/tank
