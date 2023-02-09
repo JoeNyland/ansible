@@ -8,6 +8,9 @@
       --no-privilege-elevation
       --recursive
       --no-sync-snap
+      {% if item.send_options is defined %}
+      --sendoptions="{{ item.send_options | join }}"
+      {% endif %}
       {{ item.source }}
       {{ item.destination }}
     special_time: daily
