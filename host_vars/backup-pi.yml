@@ -43,10 +43,10 @@ sanoid_templates:
     monthly: 3
     yearly: 0
 sanoid_policies:
-  off-site/enc/bpool:
+  off-site/bpool:
     use_template: bpool
     recursive: 'yes'
-  off-site/enc/rpool:
+  off-site/rpool:
     use_template: rpool
     recursive: 'yes'
   off-site/enc/tank:
@@ -56,11 +56,11 @@ zfs_datasets:
   off-site:
     mountpoint: 'none'
     readonly: 'on'
+  off-site/bpool:
+  off-site/rpool:
   off-site/enc:
     compression: 'on'
     encryption: aes-256-gcm
     keyformat: passphrase
     keylocation: prompt
-  off-site/enc/bpool:
-  off-site/enc/rpool:
-  off-site/enc/tank/ds1:
+  off-site/enc/tank:

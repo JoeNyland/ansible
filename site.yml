@@ -46,8 +46,8 @@
     - role: off_site_backup
       off_site_backup_tasks:
         - source: syncoid@server:bpool
-          destination: off-site/enc/bpool
+          destination: off-site/bpool
         - source: syncoid@server:rpool
-          destination: off-site/enc/rpool
+          destination: off-site/rpool
         - source: syncoid@server:tank
           destination: off-site/enc/tank
