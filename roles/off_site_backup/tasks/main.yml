@@ -8,7 +8,6 @@
       --no-privilege-elevation
       --recursive
       --no-sync-snap
-      --skip-parent
       {{ item.source }}
       {{ item.destination }}
     special_time: daily
