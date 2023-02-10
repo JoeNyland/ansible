@@ -10,6 +10,7 @@ wireguard_interface:
     - wg set %i private-key /etc/wireguard/private.key
   dns:
     - 10.8.0.1
+    - lan.home.joe.nyland.io
     - home.joe.nyland.io
 wireguard_peers:
   - name: Router
