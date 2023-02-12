@@ -4,6 +4,13 @@ debian_backports_additional_components:
 dropbear_ssh_authorized_keys:
   - https://github.com/joenyland.keys
 postfix_host_name: server.lan.home.joe.nyland.io
+postfix_inet_interfaces: all
+postfix_networks:
+  - "127.0.0.0/8"
+  - "[::ffff:127.0.0.0]/104"
+  - "[::1]/128"
+  - "{{ subnets.vpn.ipv4.cidr }}"
+  - "{{ subnets.lan.ipv4.cidr }}"
 postfix_relay_host:
   host: smtp.postmarkapp.com
   port: 587
