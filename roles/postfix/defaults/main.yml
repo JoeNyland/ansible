@@ -9,6 +9,7 @@ postfix_mail_name: "{{ postfix_host_name }}"
 postfix_destinations:
   - localhost
   - "{{ postfix_host_name }}"
+  - "{{ postfix_mail_name }}"
 postfix_aliases:
   mailer-daemon: postmaster
   postmaster: root
