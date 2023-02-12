@@ -8,6 +8,7 @@ postfix_host_name: "{{ ansible_hostname }}"
 postfix_mail_name: "{{ postfix_host_name }}"
 postfix_destinations:
   - localhost
+  - "{{ ansible_hostname }}"
   - "{{ postfix_host_name }}"
   - "{{ postfix_mail_name }}"
 postfix_aliases:
