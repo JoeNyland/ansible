@@ -46,14 +46,14 @@ inet_protocols = {{ postfix_inet_protocols }}
 
 mydestination = {{ postfix_destinations | join(', ') }}
 
-{% if postfix_relay_host is defined %}
 inet_interfaces = {{ postfix_inet_interfaces }}
+
+{% if postfix_relay_host is defined %}
 relayhost = [{{postfix_relay_host.host}}]:{{postfix_relay_host.port}}
 smtp_sasl_auth_enable = yes
 smtp_sasl_password_maps = hash:/etc/postfix/sasl/passwd
 smtp_sasl_security_options = noanonymous
 {% else %}
-inet_interfaces = loopback-only
 relayhost =
 default_transport = error
 relay_transport = error
