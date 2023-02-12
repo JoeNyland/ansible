@@ -49,5 +49,9 @@
           destination: off-site/bpool
         - source: syncoid@server:rpool
           destination: off-site/rpool
+          send_options:
+            # For encrypted datasets, send data exactly as it exists on disk.
+            # This allows backups to be taken even if encryption keys are not currently loaded.
+            - w
         - source: syncoid@server:tank
           destination: off-site/enc/tank
