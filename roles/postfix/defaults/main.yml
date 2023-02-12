@@ -4,8 +4,8 @@ postfix_service:
   state: started
 postfix_inet_interfaces: loopback-only
 postfix_inet_protocols: all
-postfix_mail_name: "{{ ansible_hostname }}"
 postfix_host_name: "{{ ansible_hostname }}"
+postfix_mail_name: "{{ postfix_host_name }}"
 postfix_destinations:
   - "{{ ansible_hostname }}"
   - localhost
