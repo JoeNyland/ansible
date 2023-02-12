@@ -23,3 +23,10 @@ ssh_authorized_keys:
     key: https://github.com/joenyland.keys
 sudo_users:
   - joe
+subnets:
+  vpn:
+    ipv4:
+      cidr: 10.8.0.0/24
+  lan:
+    ipv4:
+      cidr: 10.10.0.0/16
