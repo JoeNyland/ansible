@@ -7,8 +7,8 @@ postfix_inet_protocols: all
 postfix_host_name: "{{ ansible_hostname }}"
 postfix_mail_name: "{{ postfix_host_name }}"
 postfix_destinations:
-  - "{{ ansible_hostname }}"
   - localhost
+  - "{{ postfix_host_name }}"
 postfix_aliases:
   mailer-daemon: postmaster
   postmaster: root
