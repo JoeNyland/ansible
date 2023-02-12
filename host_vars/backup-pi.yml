@@ -1,7 +1,6 @@
 ---
 debian_backports_additional_components:
   - contrib
-postfix_host_name: backup-pi.cloud.joe.nyland.io
 postfix_relay_host:
   host: server.lan.home.joe.nyland.io
 wireguard_interface:
