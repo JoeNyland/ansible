@@ -1,9 +1,6 @@
 ---
 debian_backports_additional_components:
   - contrib
-postfix_aliases:
-  root: joe
-  syncoid: joe
 postfix_host_name: backup-pi.cloud.joe.nyland.io
 postfix_relay_host:
   host: smtp.postmarkapp.com

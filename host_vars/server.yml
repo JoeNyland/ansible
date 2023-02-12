@@ -7,20 +7,6 @@ postfix_host_name: server.lan.home.joe.nyland.io
 postfix_relay_host:
   host: smtp.postmarkapp.com
   port: 587
-postfix_aliases:
-  mailer-daemon: postmaster
-  postmaster: root
-  nobody: root
-  hostmaster: root
-  usenet: root
-  news: root
-  webmaster: root
-  www: root
-  ftp: root
-  abuse: root
-  noc: root
-  security: root
-  root: joe
 qbittorrent_users:
   - joe
 nfs_exports:

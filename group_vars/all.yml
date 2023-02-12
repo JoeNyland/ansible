@@ -2,6 +2,22 @@
 ansible_python_interpreter: /usr/bin/python3
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
+postfix_aliases:
+  mailer-daemon: postmaster
+  postmaster: root
+  nobody: root
+  hostmaster: root
+  usenet: root
+  news: root
+  webmaster: root
+  www: root
+  ftp: root
+  abuse: root
+  noc: root
+  security: root
+  root: joe
+  joe: joenyland@me.com
+  syncoid: joe
 ssh_authorized_keys:
   - user: joe
     key: https://github.com/joenyland.keys
