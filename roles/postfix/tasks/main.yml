@@ -41,7 +41,10 @@
   notify:
     - Update SASL hash
     - Reload Postfix
-  when: postfix_relay_host is defined
+  when:
+    - postfix_relay_host is defined
+    - postfix_relay_host.sasl_auth_enabled is defined
+    - postfix_relay_host.sasl_auth_enabled
 
 - name: Ensure service is running and set to start at boot
   service:

@@ -14,6 +14,7 @@ postfix_networks:
 postfix_relay_host:
   host: smtp.postmarkapp.com
   port: 587
+  sasl_auth_enabled: true
 qbittorrent_users:
   - joe
 nfs_exports:
