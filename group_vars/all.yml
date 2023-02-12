@@ -20,6 +20,8 @@ postfix_aliases:
   syncoid: joe
 postfix_host_name: "{{ ansible_fqdn }}"
 postfix_mail_name: nyland.io
+postfix_relay_host:
+  host: server.lan.home.joe.nyland.io
 ssh_authorized_keys:
   - user: joe
     key: https://github.com/joenyland.keys
