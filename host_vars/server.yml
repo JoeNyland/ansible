@@ -3,13 +3,7 @@ debian_backports_additional_components:
   - contrib
 dropbear_ssh_authorized_keys:
   - https://github.com/joenyland.keys
-postfix_mail_name: server.home.joe.nyland.io
-postfix_host_name: server.home.joe.nyland.io
-postfix_destinations:
-  - localhost
-  - server
-  - server.home.joe.nyland.io
-  - home.joe.nyland.io
+postfix_host_name: server.lan.home.joe.nyland.io
 postfix_relay_host:
   host: smtp.postmarkapp.com
   port: 587
@@ -27,7 +21,6 @@ postfix_aliases:
   noc: root
   security: root
   root: joe
-postfix_inet_interfaces: all
 qbittorrent_users:
   - joe
 nfs_exports:
