@@ -4,6 +4,10 @@ debian_backports_additional_components:
 postfix_aliases:
   root: joe
   syncoid: joe
+postfix_host_name: backup-pi.cloud.joe.nyland.io
+postfix_relay_host:
+  host: smtp.postmarkapp.com
+  port: 587
 wireguard_interface:
   address: 10.8.0.104/24
   post_up:
