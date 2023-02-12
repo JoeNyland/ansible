@@ -17,15 +17,31 @@
   hosts: server
   become: true
   roles:
-    - postfix
     - plexmediaserver
     - samba
     - qbittorrent
     - abcde
     - nfs_server
-    - sanoid
-    - zfs
     - dropbear
+
+- name: Setup backup pi
+  hosts: backup-pi
+  become: true
+  roles:
+    - wireguard
+
+- name: Setup email
+  hosts: server,backup-pi
+  become: true
+  roles:
+    - postfix
+
+- name: Setup ZFS
+  hosts: server,backup-pi
+  become: true
+  roles:
+    - zfs
+    - sanoid
 
 - name: Setup user for Syncoid
   hosts: backup-pi,server
@@ -35,14 +51,10 @@
       syncoid_user_destination_host: backup-pi
       syncoid_user_source_host: server
 
-- name: Setup backup server
+- name: Setup off-site backups
   hosts: backup-pi
   become: true
   roles:
-    - sanoid
-    - postfix
-    - wireguard
-    - zfs
     - role: off_site_backup
       off_site_backup_tasks:
         - source: syncoid@server:bpool
