@@ -13,7 +13,12 @@
       {% endif %}
       {{ item.source }}
       {{ item.destination }}
-    special_time: daily
+    minute: "{{ item.minute | default('0') }}"
+    hour: "{{ item.hour | default('0') }}"
+    day: "{{ item.day | default('*') }}"
+    month: "{{ item.month | default('*') }}"
+    weekday: "{{ item.weekday | default('*') }}"
+
   loop: "{{ off_site_backup_tasks }}"
   loop_control:
     label: "{{ item.source }} -> {{ item.destination }}"
