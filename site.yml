@@ -59,11 +59,17 @@
       off_site_backup_tasks:
         - source: syncoid@server:bpool
           destination: off-site/bpool
+          hour: 1
+          minute: 0
         - source: syncoid@server:rpool
           destination: off-site/rpool
           send_options:
             # For encrypted datasets, send data exactly as it exists on disk.
             # This allows backups to be taken even if encryption keys are not currently loaded.
             - w
+          hour: 1
+          minute: 15
         - source: syncoid@server:tank
           destination: off-site/enc/tank
+          hour: 1
+          minute: 30
