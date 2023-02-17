@@ -77,6 +77,8 @@ sanoid_policies:
   tank/ds1/downloads:
     use_template: none
     recursive: 'yes'
+syncoid_user_destination_host: backup-pi
+syncoid_user_source_host: server
 zfs_datasets:
   # Boot
   bpool:

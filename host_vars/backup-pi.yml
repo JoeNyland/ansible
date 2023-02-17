@@ -1,6 +1,23 @@
 ---
 debian_backports_additional_components:
   - contrib
+off_site_backup_tasks:
+  - source: syncoid@server:bpool
+    destination: off-site/bpool
+    hour: 1
+    minute: 0
+  - source: syncoid@server:rpool
+    destination: off-site/rpool
+    send_options:
+      # For encrypted datasets, send data exactly as it exists on disk.
+      # This allows backups to be taken even if encryption keys are not currently loaded.
+      - w
+    hour: 1
+    minute: 15
+  - source: syncoid@server:tank
+    destination: off-site/enc/tank
+    hour: 1
+    minute: 30
 wireguard_interface:
   address: 10.8.0.104/24
   post_up:
@@ -50,6 +67,8 @@ sanoid_policies:
   off-site/enc/tank:
     use_template: tank
     recursive: 'yes'
+syncoid_user_destination_host: backup-pi
+syncoid_user_source_host: server
 zfs_datasets:
   off-site:
     mountpoint: 'none'

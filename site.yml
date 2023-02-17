@@ -17,59 +17,24 @@
   hosts: server
   become: true
   roles:
-    - plexmediaserver
-    - samba
-    - qbittorrent
+    - postfix
     - abcde
-    - nfs_server
+    - zfs
+    - sanoid
     - dropbear
+    - samba
+    - nfs_server
+    - qbittorrent
+    - plexmediaserver
+    - syncoid_user
 
-- name: Setup backup pi
+- name: Setup Backup-Pi
   hosts: backup-pi
-  become: true
-  roles:
-    - wireguard
-
-- name: Setup email
-  hosts: server,backup-pi
   become: true
   roles:
     - postfix
-
-- name: Setup ZFS
-  hosts: server,backup-pi
-  become: true
-  roles:
     - zfs
     - sanoid
-
-- name: Setup user for Syncoid
-  hosts: backup-pi,server
-  become: true
-  roles:
-    - role: syncoid_user
-      syncoid_user_destination_host: backup-pi
-      syncoid_user_source_host: server
-
-- name: Setup off-site backups
-  hosts: backup-pi
-  become: true
-  roles:
-    - role: off_site_backup
-      off_site_backup_tasks:
-        - source: syncoid@server:bpool
-          destination: off-site/bpool
-          hour: 1
-          minute: 0
-        - source: syncoid@server:rpool
-          destination: off-site/rpool
-          send_options:
-            # For encrypted datasets, send data exactly as it exists on disk.
-            # This allows backups to be taken even if encryption keys are not currently loaded.
-            - w
-          hour: 1
-          minute: 15
-        - source: syncoid@server:tank
-          destination: off-site/enc/tank
-          hour: 1
-          minute: 30
+    - wireguard
+    - syncoid_user
+    - off_site_backup
