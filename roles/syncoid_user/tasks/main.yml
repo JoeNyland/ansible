@@ -25,7 +25,7 @@
   delegate_to: "{{ syncoid_user_source_host }}"
 
 - name: Install host keys for backup source server on backup host
-  shell: ssh-keyscan -4 {{ syncoid_user_source_host }} >> /etc/ssh/ssh_known_hosts
+  shell: ssh-keyscan {{ syncoid_user_source_host }} >> /etc/ssh/ssh_known_hosts
   register: syncoid_user_ssh_keyscan
   changed_when: "'changed' in syncoid_user_ssh_keyscan.stdout"
   delegate_to: "{{ syncoid_user_destination_host }}"
