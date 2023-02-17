@@ -9,3 +9,9 @@ Configuration management for my home systems.
 ```bash
 ansible-playbook site.yml
 ```
+
+## Tests
+
+```
+molecule test
+```

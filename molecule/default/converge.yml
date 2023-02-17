@@ -1,0 +1,18 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+
+- name: Import playbook
+  import_playbook: ../../site.yml
+  vars:
+    # We override dotfiles URL here so that in CI we can install dotfiles without SSH keys.
+    homeshick_dotfiles_repos:
+      dotfiles: https://github.com/JoeNyland/dotfiles.git
+    # We can't run ZFS in CI, so we can't create datasets, either
+    zfs_datasets: {}
+    # Override the Wireguard interface configuration, omitting the DNS config as this would break DNS in CI.
+    wireguard_interface:
+      address: 10.8.0.104/24
+      post_up:
+        - wg set %i private-key /etc/wireguard/private.key
