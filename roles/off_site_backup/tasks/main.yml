@@ -1,4 +1,9 @@
 ---
+- name: Install cron
+  apt:
+    name: cron
+    update_cache: true
+
 - name: Configure crons to perform off-site backups
   cron:
     user: "{{ off_site_backup_user }}"
