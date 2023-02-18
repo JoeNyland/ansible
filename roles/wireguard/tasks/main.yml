@@ -13,6 +13,7 @@
   args:
     chdir: /etc/wireguard
     creates: /etc/wireguard/private.key
+    executable: /bin/bash
   register: wireguard_keys
 
 - name: Read public key
