@@ -8,7 +8,7 @@
   file:
     path: /etc/dropbear-initramfs
     state: directory
-    mode: 0750
+    mode: '0700'
 
 - name: Add authorised SSH keys
   authorized_key:
