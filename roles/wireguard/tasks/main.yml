@@ -1,7 +1,9 @@
 ---
 - name: Install
   apt:
-    name: wireguard
+    name:
+      - wireguard
+      - openresolv
 
 - name: Generate keys
   shell: |
