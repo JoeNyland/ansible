@@ -1,7 +1,10 @@
 ---
 - name: Install packages
   apt:
-    name: apt-transport-https
+    name:
+      - apt-transport-https
+      - gnupg
+    update_cache: true
 
 - name: Install GPG key
   apt_key:
