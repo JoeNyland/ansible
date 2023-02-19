@@ -1,5 +1,7 @@
 ---
 roles:
+  - name: joenyland.debian_backports
+    src: https://github.com/JoeNyland/ansible-debian-backports-role
   - name: joenyland.plexmediaserver
     src: https://github.com/JoeNyland/ansible-plexmediaserver-role
 collections:

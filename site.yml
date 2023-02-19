@@ -9,7 +9,7 @@
     - root_user
     - vim
     - utils
-    - debian_backports
+    - joenyland.debian_backports
     - role: homeshick
       become: false
 
