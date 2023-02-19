@@ -6,4 +6,4 @@
   copy:
     dest: /etc/abcde.conf
     src: abcde.conf
-    mode: 0644
+    mode: '0644'

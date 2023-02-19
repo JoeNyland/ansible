@@ -29,7 +29,7 @@
   template:
     dest: /etc/wireguard/wg0.conf
     src: wg0.conf.j2
-    mode: 0600
+    mode: '0600'
   notify: Restart Wireguard
 
 - name: Configure service

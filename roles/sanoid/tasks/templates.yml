@@ -5,7 +5,7 @@
     section: template_{{ template.key }}
     option: "{{ item.key }}"
     value: "{{ item.value }}"
-    mode: 0644
+    mode: '0644'
   loop: "{{ template.value | dict2items }}"
   loop_control:
     label: "[template_{{ template.key }}] {{ item.key }} = {{ item.value }}"
