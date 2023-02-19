@@ -25,7 +25,7 @@
     - samba
     - nfs_server
     - qbittorrent
-    - plexmediaserver
+    - joenyland.plexmediaserver
     - syncoid_user
 
 - name: Setup Backup-Pi
