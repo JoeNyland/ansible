@@ -1,6 +1,6 @@
 ---
 roles:
   - name: joenyland.plexmediaserver
-    src: git+https://github.com/JoeNyland/ansible-plexmediaserver-role.git
+    src: https://github.com/JoeNyland/ansible-plexmediaserver-role
 collections:
   - community.general
