@@ -4,5 +4,7 @@ roles:
     src: https://github.com/JoeNyland/ansible-debian-backports-role
   - name: joenyland.plexmediaserver
     src: https://github.com/JoeNyland/ansible-plexmediaserver-role
+  - name: joenyland.wireguard
+    src: https://github.com/JoeNyland/ansible-wireguard-role
 collections:
   - community.general

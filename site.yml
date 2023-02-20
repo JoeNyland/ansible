@@ -35,6 +35,6 @@
     - postfix
     - zfs
     - sanoid
-    - wireguard
+    - joenyland.wireguard
     - syncoid_user
     - off_site_backup

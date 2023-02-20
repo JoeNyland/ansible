@@ -1,4 +1,0 @@
----
-wireguard_routing_enabled: false
-wireguard_interface: {}
-wireguard_peers: []
