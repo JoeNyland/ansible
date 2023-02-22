@@ -24,7 +24,7 @@
     - dropbear
     - samba
     - nfs_server
-    - qbittorrent
+    - joenyland.qbittorrent
     - joenyland.plexmediaserver
     - syncoid_user
 
