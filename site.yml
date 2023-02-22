@@ -3,7 +3,7 @@
   hosts: all
   become: true
   roles:
-    - updates
+    - joenyland.updates
     - sudo
     - ssh
     - root_user
