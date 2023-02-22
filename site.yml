@@ -8,7 +8,7 @@
     - ssh
     - root_user
     - vim
-    - utils
+    - joenyland.utils
     - joenyland.debian_backports
     - role: homeshick
       become: false

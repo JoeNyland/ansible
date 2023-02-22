@@ -3,6 +3,7 @@ roles:
   - src: joenyland.debian_backports
   - src: joenyland.plexmediaserver
   - src: joenyland.updates
+  - src: joenyland.utils
   - src: joenyland.wireguard
 collections:
   - community.general
