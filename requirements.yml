@@ -5,6 +5,7 @@ roles:
   - src: joenyland.qbittorrent
   - src: joenyland.updates
   - src: joenyland.utils
+  - src: joenyland.vim
   - src: joenyland.wireguard
 collections:
   - community.general

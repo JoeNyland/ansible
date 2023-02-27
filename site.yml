@@ -7,7 +7,7 @@
     - sudo
     - ssh
     - root_user
-    - vim
+    - joenyland.vim
     - joenyland.utils
     - joenyland.debian_backports
     - role: homeshick
