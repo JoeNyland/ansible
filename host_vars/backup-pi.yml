@@ -18,20 +18,21 @@ off_site_backup_tasks:
     destination: off-site/enc/tank
     hour: 1
     minute: 30
-wireguard_interface:
-  address: 10.8.0.104/24
-  post_up:
-    - wg set %i private-key /etc/wireguard/private.key
-  dns:
-    - 10.8.0.1
-    - lan.home.joe.nyland.io
-    - home.joe.nyland.io
-wireguard_peers:
-  - name: Router
-    public_key: /0DBGkQ33S1DCK9mz2BG73pA0mLz1oIi0UxY62qQRXA=
-    allowed_ips: 10.8.0.0/24, 10.10.0.0/16
-    endpoint: home.joe.nyland.io:51820
-    keep_alive: 25
+wireguard_interfaces:
+  wg0:
+    address: 10.8.0.104/24
+    post_up:
+      - wg set %i private-key /etc/wireguard/private.key
+    dns:
+      - 10.8.0.1
+      - lan.home.joe.nyland.io
+      - home.joe.nyland.io
+    peers:
+      - name: Router
+        public_key: /0DBGkQ33S1DCK9mz2BG73pA0mLz1oIi0UxY62qQRXA=
+        allowed_ips: 10.8.0.0/24, 10.10.0.0/16
+        endpoint: home.joe.nyland.io:51820
+        keep_alive: 25
 sanoid_templates:
   bpool:
     autosnap: 'no'

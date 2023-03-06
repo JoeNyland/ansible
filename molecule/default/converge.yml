@@ -12,7 +12,9 @@
     # We can't run ZFS in CI, so we can't create datasets, either
     zfs_datasets: {}
     # Override the Wireguard interface configuration, omitting the DNS config as this would break DNS in CI.
-    wireguard_interface:
-      address: 10.8.0.104/24
-      post_up:
-        - wg set %i private-key /etc/wireguard/private.key
+    wireguard_interfaces:
+      wg0:
+        address: 10.8.0.104/24
+        post_up:
+          - wg set %i private-key /etc/wireguard/private.key
+        peers: []
