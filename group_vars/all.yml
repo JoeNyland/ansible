@@ -28,6 +28,9 @@ ssh_authorized_keys:
 sudo_users:
   - joe
 subnets:
+  cloud:
+    ipv4:
+      cidr: 10.8.1.0/24
   vpn:
     ipv4:
       cidr: 10.8.0.0/24

@@ -2,11 +2,11 @@
 debian_backports_additional_components:
   - contrib
 off_site_backup_tasks:
-  - source: syncoid@server:bpool
+  - source: syncoid@server.lan.home.joe.nyland.io:bpool
     destination: off-site/bpool
     hour: 1
     minute: 0
-  - source: syncoid@server:rpool
+  - source: syncoid@server.lan.home.joe.nyland.io:rpool
     destination: off-site/rpool
     send_options:
       # For encrypted datasets, send data exactly as it exists on disk.
@@ -14,7 +14,7 @@ off_site_backup_tasks:
       - w
     hour: 1
     minute: 15
-  - source: syncoid@server:tank
+  - source: syncoid@server.lan.home.joe.nyland.io:tank
     destination: off-site/tank
     send_options:
       # For encrypted datasets, send data exactly as it exists on disk.
@@ -24,18 +24,17 @@ off_site_backup_tasks:
     minute: 30
 wireguard_interfaces:
   wg0:
-    address: 10.8.0.104/24
+    address: 10.8.1.2/24
     post_up:
       - wg set %i private-key /etc/wireguard/private.key
     dns:
-      - 10.8.0.1
-      - lan.home.joe.nyland.io
-      - home.joe.nyland.io
+      - 10.8.1.1
+      - cloud.joe.nyland.io
     peers:
       - name: Router
-        public_key: /0DBGkQ33S1DCK9mz2BG73pA0mLz1oIi0UxY62qQRXA=
-        allowed_ips: 10.8.0.0/24, 10.10.0.0/16
-        endpoint: home.joe.nyland.io:51820
+        public_key: P3lmTwJlnV/K5CLPkK77C5qOWapCimop5c8eox3FSFg=
+        allowed_ips: 10.8.1.0/24, 10.10.0.0/16
+        endpoint: home.joe.nyland.io:51821
         keep_alive: 25
 sanoid_templates:
   bpool:
@@ -73,7 +72,7 @@ sanoid_policies:
     use_template: tank
     recursive: 'yes'
 syncoid_user_destination_host: backup-pi
-syncoid_user_source_host: server
+syncoid_user_source_host: server.lan.home.joe.nyland.io
 zfs_datasets:
   off-site:
     mountpoint: 'none'

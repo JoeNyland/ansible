@@ -9,6 +9,7 @@ postfix_networks:
   - "[::ffff:127.0.0.0]/104"
   - "[::1]/128"
   - "{{ subnets.vpn.ipv4.cidr }}"
+  - "{{ subnets.cloud.ipv4.cidr }}"
   - "{{ subnets.lan.ipv4.cidr }}"
 postfix_relay_host:
   host: smtp.postmarkapp.com
@@ -78,7 +79,7 @@ sanoid_policies:
     use_template: none
     recursive: 'yes'
 syncoid_user_destination_host: backup-pi
-syncoid_user_source_host: server
+syncoid_user_source_host: server.lan.home.joe.nyland.io
 zfs_datasets:
   # Boot
   bpool:
