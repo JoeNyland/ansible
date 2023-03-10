@@ -80,9 +80,4 @@ zfs_datasets:
     readonly: 'on'
   off-site/bpool:
   off-site/rpool:
-  off-site/enc:
-    compression: 'on'
-    encryption: aes-256-gcm
-    keyformat: passphrase
-    keylocation: prompt
-  off-site/enc/tank:
+  off-site/tank:
