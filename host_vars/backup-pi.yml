@@ -69,7 +69,7 @@ sanoid_policies:
   off-site/rpool:
     use_template: rpool
     recursive: 'yes'
-  off-site/enc/tank:
+  off-site/tank:
     use_template: tank
     recursive: 'yes'
 syncoid_user_destination_host: backup-pi
