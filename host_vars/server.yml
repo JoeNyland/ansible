@@ -74,7 +74,7 @@ sanoid_policies:
   tank:
     use_template: tank
     recursive: 'yes'
-  tank/ds1/downloads:
+  tank/enc/downloads:
     use_template: none
     recursive: 'yes'
 syncoid_user_destination_host: backup-pi
@@ -130,32 +130,32 @@ zfs_datasets:
   # Tank
   tank:
     mountpoint: 'none'
-  tank/ds1:
+  tank/enc:
     compression: 'on'
-    mountpoint: /tank
-  tank/ds1/archive/apps:
-  tank/ds1/archive/certificates:
-  tank/ds1/archive/drivers:
-  tank/ds1/archive/firmware:
-  tank/ds1/archive/gaming:
-  tank/ds1/archive/manuals:
-  tank/ds1/archive/os:
-  tank/ds1/archive/vm/templates:
-  tank/ds1/backups/files:
-  tank/ds1/backups/images:
-  tank/ds1/downloads:
-    syncoid:sync: 'false'
-  tank/ds1/home:
-    mountpoint: /home
-  tank/ds1/home/joe:
     encryption: aes-256-gcm
     keyformat: raw
     keylocation: file:///etc/zfs/keys/tank.key
-  tank/ds1/home/root:
+    mountpoint: /tank
+  tank/enc/archive/apps:
+  tank/enc/archive/certificates:
+  tank/enc/archive/drivers:
+  tank/enc/archive/firmware:
+  tank/enc/archive/gaming:
+  tank/enc/archive/manuals:
+  tank/enc/archive/os:
+  tank/enc/archive/vm/templates:
+  tank/enc/backups/files:
+  tank/enc/backups/images:
+  tank/enc/downloads:
+    syncoid:sync: 'false'
+  tank/enc/home:
+    mountpoint: /home
+  tank/enc/home/joe:
+  tank/enc/home/root:
     mountpoint: /root
-  tank/ds1/media/audiobooks:
-  tank/ds1/media/movies:
-  tank/ds1/media/music:
-  tank/ds1/media/photos:
-  tank/ds1/media/tv:
-  tank/ds1/media/videos:
+  tank/enc/media/audiobooks:
+  tank/enc/media/movies:
+  tank/enc/media/music:
+  tank/enc/media/photos:
+  tank/enc/media/tv:
+  tank/enc/media/videos:
