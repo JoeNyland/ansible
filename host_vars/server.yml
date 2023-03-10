@@ -145,7 +145,6 @@ zfs_datasets:
   tank/ds1/backups/images:
   tank/ds1/downloads:
     syncoid:sync: 'false'
-  tank/ds1/git:
   tank/ds1/home:
     mountpoint: /home
   tank/ds1/home/joe:
