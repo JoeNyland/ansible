@@ -15,7 +15,11 @@ off_site_backup_tasks:
     hour: 1
     minute: 15
   - source: syncoid@server:tank
-    destination: off-site/enc/tank
+    destination: off-site/tank
+    send_options:
+      # For encrypted datasets, send data exactly as it exists on disk.
+      # This allows backups to be taken even if encryption keys are not currently loaded.
+      - w
     hour: 1
     minute: 30
 wireguard_interfaces:
