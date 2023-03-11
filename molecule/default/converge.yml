@@ -18,3 +18,6 @@
         post_up:
           - wg set %i private-key /etc/wireguard/private.key
         peers: []
+    # Override these to match the container names in CI, rather than FQDNs (which would not resolve)
+    syncoid_user_destination_host: backup-pi
+    syncoid_user_source_host: server
