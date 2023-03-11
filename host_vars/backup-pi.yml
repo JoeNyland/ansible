@@ -78,5 +78,8 @@ zfs_datasets:
     mountpoint: 'none'
     readonly: 'on'
   off-site/bpool:
+    compression: lz4
   off-site/rpool:
+    compression: lz4
   off-site/tank:
+    compression: 'on'
