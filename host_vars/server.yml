@@ -137,6 +137,7 @@ zfs_datasets:
     keyformat: raw
     keylocation: file:///etc/zfs/keys/tank.key
     mountpoint: /tank
+  tank/enc/archive:
   tank/enc/archive/apps:
   tank/enc/archive/certificates:
   tank/enc/archive/drivers:
@@ -144,8 +145,8 @@ zfs_datasets:
   tank/enc/archive/gaming:
   tank/enc/archive/manuals:
   tank/enc/archive/os:
-  tank/enc/archive/vm/templates:
-  tank/enc/backups/files:
+  tank/enc/archive/vms:
+  tank/enc/backups:
   tank/enc/backups/images:
   tank/enc/downloads:
     syncoid:sync: 'false'
