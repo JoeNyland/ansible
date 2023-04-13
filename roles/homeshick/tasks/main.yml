@@ -4,6 +4,11 @@
     gather_subset:
       - user_dir
 
+- name: Install git
+  apt:
+    name: git
+    update_cache: true
+
 - name: Install
   git:
     repo: https://github.com/andsens/homeshick.git
