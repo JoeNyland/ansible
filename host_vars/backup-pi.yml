@@ -13,14 +13,6 @@ off_site_backup_tasks:
       # This allows backups to be taken even if encryption keys are not currently loaded.
       - w
     hour: 1
-    minute: 15
-  - source: syncoid@server.lan.home.joe.nyland.io:tank
-    destination: off-site/tank
-    send_options:
-      # For encrypted datasets, send data exactly as it exists on disk.
-      # This allows backups to be taken even if encryption keys are not currently loaded.
-      - w
-    hour: 1
     minute: 30
 wireguard_interfaces:
   wg0:
@@ -53,23 +45,12 @@ sanoid_templates:
     daily: 30
     monthly: 3
     yearly: 0
-  tank:
-    autosnap: 'no'
-    autoprune: 'yes'
-    frequently: 0
-    hourly: 0
-    daily: 30
-    monthly: 3
-    yearly: 0
 sanoid_policies:
   off-site/bpool:
     use_template: bpool
     recursive: 'yes'
   off-site/rpool:
     use_template: rpool
-    recursive: 'yes'
-  off-site/tank:
-    use_template: tank
     recursive: 'yes'
 syncoid_user_destination_host: backup-pi
 syncoid_user_source_host: server.lan.home.joe.nyland.io
@@ -81,5 +62,3 @@ zfs_datasets:
     compression: lz4
   off-site/rpool:
     compression: lz4
-  off-site/tank:
-    compression: 'on'

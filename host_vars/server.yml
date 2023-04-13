@@ -49,14 +49,6 @@ sanoid_templates:
     daily: 30
     monthly: 3
     yearly: 0
-  tank:
-    autosnap: 'yes'
-    autoprune: 'yes'
-    frequently: 0
-    hourly: 0
-    daily: 30
-    monthly: 3
-    yearly: 0
   none:
     autosnap: 'no'
     autoprune: 'no'
@@ -72,10 +64,7 @@ sanoid_policies:
   rpool:
     use_template: rpool
     recursive: 'yes'
-  tank:
-    use_template: tank
-    recursive: 'yes'
-  tank/enc/downloads:
+  rpool/tank/downloads:
     use_template: none
     recursive: 'yes'
 syncoid_user_destination_host: backup-pi
@@ -116,48 +105,35 @@ zfs_datasets:
   rpool/ROOT/debian:
     canmount: noauto
     mountpoint: /
-  rpool/srv:
-  rpool/usr:
-    canmount: 'off'
-  rpool/usr/local:
+  rpool/tank:
+    mountpoint: /tank
+  rpool/tank/archive:
+  rpool/tank/archive/apps:
+  rpool/tank/archive/certificates:
+  rpool/tank/archive/drivers:
+  rpool/tank/archive/firmware:
+  rpool/tank/archive/gaming:
+  rpool/tank/archive/manuals:
+  rpool/tank/archive/os:
+  rpool/tank/archive/vms:
+  rpool/tank/backups:
+  rpool/tank/backups/images:
+  rpool/tank/downloads:
+    syncoid:sync: 'false'
+  rpool/tank/home:
+    mountpoint: /home
+  rpool/tank/home/joe:
+  rpool/tank/home/root:
+    mountpoint: /root
+  rpool/tank/media/audiobooks:
+  rpool/tank/media/movies:
+  rpool/tank/media/music:
+  rpool/tank/media/photos:
+  rpool/tank/media/tv:
+  rpool/tank/media/videos:
   rpool/var:
     canmount: 'off'
   rpool/var/lib:
     canmount: 'off'
   rpool/var/log:
-  rpool/var/mail:
   rpool/var/spool:
-
-  # Tank
-  tank:
-    mountpoint: 'none'
-  tank/enc:
-    compression: 'on'
-    encryption: aes-256-gcm
-    keyformat: raw
-    keylocation: file:///etc/zfs/keys/tank.key
-    mountpoint: /tank
-  tank/enc/archive:
-  tank/enc/archive/apps:
-  tank/enc/archive/certificates:
-  tank/enc/archive/drivers:
-  tank/enc/archive/firmware:
-  tank/enc/archive/gaming:
-  tank/enc/archive/manuals:
-  tank/enc/archive/os:
-  tank/enc/archive/vms:
-  tank/enc/backups:
-  tank/enc/backups/images:
-  tank/enc/downloads:
-    syncoid:sync: 'false'
-  tank/enc/home:
-    mountpoint: /home
-  tank/enc/home/joe:
-  tank/enc/home/root:
-    mountpoint: /root
-  tank/enc/media/audiobooks:
-  tank/enc/media/movies:
-  tank/enc/media/music:
-  tank/enc/media/photos:
-  tank/enc/media/tv:
-  tank/enc/media/videos:
