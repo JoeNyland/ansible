@@ -38,3 +38,16 @@
     - joenyland.wireguard
     - syncoid_user
     - off_site_backup
+
+- name: Setup Kryten
+  hosts: kryten
+  become: true
+
+  roles:
+    - brave
+    - tank
+
+  tasks:
+    - name: Install scdaemon for YubiKey
+      apt:
+        name: scdaemon

@@ -3,3 +3,4 @@ all:
   hosts:
     server:
     backup-pi:
+    kryten:
