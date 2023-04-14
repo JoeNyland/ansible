@@ -1,0 +1,29 @@
+---
+- name: Install Brave
+  become: true
+  tags: brave
+  block:
+    - name: Install packages
+      apt:
+        name:
+          - apt-transport-https
+          - gnupg
+        update_cache: true
+
+    - name: Install GPG key
+      apt_key:
+        url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+        state: present
+        keyring: /etc/apt/trusted.gpg.d/brave.gpg
+
+    - name: Install repo
+      apt_repository:
+        repo: deb https://brave-browser-apt-release.s3.brave.com/ stable main
+        state: present
+        filename: brave
+        update_cache: true
+
+    - name: Install
+      apt:
+        name: brave-browser
+        update_cache: true
