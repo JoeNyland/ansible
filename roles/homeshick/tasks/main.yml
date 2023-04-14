@@ -1,13 +1,14 @@
 ---
-- name: Re-gather facts
-  setup:
-    gather_subset:
-      - user_dir
-
 - name: Install git
   apt:
     name: git
     update_cache: true
+  become: true
+
+- name: Re-gather facts
+  setup:
+    gather_subset:
+      - user_dir
 
 - name: Install
   git:
