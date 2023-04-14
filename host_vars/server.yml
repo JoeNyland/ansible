@@ -106,7 +106,6 @@ zfs_datasets:
     canmount: noauto
     mountpoint: /
   rpool/tank:
-    mountpoint: /tank
   rpool/tank/archive:
   rpool/tank/archive/apps:
   rpool/tank/archive/certificates:
@@ -135,5 +134,7 @@ zfs_datasets:
     canmount: 'off'
   rpool/var/lib:
     canmount: 'off'
+  rpool/var/lib/plexmediaserver:
+  rpool/var/lib/qbittorrent:
   rpool/var/log:
   rpool/var/spool:
