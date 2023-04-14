@@ -1,5 +1,6 @@
 ---
 roles:
+  - src: joenyland.abcde
   - src: joenyland.debian_backports
   - src: joenyland.plexmediaserver
   - src: joenyland.qbittorrent

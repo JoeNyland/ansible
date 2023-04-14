@@ -1,9 +1,0 @@
----
-- name: Install
-  apt:
-    name: abcde
-- name: Configure
-  copy:
-    dest: /etc/abcde.conf
-    src: abcde.conf
-    mode: '0644'
