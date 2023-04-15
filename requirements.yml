@@ -2,6 +2,7 @@
 roles:
   - src: joenyland.abcde
   - src: joenyland.debian_backports
+  - src: joenyland.dropbear_initramfs
   - src: joenyland.plexmediaserver
   - src: joenyland.qbittorrent
   - src: joenyland.updates

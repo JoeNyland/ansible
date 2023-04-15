@@ -1,7 +1,9 @@
 ---
 debian_backports_additional_components:
   - contrib
-dropbear_ssh_authorized_keys:
+# Run zfsunlock automatically in initramfs to unlock root pool
+dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
+dropbear_initramfs_ssh_authorized_keys:
   - https://github.com/joenyland.keys
 postfix_inet_interfaces: all
 postfix_networks:

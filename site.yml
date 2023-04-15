@@ -21,7 +21,7 @@
     - joenyland.abcde
     - zfs
     - sanoid
-    - dropbear
+    - joenyland.dropbear_initramfs
     - samba
     - nfs_server
     - joenyland.qbittorrent
