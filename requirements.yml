@@ -9,5 +9,6 @@ roles:
   - src: joenyland.utils
   - src: joenyland.vim
   - src: joenyland.wireguard
+  - src: joenyland.zfs
 collections:
   - community.general

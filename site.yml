@@ -19,7 +19,7 @@
   roles:
     - postfix
     - joenyland.abcde
-    - zfs
+    - joenyland.zfs
     - sanoid
     - joenyland.dropbear_initramfs
     - samba
@@ -33,7 +33,7 @@
   become: true
   roles:
     - postfix
-    - zfs
+    - joenyland.zfs
     - sanoid
     - joenyland.wireguard
     - syncoid_user
