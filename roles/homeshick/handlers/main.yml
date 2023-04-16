@@ -1,6 +1,0 @@
----
-# handlers file for role-homeshick
-- name: Link
-  command: "{{ ansible_user_dir }}/.homesick/repos/homeshick/bin/homeshick link -vf dotfiles"
-  register: homeshick_install_command
-  changed_when: "'symlink' in homeshick_install_command.stdout"

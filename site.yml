@@ -10,8 +10,7 @@
     - joenyland.vim
     - joenyland.utils
     - joenyland.debian_backports
-    - role: homeshick
-      become: false
+    - joenyland.homeshick
 
 - name: Setup Server
   hosts: server
