@@ -5,7 +5,7 @@
   roles:
     - joenyland.updates
     - sudo
-    - ssh
+    - joenyland.ssh
     - root_user
     - joenyland.vim
     - joenyland.utils

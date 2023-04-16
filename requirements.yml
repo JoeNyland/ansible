@@ -8,6 +8,7 @@ roles:
   - src: joenyland.plexmediaserver
   - src: joenyland.postfix
   - src: joenyland.qbittorrent
+  - src: joenyland.ssh
   - src: joenyland.updates
   - src: joenyland.utils
   - src: joenyland.vim
