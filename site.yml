@@ -6,7 +6,7 @@
     - joenyland.updates
     - sudo
     - joenyland.ssh
-    - root_user
+    - joenyland.root_user
     - joenyland.vim
     - joenyland.utils
     - joenyland.debian_backports

@@ -8,6 +8,7 @@ roles:
   - src: joenyland.plexmediaserver
   - src: joenyland.postfix
   - src: joenyland.qbittorrent
+  - src: joenyland.root_user
   - src: joenyland.ssh
   - src: joenyland.updates
   - src: joenyland.utils
