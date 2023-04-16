@@ -4,7 +4,7 @@
   become: true
   roles:
     - joenyland.updates
-    - sudo
+    - joenyland.sudo
     - joenyland.ssh
     - joenyland.root_user
     - joenyland.vim
