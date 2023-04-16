@@ -34,6 +34,11 @@ nfs_exports:
         - insecure # Allow ports >1025 (mainly for macOS compatibility)
         - crossmnt # Allow mounts inside /tank to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
+samba_shares:
+  tank:
+    path: /tank
+    valid_users: joe
+    read_only: false
 sanoid_templates:
   bpool:
     autosnap: 'yes'
