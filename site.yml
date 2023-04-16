@@ -19,7 +19,7 @@
     - joenyland.postfix
     - joenyland.abcde
     - joenyland.zfs
-    - sanoid
+    - joenyland.sanoid
     - joenyland.dropbear_initramfs
     - joenyland.samba
     - joenyland.nfs_server
@@ -33,7 +33,7 @@
   roles:
     - joenyland.postfix
     - joenyland.zfs
-    - sanoid
+    - joenyland.sanoid
     - joenyland.wireguard
     - syncoid_user
     - off_site_backup
