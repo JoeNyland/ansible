@@ -16,7 +16,7 @@
   hosts: server
   become: true
   roles:
-    - postfix
+    - joenyland.postfix
     - joenyland.abcde
     - joenyland.zfs
     - sanoid
@@ -31,7 +31,7 @@
   hosts: backup-pi
   become: true
   roles:
-    - postfix
+    - joenyland.postfix
     - joenyland.zfs
     - sanoid
     - joenyland.wireguard

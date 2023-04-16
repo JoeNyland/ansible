@@ -6,6 +6,7 @@ roles:
   - src: joenyland.homeshick
   - src: joenyland.nfs_server
   - src: joenyland.plexmediaserver
+  - src: joenyland.postfix
   - src: joenyland.qbittorrent
   - src: joenyland.updates
   - src: joenyland.utils

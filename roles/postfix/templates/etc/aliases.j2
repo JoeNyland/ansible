@@ -1,5 +1,0 @@
-# {{ ansible_managed }}
-# /etc/aliases
-{% for alias in postfix_aliases %}
-{{alias}}: {{postfix_aliases[alias]}}
-{% endfor %}
