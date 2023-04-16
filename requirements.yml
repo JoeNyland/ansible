@@ -4,6 +4,7 @@ roles:
   - src: joenyland.debian_backports
   - src: joenyland.dropbear_initramfs
   - src: joenyland.homeshick
+  - src: joenyland.nfs_server
   - src: joenyland.plexmediaserver
   - src: joenyland.qbittorrent
   - src: joenyland.updates

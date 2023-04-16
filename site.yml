@@ -22,7 +22,7 @@
     - sanoid
     - joenyland.dropbear_initramfs
     - samba
-    - nfs_server
+    - joenyland.nfs_server
     - joenyland.qbittorrent
     - joenyland.plexmediaserver
     - syncoid_user
