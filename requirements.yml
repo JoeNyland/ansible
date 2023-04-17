@@ -5,6 +5,7 @@ roles:
   - src: joenyland.dropbear_initramfs
   - src: joenyland.homeshick
   - src: joenyland.nfs_server
+  - src: joenyland.off_site_backup
   - src: joenyland.plexmediaserver
   - src: joenyland.postfix
   - src: joenyland.qbittorrent

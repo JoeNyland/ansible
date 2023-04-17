@@ -25,7 +25,7 @@
     - joenyland.nfs_server
     - joenyland.qbittorrent
     - joenyland.plexmediaserver
-    - syncoid_user
+    - joenyland.off_site_backup
 
 - name: Setup Backup-Pi
   hosts: backup-pi
@@ -35,5 +35,4 @@
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.wireguard
-    - syncoid_user
-    - off_site_backup
+    - joenyland.off_site_backup

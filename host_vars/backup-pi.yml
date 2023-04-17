@@ -14,6 +14,8 @@ off_site_backup_tasks:
       - w
     hour: 1
     minute: 30
+off_site_backup_destination_host: backup-pi
+off_site_backup_source_host: server.lan.home.joe.nyland.io
 wireguard_interfaces:
   wg0:
     address: 10.8.1.2/24
@@ -52,8 +54,6 @@ sanoid_policies:
   off-site/rpool:
     use_template: rpool
     recursive: 'yes'
-syncoid_user_destination_host: backup-pi
-syncoid_user_source_host: server.lan.home.joe.nyland.io
 zfs_datasets:
   off-site:
     mountpoint: 'none'
