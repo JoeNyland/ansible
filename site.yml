@@ -26,6 +26,7 @@
     - joenyland.qbittorrent
     - joenyland.plexmediaserver
     - joenyland.off_site_backup
+    - joenyland.docker
 
 - name: Setup Backup-Pi
   hosts: backup-pi

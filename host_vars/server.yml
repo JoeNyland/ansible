@@ -1,6 +1,8 @@
 ---
 debian_backports_additional_components:
   - contrib
+docker_users:
+  - joe
 # Run zfsunlock automatically in initramfs to unlock root pool
 dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
 dropbear_initramfs_ssh_authorized_keys:
@@ -141,6 +143,8 @@ zfs_datasets:
     canmount: 'off'
   rpool/var/lib:
     canmount: 'off'
+  rpool/var/lib/docker:
+    com.sun:auto-snapshot: false
   rpool/var/lib/plexmediaserver:
   rpool/var/lib/qbittorrent:
   rpool/var/log:
