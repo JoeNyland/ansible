@@ -10,6 +10,7 @@ dropbear_initramfs_ssh_authorized_keys:
 postfix_inet_interfaces: all
 postfix_networks:
   - "127.0.0.0/8"
+  - "172.17.0.0/16"
   - "[::ffff:127.0.0.0]/104"
   - "[::1]/128"
   - "{{ subnets.vpn.ipv4.cidr }}"
