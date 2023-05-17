@@ -2,11 +2,11 @@
 debian_backports_additional_components:
   - contrib
 off_site_backup_tasks:
-  - source: syncoid@server.lan.home.joe.nyland.io:bpool
+  - source: syncoid@server.home.joe.nyland.io:bpool
     destination: off-site/bpool
     hour: 1
     minute: 0
-  - source: syncoid@server.lan.home.joe.nyland.io:rpool
+  - source: syncoid@server.home.joe.nyland.io:rpool
     destination: off-site/rpool
     send_options:
       # For encrypted datasets, send data exactly as it exists on disk.
@@ -15,7 +15,7 @@ off_site_backup_tasks:
     hour: 1
     minute: 30
 off_site_backup_destination_host: backup-pi
-off_site_backup_source_host: server.lan.home.joe.nyland.io
+off_site_backup_source_host: server.home.joe.nyland.io
 wireguard_interfaces:
   wg0:
     address: 10.8.1.2/24

@@ -78,7 +78,7 @@ sanoid_policies:
     use_template: none
     recursive: 'yes'
 off_site_backup_destination_host: backup-pi
-off_site_backup_source_host: server.lan.home.joe.nyland.io
+off_site_backup_source_host: server.home.joe.nyland.io
 zfs_datasets:
   # Boot
   bpool:
