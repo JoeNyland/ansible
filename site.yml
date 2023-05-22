@@ -23,7 +23,6 @@
     - joenyland.dropbear_initramfs
     - joenyland.samba
     - joenyland.nfs_server
-    - joenyland.qbittorrent
     - joenyland.plexmediaserver
     - joenyland.off_site_backup
     - joenyland.docker

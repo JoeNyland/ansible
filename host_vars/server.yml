@@ -20,8 +20,6 @@ postfix_relay_host:
   host: smtp.postmarkapp.com
   port: 587
   sasl_auth_enabled: true
-qbittorrent_users:
-  - joe
 nfs_exports:
   /home:
     client_permissions:
@@ -147,6 +145,5 @@ zfs_datasets:
   rpool/var/lib/docker:
     com.sun:auto-snapshot: false
   rpool/var/lib/plexmediaserver:
-  rpool/var/lib/qbittorrent:
   rpool/var/log:
   rpool/var/spool:
