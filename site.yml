@@ -37,3 +37,8 @@
     - joenyland.sanoid
     - joenyland.wireguard
     - joenyland.off_site_backup
+
+- name: Setup VPS
+  hosts: vps
+  roles:
+    - joenyland.docker
