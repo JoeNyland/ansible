@@ -29,11 +29,17 @@ sudo_users:
   - joe
 subnets:
   cloud:
+    ipv6:
+      cidr: fc00:f00d:cafe:8:1::/80
     ipv4:
       cidr: 10.8.1.0/24
   vpn:
+    ipv6:
+      cidr: fc00:f00d:cafe:8::/80
     ipv4:
       cidr: 10.8.0.0/24
   lan:
+    ipv6:
+      cidr: fc00:f00d:cafe:10::/64
     ipv4:
       cidr: 10.10.0.0/16
