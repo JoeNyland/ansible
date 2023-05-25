@@ -3,3 +3,17 @@ ssh_authorized_keys: [] # Authorized keys are managed by the provider (https://c
 ssh_permit_root_login: true # Log in as root by default
 sudo_users: [] # root is used, so no need to setup sudo for any users
 homeshick_dotfiles_repos: {} # Unable to install dotfiles on this host as it's IPv6 only and GitHub doesn't run IPv6
+wireguard_interfaces:
+  wg0:
+    address: 10.8.1.3/24, fc00:f00d:cafe:8:1::3/80
+    post_up:
+      - wg set %i private-key /etc/wireguard/private.key
+    dns:
+      - 10.8.1.1
+      - cloud.joe.nyland.io
+    peers:
+      - name: Router
+        public_key: P3lmTwJlnV/K5CLPkK77C5qOWapCimop5c8eox3FSFg=
+        allowed_ips: 10.8.1.0/24, 10.10.0.0/16, fc00:f00d:cafe:8:1::/80, fc00:f00d:cafe:10::/64, 0.0.0.0/0
+        endpoint: home.joe.nyland.io:51821
+        keep_alive: 25

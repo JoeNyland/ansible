@@ -41,3 +41,4 @@
   hosts: vps
   roles:
     - joenyland.docker
+    - joenyland.wireguard
