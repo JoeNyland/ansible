@@ -19,6 +19,7 @@ off_site_backup_source_host: server.home.joe.nyland.io
 wireguard_interfaces:
   wg0:
     address: 10.8.1.2/24, fc00:f00d:cafe:8:1::2/80
+    mtu: 1400
     post_up:
       - wg set %i private-key /etc/wireguard/private.key
     dns:
