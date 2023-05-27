@@ -2,6 +2,13 @@
 ssh_authorized_keys: [] # Authorized keys are managed by the provider (https://console.scaleway.com/project/ssh-keys)
 ssh_permit_root_login: true # Log in as root by default
 sudo_users: [] # root is used, so no need to setup sudo for any users
+docker_daemon_config:
+  experimental: true
+  ipv6: true
+  ip6tables: true
+  fixed-cidr-v6: fc00:f10d:cafe:8:1:1::/96
+  registry-mirrors:
+    - https://registry.ipv6.docker.com
 wireguard_interfaces:
   wg0:
     address: 10.8.1.3/24, fc00:f00d:cafe:8:1::3/80
