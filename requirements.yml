@@ -19,5 +19,7 @@ roles:
   - src: joenyland.vim
   - src: joenyland.wireguard
   - src: joenyland.zfs
+  - src: nginxinc.nginx
+  - src: nginxinc.nginx_config
 collections:
   - community.general

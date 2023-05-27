@@ -43,3 +43,9 @@
     - joenyland.docker
     - joenyland.homeshick
     - joenyland.wireguard
+    - role: nginxinc.nginx
+      tags: nginx
+    - role: nginxinc.nginx_config
+      tags:
+        - nginx
+        - website
