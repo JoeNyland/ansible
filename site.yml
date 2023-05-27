@@ -41,7 +41,6 @@
   hosts: vps
   roles:
     - joenyland.docker
-    - joenyland.homeshick
     - joenyland.wireguard
     - role: nginxinc.nginx
       tags: nginx
