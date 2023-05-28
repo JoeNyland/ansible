@@ -45,7 +45,7 @@ postfix_relay_host:
   port: 587
   sasl_auth_enabled: true
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
-postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.key
+postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
 nfs_exports:
   /home:
     client_permissions:
