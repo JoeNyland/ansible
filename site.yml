@@ -9,6 +9,7 @@
     - joenyland.root_user
     - joenyland.vim
     - joenyland.utils
+    - joenyland.postfix
     - joenyland.debian_backports
     - joenyland.homeshick
 
@@ -16,7 +17,6 @@
   hosts: server
   become: true
   roles:
-    - joenyland.postfix
     - joenyland.abcde
     - joenyland.zfs
     - joenyland.sanoid
@@ -35,7 +35,6 @@
   hosts: backup-pi
   become: true
   roles:
-    - joenyland.postfix
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.wireguard

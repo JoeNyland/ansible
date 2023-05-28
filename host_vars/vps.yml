@@ -8,6 +8,22 @@ docker_daemon_config:
   fixed-cidr-v6: fc00:f10d:cafe:8:1:1::/96
   registry-mirrors:
     - https://registry.ipv6.docker.com
+postfix_aliases:
+  mailer-daemon: postmaster
+  postmaster: root
+  nobody: root
+  hostmaster: root
+  usenet: root
+  news: root
+  webmaster: root
+  www: root
+  ftp: root
+  abuse: root
+  noc: root
+  security: root
+  root: joe@server.home.joe.nyland.io
+  joe: root
+  syncoid: joe
 wireguard_interfaces:
   wg0:
     address: 10.8.1.3/24, fc00:f00d:cafe:8:1::3/80
