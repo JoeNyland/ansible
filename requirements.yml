@@ -21,5 +21,6 @@ roles:
   - src: joenyland.zfs
   - src: nginxinc.nginx
   - src: nginxinc.nginx_config
+  - src: robertdebock.dovecot
 collections:
   - community.general

@@ -26,6 +26,10 @@
     - joenyland.plexmediaserver
     - joenyland.off_site_backup
     - joenyland.docker
+    - role: robertdebock.dovecot
+      tags:
+        - dovecot
+        - email
 
 - name: Setup Backup-Pi
   hosts: backup-pi

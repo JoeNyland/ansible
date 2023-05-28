@@ -3,6 +3,7 @@ debian_backports_additional_components:
   - contrib
 docker_users:
   - joe
+dovecot_mailbox_location: "mbox:~/.mail:INBOX=/var/mail/%u"
 # Run zfsunlock automatically in initramfs to unlock root pool
 dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
 dropbear_initramfs_ssh_authorized_keys:
