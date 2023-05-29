@@ -8,6 +8,7 @@ docker_daemon_config:
   fixed-cidr-v6: fc00:06ec:2329::/80
   registry-mirrors:
     - https://registry.ipv6.docker.com
+  mtu: 1400 # Due to VPN being IPv6 over PPPoE (which is 1492)
 postfix_aliases:
   mailer-daemon: postmaster
   postmaster: root
