@@ -43,7 +43,6 @@
 - name: Setup VPS
   hosts: vps
   roles:
-    - joenyland.docker
     - joenyland.wireguard
     - role: nginxinc.nginx
       tags: nginx
