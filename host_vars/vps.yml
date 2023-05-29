@@ -5,7 +5,7 @@ docker_daemon_config:
   experimental: true
   ipv6: true
   ip6tables: true
-  fixed-cidr-v6: fc00:f10d:cafe:8:1:1::/96
+  fixed-cidr-v6: fc00:06ec:2329::/80
   registry-mirrors:
     - https://registry.ipv6.docker.com
 postfix_aliases:
