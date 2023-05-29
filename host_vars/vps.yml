@@ -24,7 +24,6 @@ postfix_aliases:
   root: joe@server.home.joe.nyland.io
   joe: root
   syncoid: joe
-homeshick_dotfiles_repos: {} # Unable to install dotfiles on this host as it's IPv6 only and GitHub doesn't run IPv6
 wireguard_interfaces:
   wg0:
     address: 10.8.1.3/24, fc00:f00d:cafe:8:1::3/80
