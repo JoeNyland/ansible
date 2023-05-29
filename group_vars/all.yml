@@ -18,10 +18,6 @@ postfix_aliases:
   root: joe
   joe: joe@server.home.joe.nyland.io
   syncoid: joe
-postfix_destinations:
-  - localhost
-  - "{{ ansible_hostname }}"
-  - "{{ ansible_fqdn }}"
 postfix_relay_host:
   host: smtp.home.joe.nyland.io
 ssh_authorized_keys:
