@@ -3,6 +3,7 @@ roles:
   - src: joenyland.abcde
   - src: joenyland.debian_backports
   - src: joenyland.docker
+  - src: joenyland.dovecot
   - src: joenyland.dropbear_initramfs
   - src: joenyland.homeshick
   - src: joenyland.nfs_server
@@ -21,6 +22,5 @@ roles:
   - src: joenyland.zfs
   - src: nginxinc.nginx
   - src: nginxinc.nginx_config
-  - src: robertdebock.dovecot
 collections:
   - community.general
