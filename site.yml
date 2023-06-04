@@ -47,6 +47,4 @@
     - role: nginxinc.nginx
       tags: nginx
     - role: nginxinc.nginx_config
-      tags:
-        - nginx
-        - website
+      tags: nginx
