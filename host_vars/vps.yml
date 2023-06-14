@@ -20,6 +20,7 @@ postfix_aliases:
 wireguard_interfaces:
   wg0:
     address: 10.8.1.3/24, fc00:f00d:cafe:8:1::3/80
+    listen_port: 51821
     mtu: 1400
     post_up:
       - wg set %i private-key /etc/wireguard/private.key
@@ -33,6 +34,9 @@ wireguard_interfaces:
         allowed_ips: 10.8.1.0/24, 10.10.0.0/16, fc00:f00d:cafe:8:1::/80, fc00:f00d:cafe:10::/64
         endpoint: home.joe.nyland.io:51821
         keep_alive: 25
+      - name: Backup-Pi
+        public_key: 5bA2KiujJdBay/EUgNzgfG2N3p4y9fwK8c3UPHJLIEw=
+        allowed_ips: 10.8.1.2/32, fc00:f00d:cafe:8:1::2/128
 nginx_config_http_template_enable: true
 nginx_config_http_template:
   - template_file: http/default.conf.j2
