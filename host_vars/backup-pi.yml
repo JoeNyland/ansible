@@ -23,6 +23,7 @@ wireguard_interfaces:
     post_up:
       - wg set %i private-key /etc/wireguard/private.key
     dns:
+      - fc00:f00d:cafe:8:1::1
       - 10.8.1.1
       - cloud.joe.nyland.io
     peers:
