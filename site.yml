@@ -12,6 +12,10 @@
     - joenyland.postfix
     - joenyland.debian_backports
     - joenyland.homeshick
+  tasks:
+    - name: Set timezone
+      timezone:
+        name: "{{ timezone }}"
 
 - name: Setup Server
   hosts: server

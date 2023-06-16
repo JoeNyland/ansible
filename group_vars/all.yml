@@ -41,3 +41,4 @@ subnets:
       cidr: fc00:f00d:cafe:10::/64
     ipv4:
       cidr: 10.10.0.0/16
+timezone: Europe/London
