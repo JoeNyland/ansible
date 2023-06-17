@@ -11,6 +11,7 @@ roles:
   - src: joenyland.off_site_backup
   - src: joenyland.plexmediaserver
   - src: joenyland.postfix
+  - src: joenyland.qbittorrent
   - src: joenyland.root_user
   - src: joenyland.samba
   - src: joenyland.sanoid

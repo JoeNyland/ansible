@@ -53,6 +53,8 @@ postfix_relay_host:
   sasl_auth_enabled: true
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
 postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
+qbittorrent_users:
+  - joe
 nfs_exports:
   /home:
     client_permissions:
@@ -188,5 +190,6 @@ zfs_datasets:
   rpool/var/lib/docker:
     com.sun:auto-snapshot: false
   rpool/var/lib/plexmediaserver:
+  rpool/var/lib/qbittorrent:
   rpool/var/log:
   rpool/var/spool:
