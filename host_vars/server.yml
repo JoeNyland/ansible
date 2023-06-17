@@ -1,6 +1,4 @@
 ---
-debian_backports_additional_components:
-  - contrib
 docker_users:
   - joe
 dovecot_mailbox_location: maildir:~/.maildir
