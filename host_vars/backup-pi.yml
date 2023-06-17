@@ -33,7 +33,7 @@ wireguard_interfaces:
         endpoint: home.joe.nyland.io:51821
         keep_alive: 25
       - name: VPS
-        public_key: TWDiuTOSz35uQ9KyGIJ9uUS1uZDdHWy8dghNc3FUvGM=
+        public_key: H5BiYYop8XqAaq614fep8GlIffgXPWtwYz2krQZzt1w=
         allowed_ips: 10.8.1.3/32, fc00:f00d:cafe:8:1::3/128
         endpoint: vps.cloud.joe.nyland.io:51821
         keep_alive: 25
