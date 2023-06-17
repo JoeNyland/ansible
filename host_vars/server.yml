@@ -7,6 +7,13 @@ dovecot_auth_username_format: '%Ln'
 dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
 dropbear_initramfs_ssh_authorized_keys:
   - https://github.com/joenyland.keys
+hostname: Server
+hostname_aliases:
+  - ca.home.joe.nyland.io
+  - ha.home.joe.nyland.io
+  - imap.home.joe.nyland.io
+  - smtp.home.joe.nyland.io
+domain: home.joe.nyland.io
 postfix_aliases:
   mailer-daemon: postmaster
   postmaster: root

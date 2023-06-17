@@ -1,4 +1,22 @@
 ---
+- name: Setup hostnames and domains
+  hosts: all
+  become: true
+  tags:
+    - hostname
+    - domain
+    - notest # Can't set hostname in tests
+  tasks:
+    - name: Set hostname
+      hostname:
+        name: "{{ hostname }}"
+    - name: Configure hostname and FQDN in /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        regexp: ^127\.0\.1\.1
+        line: "127.0.1.1\t{{ hostname }}.{{ domain }} {{ hostname_aliases | default([]) | join(' ') }} {{ hostname }}"
+        mode: '0644'
+
 - name: Setup all systems
   hosts: all
   become: true
