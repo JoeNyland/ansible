@@ -5,6 +5,7 @@ roles:
   - src: joenyland.docker
   - src: joenyland.dovecot
   - src: joenyland.dropbear_initramfs
+  - src: joenyland.get_iplayer
   - src: joenyland.homeshick
   - src: joenyland.nfs_server
   - src: joenyland.off_site_backup

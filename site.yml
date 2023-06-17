@@ -48,6 +48,7 @@
     - joenyland.off_site_backup
     - joenyland.docker
     - joenyland.dovecot
+    - joenyland.get_iplayer
 
 - name: Setup Backup-Pi
   hosts: backup-pi
