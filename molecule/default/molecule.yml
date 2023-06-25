@@ -36,5 +36,9 @@ platforms:
     privileged: true
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      display_skipped_hosts: false
+      display_ok_hosts: false
 verifier:
   name: ansible
