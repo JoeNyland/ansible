@@ -120,6 +120,9 @@ sanoid_policies:
   rpool/tank/downloads:
     use_template: none
     recursive: 'yes'
+  rpool/tank/media/sport:
+    use_template: none
+    recursive: 'yes'
 off_site_backup_destination_host: backup-pi
 off_site_backup_source_host: server.home.joe.nyland.io
 zfs_datasets:
