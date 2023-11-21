@@ -188,6 +188,7 @@ zfs_datasets:
   rpool/tank/media/sport:
   rpool/tank/media/tv:
   rpool/tank/media/videos:
+  rpool/tank/media/youtube:
   rpool/var:
     canmount: 'off'
   rpool/var/lib:
