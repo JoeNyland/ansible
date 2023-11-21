@@ -185,6 +185,7 @@ zfs_datasets:
   rpool/tank/media/music:
   rpool/tank/media/photos:
   rpool/tank/media/recordings:
+  rpool/tank/media/sport:
   rpool/tank/media/tv:
   rpool/tank/media/videos:
   rpool/var:
