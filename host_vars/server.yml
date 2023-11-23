@@ -186,7 +186,6 @@ zfs_datasets:
   rpool/tank/media/photos:
   rpool/tank/media/recordings:
   rpool/tank/media/sport:
-    syncoid:sync: 'false'
   rpool/tank/media/tv:
   rpool/tank/media/videos:
   rpool/tank/media/youtube:
