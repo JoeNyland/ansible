@@ -55,7 +55,6 @@
   hosts: backup-pi
   become: true
   roles:
-    - joenyland.debian_backports
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.wireguard

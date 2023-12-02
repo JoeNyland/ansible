@@ -1,6 +1,4 @@
 ---
-debian_backports_additional_components:
-  - contrib
 hostname: Backup-Pi
 domain: cloud.joe.nyland.io
 off_site_backup_tasks:
