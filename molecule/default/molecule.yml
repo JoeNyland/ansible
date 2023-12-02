@@ -17,7 +17,7 @@ platforms:
     cgroupns_mode: host
     privileged: true
   - name: backup-pi
-    image: "geerlingguy/docker-debian11-ansible"
+    image: "geerlingguy/docker-debian12-ansible"
     pre_build_image: true
     command: ""
     volumes:
