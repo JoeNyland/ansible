@@ -168,6 +168,7 @@ zfs_datasets:
   rpool/tank/archive/vms:
   rpool/tank/backups:
   rpool/tank/backups/images:
+  rpool/tank/docker:
   rpool/tank/downloads:
     syncoid:sync: 'false'
   rpool/tank/home:
