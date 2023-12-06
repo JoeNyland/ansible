@@ -172,6 +172,7 @@ zfs_datasets:
   rpool/tank/docker/bazarr:
   rpool/tank/docker/home-assistant:
   rpool/tank/docker/lidarr:
+  rpool/tank/docker/plex:
   rpool/tank/docker/portainer:
   rpool/tank/docker/prowlarr:
   rpool/tank/docker/qbittorrent:
