@@ -205,6 +205,5 @@ zfs_datasets:
     canmount: 'off'
   rpool/var/lib/docker:
     com.sun:auto-snapshot: false
-  rpool/var/lib/plexmediaserver:
   rpool/var/log:
   rpool/var/spool:

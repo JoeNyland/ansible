@@ -8,7 +8,6 @@ roles:
   - src: joenyland.homeshick
   - src: joenyland.nfs_server
   - src: joenyland.off_site_backup
-  - src: joenyland.plexmediaserver
   - src: joenyland.postfix
   - src: joenyland.root_user
   - src: joenyland.samba
