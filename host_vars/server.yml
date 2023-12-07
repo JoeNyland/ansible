@@ -168,22 +168,22 @@ zfs_datasets:
   rpool/tank/archive/vms:
   rpool/tank/backups:
   rpool/tank/backups/images:
-  rpool/tank/docker:
-  rpool/tank/docker/bazarr:
-  rpool/tank/docker/home-assistant:
-  rpool/tank/docker/lidarr:
-  rpool/tank/docker/plex:
-  rpool/tank/docker/portainer:
-  rpool/tank/docker/prowlarr:
-  rpool/tank/docker/qbittorrent:
-  rpool/tank/docker/radarr:
-  rpool/tank/docker/sabnzbd:
-  rpool/tank/docker/sonarr:
-  rpool/tank/docker/stash:
-  rpool/tank/docker/step-ca:
-  rpool/tank/docker/tautulli:
-  rpool/tank/docker/uptime-kuma:
-  rpool/tank/docker/whisparr:
+  rpool/containers:
+  rpool/containers/bazarr:
+  rpool/containers/home-assistant:
+  rpool/containers/lidarr:
+  rpool/containers/plex:
+  rpool/containers/portainer:
+  rpool/containers/prowlarr:
+  rpool/containers/qbittorrent:
+  rpool/containers/radarr:
+  rpool/containers/sabnzbd:
+  rpool/containers/sonarr:
+  rpool/containers/stash:
+  rpool/containers/step-ca:
+  rpool/containers/tautulli:
+  rpool/containers/uptime-kuma:
+  rpool/containers/whisparr:
   rpool/tank/downloads:
     syncoid:sync: 'false'
   rpool/tank/home:
