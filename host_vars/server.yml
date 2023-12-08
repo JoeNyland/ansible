@@ -200,7 +200,7 @@ zfs_datasets:
   rpool/containers/tautulli:
   rpool/containers/uptime-kuma:
   rpool/containers/whisparr:
-  rpool/tank/downloads:
+  new-rpool/downloads:
     syncoid:sync: 'false'
   rpool/tank/home:
     mountpoint: /home
@@ -220,7 +220,7 @@ zfs_datasets:
     canmount: 'off'
   rpool/var/lib:
     canmount: 'off'
-  rpool/var/lib/docker:
+  new-rpool/var/lib/docker:
     com.sun:auto-snapshot: false
   rpool/var/log:
   rpool/var/spool:
