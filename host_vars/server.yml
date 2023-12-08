@@ -202,7 +202,7 @@ zfs_datasets:
   rpool/containers/whisparr:
   new-rpool/downloads:
     syncoid:sync: 'false'
-    compression: off
+    compression: 'off'
   rpool/tank/home:
     mountpoint: /home
   rpool/tank/home/joe:
