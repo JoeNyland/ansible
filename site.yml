@@ -48,6 +48,17 @@
     - joenyland.docker
     - joenyland.dovecot
     - joenyland.get_iplayer
+  tasks:
+    - name: Setup cron to sync snapshots from SSD pool to tank
+      cron:
+        name: Sync snapshots from SSD pool to tank
+        user: root
+        job: /usr/sbin/syncoid --no-sync-snap --recursive new-rpool rpool
+        minute: 0
+        hour: 23
+      tags:
+        - cron
+        - backup
 
 - name: Setup Backup-Pi
   hosts: backup-pi
