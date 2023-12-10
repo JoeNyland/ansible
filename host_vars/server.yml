@@ -228,5 +228,6 @@ zfs_datasets:
     canmount: 'off'
   new-rpool/var/lib/docker:
     com.sun:auto-snapshot: false
+    syncoid:sync: 'false'
   rpool/var/log:
   rpool/var/spool:
