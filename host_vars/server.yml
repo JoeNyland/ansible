@@ -134,6 +134,9 @@ sanoid_policies:
   new-rpool/downloads:
     use_template: none
     recursive: 'yes'
+  new-rpool/containers:
+    use_template: rpool
+    recursive: 'yes'
 off_site_backup_destination_host: backup-pi
 off_site_backup_source_host: server.home.joe.nyland.io
 zfs_datasets:
