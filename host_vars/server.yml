@@ -138,7 +138,7 @@ sanoid_policies:
     use_template: rpool
     recursive: 'yes'
   new-rpool/var/lib/docker:
-    use_template: rpool
+    use_template: none
 off_site_backup_destination_host: backup-pi
 off_site_backup_source_host: server.home.joe.nyland.io
 zfs_datasets:
