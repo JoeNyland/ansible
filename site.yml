@@ -53,9 +53,9 @@
       cron:
         name: Sync snapshots from SSD pool to tank
         user: root
-        job: /usr/sbin/syncoid --no-sync-snap --recursive new-rpool rpool
-        minute: 0
-        hour: 23
+        job: /usr/sbin/syncoid --no-sync-snap --recursive new-rpool/containers rpool/containers
+        hour: 0
+        minute: 15
       tags:
         - cron
         - backup
