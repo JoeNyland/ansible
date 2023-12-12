@@ -49,6 +49,11 @@
     - joenyland.dovecot
     - joenyland.get_iplayer
   tasks:
+    - name: Install cron
+      apt:
+        name: cron
+      tags:
+        - cron
     - name: Setup cron to sync snapshots from SSD pool to tank
       cron:
         name: Sync snapshots from SSD pool to tank
