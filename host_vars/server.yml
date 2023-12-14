@@ -54,18 +54,6 @@ postfix_relay_host:
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
 postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
 nfs_exports:
-  /downloads:
-    client_permissions:
-      fc00:f00d:cafe:10::/64:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-      10.10.0.0/16:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
   /home:
     client_permissions:
       fc00:f00d:cafe:10::/64:
@@ -91,10 +79,6 @@ nfs_exports:
         - crossmnt # Allow mounts inside /tank to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
 samba_shares:
-  downloads:
-    path: /downloads
-    valid_users: joe
-    read_only: false
   tank:
     path: /tank
     valid_users: joe
@@ -131,14 +115,9 @@ sanoid_policies:
   rpool:
     use_template: rpool
     recursive: 'yes'
-  new-rpool/downloads:
+  rpool/tank/downloads:
     use_template: none
     recursive: 'yes'
-  new-rpool/containers:
-    use_template: rpool
-    recursive: 'yes'
-  new-rpool/var/lib/docker:
-    use_template: none
 off_site_backup_destination_host: backup-pi
 off_site_backup_source_host: server.home.joe.nyland.io
 zfs_datasets:
@@ -205,6 +184,9 @@ zfs_datasets:
   rpool/containers/tautulli:
   rpool/containers/uptime-kuma:
   rpool/containers/whisparr:
+  rpool/tank/downloads:
+    syncoid:sync: 'false'
+    compression: 'off'
   rpool/tank/home:
     mountpoint: /home
   rpool/tank/home/joe:
@@ -223,18 +205,7 @@ zfs_datasets:
     canmount: 'off'
   rpool/var/lib:
     canmount: 'off'
+  rpool/var/lib/docker:
+    com.sun:auto-snapshot: false
   rpool/var/log:
   rpool/var/spool:
-  new-rpool:
-    canmount: 'off'
-    syncoid:sync: 'false'
-  new-rpool/containers:
-    syncoid:sync: 'true'
-  new-rpool/downloads:
-    compression: 'off'
-  new-rpool/var:
-    canmount: 'off'
-  new-rpool/var/lib:
-    canmount: 'off'
-  new-rpool/var/lib/docker:
-    com.sun:auto-snapshot: false
