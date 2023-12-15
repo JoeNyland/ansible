@@ -44,7 +44,7 @@ sanoid_templates:
     frequently: 0
     hourly: 0
     daily: 30
-    monthly: 3
+    monthly: 1
     yearly: 0
   rpool:
     autosnap: 'no'
@@ -52,7 +52,7 @@ sanoid_templates:
     frequently: 0
     hourly: 0
     daily: 30
-    monthly: 3
+    monthly: 1
     yearly: 0
 sanoid_policies:
   off-site/bpool:
