@@ -90,7 +90,7 @@ sanoid_templates:
     frequently: 0
     hourly: 0
     daily: 30
-    monthly: 3
+    monthly: 0
     yearly: 0
   rpool:
     autosnap: 'yes'
@@ -98,7 +98,7 @@ sanoid_templates:
     frequently: 0
     hourly: 0
     daily: 30
-    monthly: 3
+    monthly: 0
     yearly: 0
   none:
     autosnap: 'no'
