@@ -84,36 +84,30 @@ samba_shares:
     valid_users: joe
     read_only: false
 sanoid_templates:
-  bpool:
+  default:
     autosnap: 'yes'
     autoprune: 'yes'
     frequently: 0
     hourly: 0
-    daily: 30
-    monthly: 1
-    yearly: 0
-  rpool:
-    autosnap: 'yes'
-    autoprune: 'yes'
-    frequently: 0
-    hourly: 0
-    daily: 30
+    daily: 7
+    weekly: 4
     monthly: 1
     yearly: 0
   none:
     autosnap: 'no'
-    autoprune: 'no'
+    autoprune: 'yes'
     frequently: 0
     hourly: 0
     daily: 0
+    weekly: 0
     monthly: 0
     yearly: 0
 sanoid_policies:
   bpool:
-    use_template: bpool
+    use_template: default
     recursive: 'yes'
   rpool:
-    use_template: rpool
+    use_template: default
     recursive: 'yes'
   rpool/tank/downloads:
     use_template: none

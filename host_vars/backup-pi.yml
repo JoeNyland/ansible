@@ -38,28 +38,30 @@ wireguard_interfaces:
         endpoint: vps.cloud.joe.nyland.io:51821
         keep_alive: 25
 sanoid_templates:
-  bpool:
+  default:
     autosnap: 'no'
     autoprune: 'yes'
     frequently: 0
     hourly: 0
-    daily: 30
+    daily: 7
+    weekly: 4
     monthly: 1
     yearly: 0
-  rpool:
+  none:
     autosnap: 'no'
-    autoprune: 'yes'
+    autoprune: 'no'
     frequently: 0
     hourly: 0
-    daily: 30
-    monthly: 1
+    daily: 0
+    weekly: 0
+    monthly: 0
     yearly: 0
 sanoid_policies:
   off-site/bpool:
-    use_template: bpool
+    use_template: default
     recursive: 'yes'
   off-site/rpool:
-    use_template: rpool
+    use_template: default
     recursive: 'yes'
 zfs_datasets:
   off-site:
