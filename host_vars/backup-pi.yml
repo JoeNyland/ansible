@@ -16,27 +16,6 @@ off_site_backup_tasks:
     minute: 0
 off_site_backup_destination_host: backup-pi
 off_site_backup_source_host: server.home.joe.nyland.io
-wireguard_interfaces:
-  wg0:
-    address: 10.8.1.2/24, fc00:f00d:cafe:8:1::2/80
-    mtu: 1400
-    post_up:
-      - wg set %i private-key /etc/wireguard/private.key
-    dns:
-      - fc00:f00d:cafe:8:1::1
-      - 10.8.1.1
-      - cloud.joe.nyland.io
-    peers:
-      - name: Router
-        public_key: P3lmTwJlnV/K5CLPkK77C5qOWapCimop5c8eox3FSFg=
-        allowed_ips: 10.8.0.0/24, 10.8.1.0/24, 10.10.0.0/16, fc00:f00d:cafe:8::/80, fc00:f00d:cafe:8:1::/80, fc00:f00d:cafe:10::/64
-        endpoint: home.joe.nyland.io:51821
-        keep_alive: 25
-      - name: VPS
-        public_key: H5BiYYop8XqAaq614fep8GlIffgXPWtwYz2krQZzt1w=
-        allowed_ips: 10.8.1.3/32, fc00:f00d:cafe:8:1::3/128
-        endpoint: vps.cloud.joe.nyland.io:51821
-        keep_alive: 25
 sanoid_templates:
   default:
     autosnap: 'no'
