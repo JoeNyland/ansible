@@ -22,7 +22,7 @@ postfix_aliases:
 wireguard_interfaces:
   wg0:
     address: 10.8.1.3/24, fc00:f00d:cafe:8:1::3/80
-    listen_port: 51821
+    listen_port: 51820
     mtu: 1400
     post_up:
       - wg set %i private-key /etc/wireguard/private.key
