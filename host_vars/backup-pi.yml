@@ -13,7 +13,7 @@ off_site_backup_tasks:
       # This allows backups to be taken even if encryption keys are not currently loaded.
       - w
     hour: 1
-    minute: 0
+    minute: 30
 off_site_backup_destination_host: backup-pi
 off_site_backup_source_host: server.home.joe.nyland.io
 sanoid_templates:
