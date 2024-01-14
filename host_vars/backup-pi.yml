@@ -1,6 +1,6 @@
 ---
 hostname: Backup-Pi
-domain: cloud.joe.nyland.io
+domain: home.cliff.nyland.io
 off_site_backup_tasks:
   - source: syncoid@server.home.joe.nyland.io:bpool
     destination: off-site/bpool
