@@ -21,19 +21,19 @@ postfix_aliases:
   syncoid: joe
 wireguard_interfaces:
   wg0:
-    address: 10.8.1.3/24, fc00:f00d:cafe:8:1::3/80
+    address: fdff:0205:2005::22/123, 172.16.255.34/27
     listen_port: 51820
     mtu: 1400
     post_up:
       - wg set %i private-key /etc/wireguard/private.key
     dns:
-      - fc00:f00d:cafe:8:1::1
-      - 10.8.1.1
+      - fdff:205:2005::21
+      - 172.16.255.33
       - cloud.joe.nyland.io
     peers:
       - name: Router
         public_key: P3lmTwJlnV/K5CLPkK77C5qOWapCimop5c8eox3FSFg=
-        allowed_ips: 10.8.0.0/24, 10.8.1.0/24, 10.10.0.0/16, fc00:f00d:cafe:8::/80, fc00:f00d:cafe:8:1::/80, fc00:f00d:cafe:10::/64
+        allowed_ips: 172.16.255.0/27, 172.16.255.32/27, 10.10.0.0/16, fdff:205:2005::/123, fdff:205:2005::20/123, fc00:f00d:cafe:10::/64
         endpoint: home.joe.nyland.io:51821
         keep_alive: 25
 nginx_config_http_template_enable: true

@@ -28,14 +28,14 @@ sudo_users:
 subnets:
   cloud:
     ipv6:
-      cidr: fc00:f00d:cafe:8:1::/80
+      cidr: fdff:205:2005::20/123
     ipv4:
-      cidr: 10.8.1.0/24
+      cidr: 172.16.255.32/27
   vpn:
     ipv6:
-      cidr: fc00:f00d:cafe:8::/80
+      cidr: fdff:205:2005::/123
     ipv4:
-      cidr: 10.8.0.0/24
+      cidr: 172.16.255.0/27
   lan:
     ipv6:
       cidr: fc00:f00d:cafe:10::/64
