@@ -47,10 +47,6 @@ postfix_networks:
   - "[fdaa:205:2005:10::]/64"  # LAN
   - "[fdff:205:2005::]/123"   # VPN
   - "[fdff:205:2005::20]/123" # Cloud
-postfix_relay_host:
-  host: smtp.postmarkapp.com
-  port: 587
-  sasl_auth_enabled: true
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
 postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
 nfs_exports:
