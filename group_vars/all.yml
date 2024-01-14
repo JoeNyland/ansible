@@ -38,7 +38,7 @@ subnets:
       cidr: 172.16.255.0/27
   lan:
     ipv6:
-      cidr: fc00:f00d:cafe:10::/64
+      cidr: fdaa:205:2005:10::/64
     ipv4:
       cidr: 10.10.0.0/16
 timezone: Europe/London

@@ -44,7 +44,7 @@ postfix_networks:
   - "172.16.255.32/27"  # Cloud
   - "[::ffff:127.0.0.0]/104"
   - "[::1]/128"
-  - "[fc00:f00d:cafe:10::]/64"  # LAN
+  - "[fdaa:205:2005:10::]/64"  # LAN
   - "[fdff:205:2005::]/123"   # VPN
   - "[fdff:205:2005::20]/123" # Cloud
 postfix_relay_host:
@@ -56,7 +56,7 @@ postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
 nfs_exports:
   /home:
     client_permissions:
-      fc00:f00d:cafe:10::/64:
+      fdaa:205:2005:10::/64:
         - rw # Allow read/write access
         - insecure # Allow ports >1025 (mainly for macOS compatibility
         - crossmnt # Allow mounts inside /home to be visible
@@ -68,7 +68,7 @@ nfs_exports:
         - no_root_squash # Do not squash root user access to the anonymous user
   /tank:
     client_permissions:
-      fc00:f00d:cafe:10::/64:
+      fdaa:205:2005:10::/64:
         - rw # Allow read/write access
         - insecure # Allow ports >1025 (mainly for macOS compatibility)
         - crossmnt # Allow mounts inside /tank to be visible
