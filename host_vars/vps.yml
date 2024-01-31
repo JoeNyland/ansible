@@ -33,7 +33,17 @@ wireguard_interfaces:
     peers:
       - name: Router
         public_key: P3lmTwJlnV/K5CLPkK77C5qOWapCimop5c8eox3FSFg=
-        allowed_ips: 172.16.255.0/27, 172.16.255.32/27, 10.10.0.0/16, fdff:205:2005::/123, fdff:205:2005::20/123, fdaa:205:2005:10::/64
+        allowed_ips:
+          - fdff:205:2005::/123
+          - fdff:205:2005::20/123
+          - fdaa:205:2005:10::/64
+          - fdaa:1610:2007:200::/64
+          - fdaa:e52a:c61:10::/64
+          - 172.16.255.0/27
+          - 172.16.255.32/27
+          - 192.168.200.0/24
+          - 172.30.10.0/24
+          - 10.10.0.0/16
         endpoint: home.joe.nyland.io:51821
         keep_alive: 25
 nginx_config_http_template_enable: true
