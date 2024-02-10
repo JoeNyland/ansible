@@ -45,7 +45,6 @@ wireguard_interfaces:
           - 172.30.10.0/24
           - 10.10.0.0/16
         endpoint: home.joe.nyland.io:51821
-        keep_alive: 25
 nginx_config_http_template_enable: true
 nginx_config_http_template:
   - template_file: http/default.conf.j2
