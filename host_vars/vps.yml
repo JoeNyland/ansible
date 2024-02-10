@@ -23,7 +23,7 @@ wireguard_interfaces:
   wg0:
     address: fdff:0205:2005::22/123, 172.16.255.34/27
     listen_port: 51820
-    mtu: 1400
+    mtu: 1412
     post_up:
       - wg set %i private-key /etc/wireguard/private.key
     dns:
