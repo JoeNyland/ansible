@@ -13,6 +13,7 @@ hostname_aliases:
   - homeassistant.home.joe.nyland.io
   - imap.home.joe.nyland.io
   - smtp.home.joe.nyland.io
+  - mail.home.joe.nyland.io
 domain: home.joe.nyland.io
 postfix_aliases:
   mailer-daemon: postmaster
