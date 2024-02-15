@@ -10,7 +10,7 @@ dropbear_initramfs_ssh_authorized_keys:
 hostname: Server
 hostname_aliases:
   - ca.home.joe.nyland.io
-  - ha.home.joe.nyland.io
+  - homeassistant.home.joe.nyland.io
   - imap.home.joe.nyland.io
   - smtp.home.joe.nyland.io
 domain: home.joe.nyland.io
