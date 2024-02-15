@@ -159,7 +159,6 @@ zfs_datasets:
   rpool/tank/backups:
   rpool/tank/backups/images:
   rpool/tank/containers:
-  rpool/tank/containers/bazarr:
   rpool/tank/containers/home-assistant:
   rpool/tank/containers/lidarr:
   rpool/tank/containers/plex:
@@ -171,7 +170,6 @@ zfs_datasets:
   rpool/tank/containers/sonarr:
   rpool/tank/containers/stash:
   rpool/tank/containers/step-ca:
-  rpool/tank/containers/tautulli:
   rpool/tank/containers/uptime-kuma:
   rpool/tank/containers/whisparr:
   rpool/tank/downloads:
