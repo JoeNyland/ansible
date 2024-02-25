@@ -106,8 +106,11 @@ sanoid_policies:
   rpool:
     use_template: default
     recursive: 'yes'
-  rpool/tank/downloads:
+  rpool/downloads:
     use_template: none
+    recursive: 'yes'
+  tank:
+    use_template: default
     recursive: 'yes'
 off_site_backup_destination_host: backup-pi
 off_site_backup_source_host: server.home.joe.nyland.io
