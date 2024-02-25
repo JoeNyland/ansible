@@ -61,3 +61,5 @@ zfs_datasets:
     compression: lz4
   off-site/rpool:
     compression: lz4
+  off-site/tank:
+    compression: lz4
