@@ -50,6 +50,9 @@ sanoid_policies:
   off-site/rpool:
     use_template: default
     recursive: 'yes'
+  off-site/tank:
+    use_template: default
+    recursive: 'yes'
 zfs_datasets:
   off-site:
     mountpoint: 'none'
