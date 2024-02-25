@@ -150,18 +150,6 @@ zfs_datasets:
   rpool/ROOT/debian:
     canmount: noauto
     mountpoint: /
-  tank:
-  tank/archive:
-  tank/archive/apps:
-  tank/archive/certificates:
-  tank/archive/drivers:
-  tank/archive/firmware:
-  tank/archive/gaming:
-  tank/archive/manuals:
-  tank/archive/os:
-  tank/archive/vms:
-  tank/backups:
-  tank/backups/images:
   rpool/containers:
   rpool/containers/home-assistant:
   rpool/containers/lidarr:
@@ -179,6 +167,25 @@ zfs_datasets:
   rpool/downloads:
     syncoid:sync: 'false'
     compression: 'off'
+  rpool/var:
+    canmount: 'off'
+  rpool/var/lib:
+    canmount: 'off'
+  rpool/var/lib/docker:
+  rpool/var/log:
+  rpool/var/spool:
+  tank:
+  tank/archive:
+  tank/archive/apps:
+  tank/archive/certificates:
+  tank/archive/drivers:
+  tank/archive/firmware:
+  tank/archive/gaming:
+  tank/archive/manuals:
+  tank/archive/os:
+  tank/archive/vms:
+  tank/backups:
+  tank/backups/images:
   tank/home:
     mountpoint: /home
   tank/home/joe:
@@ -191,10 +198,3 @@ zfs_datasets:
   tank/media/sport:
   tank/media/tv:
   tank/media/videos:
-  rpool/var:
-    canmount: 'off'
-  rpool/var/lib:
-    canmount: 'off'
-  rpool/var/lib/docker:
-  rpool/var/log:
-  rpool/var/spool:
