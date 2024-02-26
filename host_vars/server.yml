@@ -179,7 +179,6 @@ zfs_datasets:
   tank/archive/apps:
   tank/archive/certificates:
   tank/archive/drivers:
-  tank/archive/firmware:
   tank/archive/gaming:
   tank/archive/manuals:
   tank/archive/os:
