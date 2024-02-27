@@ -37,6 +37,30 @@ postfix_networks:
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
 postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
 nfs_exports:
+  /containers:
+    client_permissions:
+      fdaa:205:2005:10::/64:
+        - rw # Allow read/write access
+        - insecure # Allow ports >1025 (mainly for macOS compatibility)
+        - crossmnt # Allow mounts inside /tank to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+      10.10.0.0/16:
+        - rw # Allow read/write access
+        - insecure # Allow ports >1025 (mainly for macOS compatibility)
+        - crossmnt # Allow mounts inside /tank to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /downloads:
+    client_permissions:
+      fdaa:205:2005:10::/64:
+        - rw # Allow read/write access
+        - insecure # Allow ports >1025 (mainly for macOS compatibility)
+        - crossmnt # Allow mounts inside /tank to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+      10.10.0.0/16:
+        - rw # Allow read/write access
+        - insecure # Allow ports >1025 (mainly for macOS compatibility)
+        - crossmnt # Allow mounts inside /tank to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
   /home:
     client_permissions:
       fdaa:205:2005:10::/64:
@@ -62,6 +86,14 @@ nfs_exports:
         - crossmnt # Allow mounts inside /tank to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
 samba_shares:
+  containers:
+    path: /containers
+    valid_users: joe
+    read_only: false
+  downloads:
+    path: /downloads
+    valid_users: joe
+    read_only: false
   tank:
     path: /tank
     valid_users: joe
