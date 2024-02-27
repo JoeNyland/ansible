@@ -2,28 +2,24 @@
 hostname: Backup-Pi
 domain: home.cliff.nyland.io
 off_site_backup_tasks:
-  - source: syncoid@server.home.joe.nyland.io:bpool
-    destination: off-site/bpool
-    hour: 1
-    minute: 0
-  - source: syncoid@server.home.joe.nyland.io:rpool
-    destination: off-site/rpool
-    send_options:
-      # For encrypted datasets, send data exactly as it exists on disk.
-      # This allows backups to be taken even if encryption keys are not currently loaded.
-      - w
-    hour: 1
+  - name: Server -> Backup-Pi
+    hour: 0
     minute: 30
-  - source: syncoid@server.home.joe.nyland.io:tank
-    destination: off-site/tank
-    send_options:
-      # For encrypted datasets, send data exactly as it exists on disk.
-      # This allows backups to be taken even if encryption keys are not currently loaded.
-      - w
-    hour: 2
-    minute: 0
-off_site_backup_destination_host: backup-pi
-off_site_backup_source_host: server.home.joe.nyland.io
+    tasks:
+      - source: syncoid@server:bpool
+        destination: off-site/bpool
+      - source: syncoid@server:rpool
+        destination: off-site/rpool
+        send_options:
+          # For encrypted datasets, send data exactly as it exists on disk.
+          # This allows backups to be taken even if encryption keys are not currently loaded.
+          - w
+      - source: syncoid@server:tank
+        destination: off-site/tank
+        send_options:
+          # For encrypted datasets, send data exactly as it exists on disk.
+          # This allows backups to be taken even if encryption keys are not currently loaded.
+          - w
 sanoid_templates:
   default:
     autosnap: 'no'
