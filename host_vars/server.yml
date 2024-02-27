@@ -3,7 +3,6 @@ docker_users:
   - joe
 dovecot_mailbox_location: maildir:~/.maildir
 dovecot_auth_username_format: '%Ln'
-# Run zfsunlock automatically in initramfs to unlock root pool
 dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
 dropbear_initramfs_ssh_authorized_keys:
   - https://github.com/joenyland.keys
