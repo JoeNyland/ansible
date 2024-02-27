@@ -15,7 +15,6 @@ roles:
   - src: joenyland.ssh
   - src: joenyland.sudo
   - src: joenyland.updates
-  - src: joenyland.utils
   - src: joenyland.vim
   - src: joenyland.wireguard
   - src: joenyland.zfs

@@ -26,13 +26,25 @@
     - joenyland.ssh
     - joenyland.root_user
     - joenyland.vim
-    - joenyland.utils
     - joenyland.postfix
     - joenyland.homeshick
   tasks:
     - name: Set timezone
       timezone:
         name: "{{ timezone }}"
+    - name: Install utils
+      apt:
+        name:
+          - htop
+          - vim
+          - git
+          - tree
+          - tmux
+          - gnupg
+          - rsync
+          - bash-completion
+          - bsd-mailx
+        update_cache: true
 
 - name: Setup Server
   hosts: server
