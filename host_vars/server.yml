@@ -32,15 +32,8 @@ postfix_inet_interfaces: all
 postfix_mailbox_transport: lmtp:unix:private/dovecot-lmtp
 postfix_networks:
   - "127.0.0.0/8"
-  - "172.17.0.0/16"
-  - "10.10.0.0/16" # LAN
-  - "172.16.255.0/27"  # VPN
-  - "172.16.255.32/27"  # Cloud
   - "[::ffff:127.0.0.0]/104"
   - "[::1]/128"
-  - "[fdaa:205:2005:10::]/64" # LAN
-  - "[fdff:205:2005::]/123"   # VPN
-  - "[fdff:205:2005::20]/123" # Cloud
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
 postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
 nfs_exports:
