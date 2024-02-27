@@ -31,7 +31,7 @@ wireguard_interfaces:
       - 172.16.255.33
       - cloud.joe.nyland.io
     peers:
-      - name: Router
+      - name: Firewall
         public_key: P3lmTwJlnV/K5CLPkK77C5qOWapCimop5c8eox3FSFg=
         allowed_ips:
           - fdff:205:2005::/123
