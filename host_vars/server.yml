@@ -111,8 +111,6 @@ sanoid_policies:
   tank:
     use_template: default
     recursive: 'yes'
-off_site_backup_destination_host: backup-pi
-off_site_backup_source_host: server.home.joe.nyland.io
 zfs_datasets:
   # Boot
   bpool:
