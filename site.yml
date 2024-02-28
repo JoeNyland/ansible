@@ -76,7 +76,9 @@
     - name: Install Step CLI
       apt:
         deb: https://dl.smallstep.com/cli/docs-cli-install/latest/step-cli_arm64.deb
-      tags: step
+      tags:
+        - step
+        - notest # Can't install arm64 packages in tests
 
 - name: Setup VPS
   hosts: vps
