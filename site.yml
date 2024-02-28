@@ -59,6 +59,11 @@
     - joenyland.docker
     - joenyland.dovecot
     - joenyland.get_iplayer
+  tasks:
+    - name: Install Step CLI
+      apt:
+        deb: https://dl.smallstep.com/cli/docs-cli-install/latest/step-cli_amd64.deb
+      tags: step
 
 - name: Setup Backup-Pi
   hosts: backup-pi
@@ -67,6 +72,11 @@
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.off_site_backup
+  tasks:
+    - name: Install Step CLI
+      apt:
+        deb: https://dl.smallstep.com/cli/docs-cli-install/latest/step-cli_arm64.deb
+      tags: step
 
 - name: Setup VPS
   hosts: vps
