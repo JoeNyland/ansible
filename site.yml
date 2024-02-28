@@ -77,3 +77,10 @@
       tags: nginx
     - role: nginxinc.nginx_config
       tags: nginx
+  tasks:
+    - name: Create user
+      user:
+        name: joe
+        shell: /usr/sbin/nologin
+        password_lock: true
+      tags: user
