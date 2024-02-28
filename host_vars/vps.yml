@@ -18,8 +18,7 @@ postfix_aliases:
   noc: root
   security: root
   root: joe@server.home.joe.nyland.io
-  joe: root
-  syncoid: joe
+  syncoid: root
 wireguard_interfaces:
   wg0:
     address: fdff:0205:2005::22/123, 172.16.255.34/27
