@@ -166,20 +166,6 @@ zfs_datasets:
   rpool/ROOT/debian:
     canmount: noauto
     mountpoint: /
-  rpool/containers:
-  rpool/containers/home-assistant:
-  rpool/containers/lidarr:
-  rpool/containers/plex:
-  rpool/containers/portainer:
-  rpool/containers/prowlarr:
-  rpool/containers/qbittorrent:
-  rpool/containers/radarr:
-  rpool/containers/sabnzbd:
-  rpool/containers/sonarr:
-  rpool/containers/stash:
-  rpool/containers/step-ca:
-  rpool/containers/uptime-kuma:
-  rpool/containers/whisparr:
   rpool/downloads:
     syncoid:sync: 'false'
     compression: 'off'
@@ -191,25 +177,8 @@ zfs_datasets:
   rpool/var/log:
   rpool/var/spool:
   tank:
-  tank/archive:
-  tank/archive/apps:
-  tank/archive/certificates:
-  tank/archive/drivers:
-  tank/archive/gaming:
-  tank/archive/manuals:
-  tank/archive/os:
-  tank/archive/vms:
-  tank/backups:
-  tank/backups/images:
   tank/home:
     mountpoint: /home
   tank/home/joe:
   tank/home/root:
     mountpoint: /root
-  tank/media/audiobooks:
-  tank/media/movies:
-  tank/media/music:
-  tank/media/photos:
-  tank/media/sport:
-  tank/media/tv:
-  tank/media/videos:
