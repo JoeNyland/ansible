@@ -1,6 +1,6 @@
 ---
 hostname: Backup-Pi
-domain: home.cliff.nyland.io
+domain: remote.joe.nyland.io
 off_site_backup_tasks:
   - name: Server -> Backup-Pi
     hour: 0
