@@ -16,8 +16,7 @@ postfix_aliases:
   noc: root
   security: root
   root: joe
-  joe: joe@server.home.joe.nyland.io
-  syncoid: joe
+  joe: joe@home.joe.nyland.io
 postfix_relay_host:
   host: smtp.home.joe.nyland.io
 ssh_authorized_keys:

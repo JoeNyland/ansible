@@ -5,21 +5,6 @@ root_user_enabled: true
 ssh_authorized_keys: [] # Authorized keys are managed by the provider (https://console.scaleway.com/project/ssh-keys)
 ssh_permit_root_login: true # Log in as root by default
 sudo_users: []
-postfix_aliases:
-  mailer-daemon: postmaster
-  postmaster: root
-  nobody: root
-  hostmaster: root
-  usenet: root
-  news: root
-  webmaster: root
-  www: root
-  ftp: root
-  abuse: root
-  noc: root
-  security: root
-  root: joe@server.home.joe.nyland.io
-  syncoid: root
 wireguard_interfaces:
   wg0:
     address: fdff:0205:2005::22/123, 172.16.255.34/27
