@@ -197,13 +197,9 @@ zfs_datasets:
     syncoid:sync: 'false'
   rpool/var/lib/nfs:
     syncoid:sync: 'false'
-  rpool/var/log:
-  rpool/var/spool:
   rpool/var/tmp:
     syncoid:sync: 'false'
-  tank:
   tank/home:
     mountpoint: /home
-  tank/home/joe:
   tank/home/root:
     mountpoint: /root
