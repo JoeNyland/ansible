@@ -9,6 +9,7 @@
     # We override dotfiles URL here so that in CI we can install dotfiles without SSH keys.
     homeshick_dotfiles_repos:
       dotfiles: https://github.com/JoeNyland/dotfiles.git
+    docker_daemon_config: {} # Various config not available in CI, so reset to empty hash.
     # We can't run ZFS in CI, so we can't create datasets, either
     zfs_datasets: {}
     # Override the Wireguard interface configuration, omitting the DNS config as this would break DNS in CI.
