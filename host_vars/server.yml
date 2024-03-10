@@ -1,6 +1,8 @@
 ---
 docker_users:
   - joe
+docker_daemon_config:
+  storage-driver: zfs
 dovecot_mailbox_location: maildir:~/.maildir
 dovecot_auth_username_format: '%Ln'
 dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
