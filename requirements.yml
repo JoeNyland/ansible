@@ -2,31 +2,49 @@
 collections:
   - community.general
 roles:
-  - src: joenyland.abcde
-  - src: joenyland.docker
-  - src: joenyland.dovecot
-  - src: joenyland.dropbear_initramfs
-  - src: joenyland.get_iplayer
-  - src: joenyland.homeshick
+  - name: joenyland.abcde
+    src: https://github.com/JoeNyland/ansible-abcde-role
+  - name: joenyland.docker
+    src: https://github.com/JoeNyland/ansible-docker-role
+  - name: joenyland.dovecot
+    src: https://github.com/JoeNyland/ansible-dovecot-role
+  - name: joenyland.dropbear_initramfs
+    src: https://github.com/JoeNyland/ansible-dropbear-initramfs-role
+  - name: joenyland.get_iplayer
+    src: https://github.com/JoeNyland/ansible-get-iplayer-role
+  - name: joenyland.homeshick
+    src: https://github.com/JoeNyland/ansible-homeshick-role
   - name: joenyland.hostname
     src: https://github.com/JoeNyland/ansible-hostname-role
   - name: joenyland.journalctl
     src: https://github.com/JoeNyland/ansible-journalctl-role
-  - src: joenyland.nfs_server
-  - src: joenyland.off_site_backup
-  - src: joenyland.postfix
-  - src: joenyland.root_user
-  - src: joenyland.samba
-  - src: joenyland.sanoid
-  - src: joenyland.ssh
+  - name: joenyland.nfs_server
+    src: https://github.com/JoeNyland/ansible-nfs-server-role
+  - name: joenyland.off_site_backup
+    src: https://github.com/JoeNyland/ansible-off-site-backup-role
+  - name: joenyland.postfix
+    src: https://github.com/JoeNyland/ansible-postfix-role
+  - name: joenyland.root_user
+    src: https://github.com/JoeNyland/ansible-root-user-role
+  - name: joenyland.samba
+    src: https://github.com/JoeNyland/ansible-samba-role
+  - name: joenyland.sanoid
+    src: https://github.com/JoeNyland/ansible-sanoid-role
+  - name: joenyland.ssh
+    src: https://github.com/JoeNyland/ansible-ssh-role
   - name: joenyland.step_cli
     src: https://github.com/JoeNyland/ansible-step-cli-role
-  - src: joenyland.sudo
+  - name: joenyland.sudo
+    src: https://github.com/JoeNyland/ansible-sudo-role
   - name: joenyland.timezone
     src: https://github.com/JoeNyland/ansible-timezone-role
-  - src: joenyland.updates
-  - src: joenyland.vim
-  - src: joenyland.wireguard
-  - src: joenyland.zfs
+  - name: joenyland.updates
+    src: https://github.com/JoeNyland/ansible-updates-role
+  - name: joenyland.vim
+    src: https://github.com/JoeNyland/ansible-vim-role
+  - name: joenyland.wireguard
+    src: https://github.com/JoeNyland/ansible-wireguard-role
+  - name: joenyland.zfs
+    src: https://github.com/JoeNyland/ansible-zfs-role
   - src: nginxinc.nginx
   - src: nginxinc.nginx_config
