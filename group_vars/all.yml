@@ -24,20 +24,4 @@ ssh_authorized_keys:
     key: https://github.com/joenyland.keys
 sudo_users:
   - joe
-subnets:
-  cloud:
-    ipv6:
-      cidr: fdff:205:2005::20/123
-    ipv4:
-      cidr: 172.16.255.32/27
-  vpn:
-    ipv6:
-      cidr: fdff:205:2005::/123
-    ipv4:
-      cidr: 172.16.255.0/27
-  lan:
-    ipv6:
-      cidr: fdaa:205:2005:10::/64
-    ipv4:
-      cidr: 10.10.0.0/16
 timezone: Europe/London
