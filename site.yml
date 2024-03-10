@@ -1,37 +1,18 @@
 ---
-- name: Setup hostnames and domains
-  hosts: all
-  become: true
-  tags:
-    - hostname
-    - domain
-    - notest # Can't set hostname in tests
-  tasks:
-    - name: Set hostname
-      hostname:
-        name: "{{ hostname }}"
-    - name: Configure hostname and FQDN in /etc/hosts
-      lineinfile:
-        path: /etc/hosts
-        regexp: ^127\.0\.1\.1
-        line: "127.0.1.1\t{{ hostname }}.{{ domain }} {{ hostname }}"
-        mode: '0644'
-
 - name: Setup all systems
   hosts: all
   become: true
   roles:
-    - joenyland.updates
-    - joenyland.sudo
-    - joenyland.ssh
-    - joenyland.root_user
-    - joenyland.vim
-    - joenyland.postfix
     - joenyland.homeshick
+    - joenyland.hostname
+    - joenyland.journalctl
+    - joenyland.postfix
+    - joenyland.root_user
+    - joenyland.sudo
+    - joenyland.timezone
+    - joenyland.updates
+    - joenyland.vim
   tasks:
-    - name: Set timezone
-      timezone:
-        name: "{{ timezone }}"
     - name: Install utils
       apt:
         name:
@@ -44,7 +25,6 @@
           - rsync
           - bash-completion
           - bsd-mailx
-        update_cache: true
 
 - name: Setup Server
   hosts: server
@@ -59,11 +39,7 @@
     - joenyland.docker
     - joenyland.dovecot
     - joenyland.get_iplayer
-  tasks:
-    - name: Install Step CLI
-      apt:
-        deb: https://dl.smallstep.com/cli/docs-cli-install/latest/step-cli_amd64.deb
-      tags: step
+    - joenyland.step_cli
 
 - name: Setup Backup-Pi
   hosts: backup-pi

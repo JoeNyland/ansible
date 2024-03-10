@@ -8,6 +8,8 @@ dropbear_initramfs_ssh_authorized_keys:
   - https://github.com/joenyland.keys
 hostname: Server
 domain: home.joe.nyland.io
+journalctl_users:
+  - joe
 postfix_aliases:
   mailer-daemon: postmaster
   postmaster: root
@@ -130,6 +132,8 @@ sanoid_policies:
   tank:
     use_template: default
     recursive: 'yes'
+sudo_users:
+  - joe
 zfs_datasets:
   # Boot
   bpool:

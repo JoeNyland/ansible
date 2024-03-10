@@ -1,6 +1,8 @@
 ---
 hostname: Backup-Pi
 domain: home.cliff.nyland.io
+journalctl_users:
+  - joe
 off_site_backup_tasks:
   - name: Server -> Backup-Pi
     hour: 0
@@ -65,6 +67,8 @@ sanoid_policies:
   off-site/tank:
     use_template: default
     recursive: 'yes'
+sudo_users:
+  - joe
 zfs_datasets:
   off-site:
     mountpoint: 'none'

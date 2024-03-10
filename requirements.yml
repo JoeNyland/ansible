@@ -1,4 +1,6 @@
 ---
+collections:
+  - community.general
 roles:
   - src: joenyland.abcde
   - src: joenyland.docker
@@ -6,6 +8,10 @@ roles:
   - src: joenyland.dropbear_initramfs
   - src: joenyland.get_iplayer
   - src: joenyland.homeshick
+  - name: joenyland.hostname
+    src: https://github.com/JoeNyland/ansible-hostname-role
+  - name: joenyland.journalctl
+    src: https://github.com/JoeNyland/ansible-journalctl-role
   - src: joenyland.nfs_server
   - src: joenyland.off_site_backup
   - src: joenyland.postfix
@@ -13,12 +19,14 @@ roles:
   - src: joenyland.samba
   - src: joenyland.sanoid
   - src: joenyland.ssh
+  - name: joenyland.step_cli
+    src: https://github.com/JoeNyland/ansible-step-cli-role
   - src: joenyland.sudo
+  - name: joenyland.timezone
+    src: https://github.com/JoeNyland/ansible-timezone-role
   - src: joenyland.updates
   - src: joenyland.vim
   - src: joenyland.wireguard
   - src: joenyland.zfs
   - src: nginxinc.nginx
   - src: nginxinc.nginx_config
-collections:
-  - community.general
