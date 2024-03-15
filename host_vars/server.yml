@@ -13,20 +13,14 @@ domain: home.joe.nyland.io
 journalctl_users:
   - joe
 postfix_aliases:
+  abuse: postmaster
   mailer-daemon: postmaster
-  postmaster: root
-  nobody: root
+  nobody: postmaster
+  postmaster: joe@home.joe.nyland.io
   hostmaster: root
-  usenet: root
-  news: root
-  webmaster: root
-  www: root
-  ftp: root
-  abuse: root
-  noc: root
   security: root
-  root: joe
-  syncoid: joe
+  root: joe@home.joe.nyland.io
+  joe: joe@home.joe.nyland.io
 postfix_destinations:
   - localhost
   - "{{ ansible_hostname }}"

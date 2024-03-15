@@ -3,20 +3,13 @@ ansible_python_interpreter: /usr/bin/python3
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
 postfix_aliases:
+  abuse: postmaster
   mailer-daemon: postmaster
-  postmaster: root
-  nobody: root
+  nobody: postmaster
+  postmaster: joe@home.joe.nyland.io
   hostmaster: root
-  usenet: root
-  news: root
-  webmaster: root
-  www: root
-  ftp: root
-  abuse: root
-  noc: root
   security: root
-  root: joe
-  joe: joe@home.joe.nyland.io
+  root: joe@home.joe.nyland.io
 postfix_relay_host:
   host: smtp.home.joe.nyland.io
 ssh_authorized_keys:
