@@ -1,0 +1,9 @@
+---
+hostname: PVE
+domain: home.joe.nyland.io
+root_user_enabled: true
+ssh_authorized_keys:
+  - user: joe
+    key: https://github.com/joenyland.keys
+ssh_permit_root_login: true # Log in as root by default
+sudo_users: []
