@@ -19,3 +19,7 @@
         name: syncoid
         system: true
         password_lock: true
+    - name: Install cron
+      apt:
+        name: cron
+        update_cache: true

@@ -1,4 +1,11 @@
 ---
+certbot_certs:
+  - domains:
+      - server
+      - server.home.joe.nyland.io
+      - imap.home.joe.nyland.io
+      - smtp.home.joe.nyland.io
+      - mail.home.joe.nyland.io
 docker_users:
   - joe
 docker_daemon_config:

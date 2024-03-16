@@ -1,5 +1,28 @@
 ---
+acme_server_url: https://ca.home.joe.nyland.io/acme/acme/directory
 ansible_python_interpreter: /usr/bin/python3
+certbot_admin_email: joe@home.joe.nyland.io
+certbot_auto_renew_user: root
+certbot_create_extra_args: ""
+certbot_create_command: >-
+  {{ certbot_script }} certonly --{{ certbot_create_method  }}
+  --server {{ acme_server_url }}
+  {{ '--hsts' if certbot_hsts else '' }}
+  {{ '--test-cert' if certbot_testmode else '' }}
+  --noninteractive --agree-tos
+  --email {{ cert_item.email | default(certbot_admin_email) }}
+  {{ '--webroot-path ' if certbot_create_method == 'webroot'  else '' }}
+  {{ cert_item.webroot | default(certbot_webroot) if certbot_create_method == 'webroot' else '' }}
+  {{ certbot_create_extra_args }}
+  -d {{ cert_item.domains | join(',') }}
+  {{ '--pre-hook /etc/letsencrypt/renewal-hooks/pre/stop_services'
+    if certbot_create_standalone_stop_services and certbot_create_method == 'standalone'
+  else '' }}
+  {{ '--post-hook /etc/letsencrypt/renewal-hooks/post/start_services'
+    if certbot_create_standalone_stop_services and certbot_create_method == 'standalone'
+  else '' }}
+certbot_create_if_missing: true
+certbot_create_standalone_stop_services: []
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
 postfix_aliases:

@@ -6,6 +6,7 @@
 - name: Import playbook
   import_playbook: ../../site.yml
   vars:
+    certbot_certs: []
     # We override dotfiles URL here so that in CI we can install dotfiles without SSH keys.
     homeshick_dotfiles_repos:
       dotfiles: https://github.com/JoeNyland/dotfiles.git

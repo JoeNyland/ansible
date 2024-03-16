@@ -1,5 +1,9 @@
 ---
-hostname: PVE
+certbot_certs:
+  - domains:
+      - pve
+      - pve.home.joe.nyland.io
+hostname: pve
 domain: home.joe.nyland.io
 root_user_enabled: true
 ssh_authorized_keys:
