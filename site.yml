@@ -8,6 +8,7 @@
     - joenyland.journalctl
     - joenyland.postfix
     - joenyland.root_user
+    - joenyland.step_cli
     - joenyland.sudo
     - joenyland.timezone
     - joenyland.updates
@@ -39,7 +40,6 @@
     - joenyland.docker
     - joenyland.dovecot
     - joenyland.get_iplayer
-    - joenyland.step_cli
 
 - name: Setup Backup-Pi
   hosts: backup-pi
@@ -48,13 +48,6 @@
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.off_site_backup
-  tasks:
-    - name: Install Step CLI
-      apt:
-        deb: https://dl.smallstep.com/cli/docs-cli-install/latest/step-cli_arm64.deb
-      tags:
-        - step
-        - notest # Can't install arm64 packages in tests
 
 - name: Setup VPS
   hosts: vps
