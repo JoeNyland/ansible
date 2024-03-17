@@ -1,11 +1,11 @@
 ---
 certbot_certs:
   - domains:
-    - server
-    - server.home.joe.nyland.io
-    - imap.home.joe.nyland.io
-    - smtp.home.joe.nyland.io
-    - mail.home.joe.nyland.io
+      - server
+      - server.home.joe.nyland.io
+      - imap.home.joe.nyland.io
+      - smtp.home.joe.nyland.io
+      - mail.home.joe.nyland.io
 certbot_deploy_hooks:
   - name: restart-postfix
     content: systemctl restart postfix
@@ -14,8 +14,8 @@ docker_users:
 docker_daemon_config:
   storage-driver: zfs
 dovecot_mailbox_location: maildir:~/.maildir
-dovecot_auth_username_format: '%Ln'
-dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
+dovecot_auth_username_format: "%Ln"
+dropbear_initramfs_options: "-c /usr/bin/zfsunlock"
 dropbear_initramfs_ssh_authorized_keys:
   - https://github.com/joenyland.keys
 hostname: Server
@@ -108,8 +108,8 @@ samba_shares:
     read_only: false
 sanoid_templates:
   default:
-    autosnap: 'yes'
-    autoprune: 'yes'
+    autosnap: "yes"
+    autoprune: "yes"
     frequently: 0
     hourly: 0
     daily: 7
@@ -117,8 +117,8 @@ sanoid_templates:
     monthly: 0
     yearly: 0
   none:
-    autosnap: 'no'
-    autoprune: 'yes'
+    autosnap: "no"
+    autoprune: "yes"
     frequently: 0
     hourly: 0
     daily: 0
@@ -128,28 +128,28 @@ sanoid_templates:
 sanoid_policies:
   bpool:
     use_template: default
-    recursive: 'yes'
+    recursive: "yes"
   rpool:
     use_template: default
-    recursive: 'yes'
+    recursive: "yes"
   rpool/downloads:
     use_template: none
-    recursive: 'yes'
+    recursive: "yes"
   rpool/var/cache:
     use_template: none
-    recursive: 'yes'
+    recursive: "yes"
   rpool/var/lib/docker:
     use_template: none
-    recursive: 'yes'
+    recursive: "yes"
   rpool/var/lib/nfs:
     use_template: none
-    recursive: 'yes'
+    recursive: "yes"
   rpool/var/tmp:
     use_template: none
-    recursive: 'yes'
+    recursive: "yes"
   tank:
     use_template: default
-    recursive: 'yes'
+    recursive: "yes"
 ssh_authorized_keys:
   - user: joe
     key: https://github.com/joenyland.keys
@@ -160,16 +160,16 @@ users:
 zfs_datasets:
   # Boot
   bpool:
-    devices: 'off'
+    devices: "off"
     acltype: posix
     xattr: sa
     compression: lz4
     normalization: formD
-    relatime: 'on'
-    canmount: 'off'
+    relatime: "on"
+    canmount: "off"
     mountpoint: /boot
   bpool/BOOT:
-    canmount: 'off'
+    canmount: "off"
     mountpoint: none
   bpool/BOOT/debian:
     mountpoint: /boot
@@ -184,32 +184,32 @@ zfs_datasets:
     dnodesize: auto
     compression: lz4
     normalization: formD
-    relatime: 'on'
-    canmount: 'off'
+    relatime: "on"
+    canmount: "off"
     mountpoint: /
   rpool/ROOT:
-    canmount: 'off'
-    mountpoint: 'none'
+    canmount: "off"
+    mountpoint: "none"
   rpool/ROOT/debian:
     canmount: noauto
     mountpoint: /
   rpool/downloads:
-    syncoid:sync: 'false'
-    compression: 'off'
+    syncoid:sync: "false"
+    compression: "off"
   rpool/usr:
-    canmount: 'off'
+    canmount: "off"
   rpool/var:
-    canmount: 'off'
+    canmount: "off"
   rpool/var/cache:
-    syncoid:sync: 'false'
+    syncoid:sync: "false"
   rpool/var/lib:
-    canmount: 'off'
+    canmount: "off"
   rpool/var/lib/docker:
-    syncoid:sync: 'false'
+    syncoid:sync: "false"
   rpool/var/lib/nfs:
-    syncoid:sync: 'false'
+    syncoid:sync: "false"
   rpool/var/tmp:
-    syncoid:sync: 'false'
+    syncoid:sync: "false"
   tank/home:
     mountpoint: /home
   tank/home/root:

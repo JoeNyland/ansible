@@ -1,8 +1,8 @@
 ---
 certbot_certs:
   - domains:
-    - pve
-    - pve.home.joe.nyland.io
+      - pve
+      - pve.home.joe.nyland.io
 certbot_deploy_hooks:
   - name: restart-pveproxy
     content: |
