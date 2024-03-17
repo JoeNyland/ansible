@@ -31,8 +31,8 @@
   hosts: server
   become: true
   roles:
-    - geerlingguy.certbot
     - joenyland.abcde
+    - joenyland.certbot
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.dropbear_initramfs
@@ -41,17 +41,6 @@
     - joenyland.docker
     - joenyland.dovecot
     - joenyland.get_iplayer
-  tasks:
-    - name: Create certbot deploy hook directory
-      file:
-        path: /etc/letsencrypt/renewal-hooks/deploy
-        state: directory
-        mode: '0755'
-    - name: Create certbot deploy script
-      copy:
-        dest: /etc/letsencrypt/renewal-hooks/deploy/restart-postfix.sh
-        mode: '0777'
-        content: systemctl restart postfix
 
 - name: Setup Backup-Pi
   hosts: backup-pi
@@ -82,18 +71,4 @@
   hosts: pve
   become: true
   roles:
-    - geerlingguy.certbot
-  tasks:
-    - name: Create certbot deploy hook directory
-      file:
-        path: /etc/letsencrypt/renewal-hooks/deploy
-        state: directory
-        mode: '0755'
-    - name: Create certbot deploy script
-      copy:
-        dest: /etc/letsencrypt/renewal-hooks/deploy/restart-pveproxy.sh
-        mode: '0777'
-        content: |
-          cp /etc/letsencrypt/live/pve/fullchain.pem /etc/pve/local/pveproxy-ssl.pem
-          cp /etc/letsencrypt/live/pve/privkey.pem /etc/pve/local/pveproxy-ssl.key
-          systemctl restart pveproxy
+    - joenyland.certbot

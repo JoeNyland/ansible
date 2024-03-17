@@ -1,11 +1,14 @@
 ---
 certbot_certs:
   - domains:
-      - server
-      - server.home.joe.nyland.io
-      - imap.home.joe.nyland.io
-      - smtp.home.joe.nyland.io
-      - mail.home.joe.nyland.io
+    - server
+    - server.home.joe.nyland.io
+    - imap.home.joe.nyland.io
+    - smtp.home.joe.nyland.io
+    - mail.home.joe.nyland.io
+certbot_deploy_hooks:
+  - name: restart-postfix
+    content: systemctl restart postfix
 docker_users:
   - joe
 docker_daemon_config:
