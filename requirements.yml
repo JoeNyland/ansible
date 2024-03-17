@@ -42,6 +42,8 @@ roles:
     src: https://github.com/JoeNyland/ansible-timezone-role
   - name: joenyland.updates
     src: https://github.com/JoeNyland/ansible-updates-role
+  - name: joenyland.users
+    src: https://github.com/JoeNyland/ansible-users-role
   - name: joenyland.vim
     src: https://github.com/JoeNyland/ansible-vim-role
   - name: joenyland.wireguard

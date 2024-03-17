@@ -13,7 +13,6 @@ hostname: pve
 domain: home.joe.nyland.io
 root_user_enabled: true
 ssh_authorized_keys:
-  - user: joe
+  - user: root
     key: https://github.com/joenyland.keys
-ssh_permit_root_login: true # Log in as root by default
-sudo_users: []
+ssh_permit_root_login: true

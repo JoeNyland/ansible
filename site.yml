@@ -8,10 +8,12 @@
     - joenyland.journalctl
     - joenyland.postfix
     - joenyland.root_user
+    - joenyland.ssh
     - joenyland.step_cli
     - joenyland.sudo
     - joenyland.timezone
     - joenyland.updates
+    - joenyland.users
     - joenyland.vim
   tasks:
     - name: Install utils
@@ -59,13 +61,6 @@
       tags: nginx
     - role: nginxinc.nginx_config
       tags: nginx
-  tasks:
-    - name: Create user
-      user:
-        name: joe
-        shell: /usr/sbin/nologin
-        password_lock: true
-      tags: user
 
 - name: Setup PVE
   hosts: pve

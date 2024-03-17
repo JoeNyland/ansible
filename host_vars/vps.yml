@@ -11,10 +11,8 @@ postfix_aliases:
   root: joe@home.joe.nyland.io
   webmaster: joe@home.joe.nyland.io
   www: webmaster
-root_user_enabled: true
 ssh_authorized_keys: [] # Authorized keys are managed by the provider (https://console.scaleway.com/project/ssh-keys)
 ssh_permit_root_login: true # Log in as root by default
-sudo_users: []
 wireguard_interfaces:
   wg0:
     address: fdff:0205:2005::22/123, 172.16.255.34/27
@@ -58,3 +56,8 @@ nginx_config_http_template:
                 alias: /home/$1/public_html$2
               autoindex:
                 enable: true
+root_user_enabled: true
+users:
+  joe:
+    shell: /usr/sbin/nologin
+    password_lock: true
