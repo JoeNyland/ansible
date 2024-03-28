@@ -69,3 +69,5 @@
   become: true
   roles:
     - joenyland.certbot
+    - joenyland.sanoid
+    - joenyland.zfs
