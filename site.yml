@@ -21,7 +21,9 @@
         name:
           - htop
           - vim
+          - fio
           - git
+          - iperf3
           - tree
           - tmux
           - gnupg
