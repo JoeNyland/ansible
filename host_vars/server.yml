@@ -102,10 +102,6 @@ samba_shares:
     path: /downloads
     valid_users: joe
     read_only: false
-  scratch:
-    path: /scratch
-    valid_users: joe
-    read_only: false
   tank:
     path: /tank
     valid_users: joe
@@ -137,9 +133,6 @@ sanoid_policies:
     use_template: default
     recursive: "yes"
   rpool/downloads:
-    use_template: none
-    recursive: "yes"
-  rpool/scratch:
     use_template: none
     recursive: "yes"
   rpool/var/cache:
@@ -203,8 +196,6 @@ zfs_datasets:
   rpool/downloads:
     syncoid:sync: "false"
     compression: "off"
-  rpool/scratch:
-    syncoid:sync: "false"
   rpool/usr:
     canmount: "off"
   rpool/var:
