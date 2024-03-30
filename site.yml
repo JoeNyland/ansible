@@ -69,5 +69,6 @@
   become: true
   roles:
     - joenyland.certbot
+    - joenyland.nfs_server
     - joenyland.sanoid
     - joenyland.zfs

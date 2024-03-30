@@ -11,6 +11,19 @@ certbot_deploy_hooks:
       systemctl restart pveproxy
 hostname: pve
 domain: home.joe.nyland.io
+nfs_exports:
+  /home:
+    client_permissions:
+      fe80::/10:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /tank:
+    client_permissions:
+      fe80::/10:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
 root_user_enabled: true
 sanoid_templates:
   default:
