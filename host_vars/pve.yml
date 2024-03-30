@@ -12,6 +12,41 @@ certbot_deploy_hooks:
 hostname: pve
 domain: home.joe.nyland.io
 root_user_enabled: true
+sanoid_templates:
+  default:
+    autosnap: "yes"
+    autoprune: "yes"
+    frequently: 0
+    hourly: 0
+    daily: 7
+    weekly: 0
+    monthly: 0
+    yearly: 0
+  none:
+    autosnap: "no"
+    autoprune: "yes"
+    frequently: 0
+    hourly: 0
+    daily: 0
+    weekly: 0
+    monthly: 0
+    yearly: 0
+sanoid_policies:
+  rpool:
+    use_template: default
+    recursive: "yes"
+  rpool/var/cache:
+    use_template: none
+    recursive: "yes"
+  rpool/var/lib/nfs:
+    use_template: none
+    recursive: "yes"
+  rpool/var/tmp:
+    use_template: none
+    recursive: "yes"
+  tank:
+    use_template: default
+    recursive: "yes"
 ssh_authorized_keys:
   - user: root
     key: https://github.com/joenyland.keys
