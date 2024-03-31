@@ -30,6 +30,7 @@
           - rsync
           - bash-completion
           - bsd-mailx
+          - smartmontools
 
 - name: Setup Server
   hosts: server
