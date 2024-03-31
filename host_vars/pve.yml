@@ -57,6 +57,9 @@ sanoid_templates:
     monthly: 0
     yearly: 0
 sanoid_policies:
+  danube:
+    use_template: default
+    recursive: "yes"
   rpool:
     use_template: default
     recursive: "yes"
