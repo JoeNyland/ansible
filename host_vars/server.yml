@@ -141,9 +141,6 @@ zfs_datasets:
   rpool/ROOT/debian:
     canmount: noauto
     mountpoint: /
-  rpool/downloads:
-    syncoid:sync: "false"
-    compression: "off"
   rpool/usr:
     canmount: "off"
   rpool/var:

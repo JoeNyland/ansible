@@ -67,6 +67,12 @@ ssh_permit_root_login: true
 zfs_datasets:
   rpool:
     compression: lz4
+  rpool/containers:
+    mountpoint: /containers
+  rpool/downloads:
+    syncoid:sync: "false"
+    compression: "off"
+    mountpoint: /downloads
   rpool/var:
     canmount: "off"
     mountpoint: /var
