@@ -44,55 +44,6 @@ postfix_networks:
   - "[::1]/128"
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
 postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
-nfs_exports:
-  /containers:
-    client_permissions:
-      fdaa:205:2005:10::/64:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-      10.10.0.0/16:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-  /downloads:
-    client_permissions:
-      fdaa:205:2005:10::/64:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-      10.10.0.0/16:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-  /home:
-    client_permissions:
-      fdaa:205:2005:10::/64:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility
-        - crossmnt # Allow mounts inside /home to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-      10.10.0.0/16:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility
-        - crossmnt # Allow mounts inside /home to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-  /tank:
-    client_permissions:
-      fdaa:205:2005:10::/64:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-      10.10.0.0/16:
-        - rw # Allow read/write access
-        - insecure # Allow ports >1025 (mainly for macOS compatibility)
-        - crossmnt # Allow mounts inside /tank to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
 samba_shares:
   containers:
     path: /containers
