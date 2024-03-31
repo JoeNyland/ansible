@@ -12,6 +12,18 @@ certbot_deploy_hooks:
 hostname: pve
 domain: home.joe.nyland.io
 nfs_exports:
+  /containers:
+    client_permissions:
+      fe80::/10:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /downloads:
+    client_permissions:
+      fe80::/10:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
   /home:
     client_permissions:
       fe80::/10:
