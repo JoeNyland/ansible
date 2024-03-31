@@ -65,6 +65,8 @@ ssh_authorized_keys:
     key: https://github.com/joenyland.keys
 ssh_permit_root_login: true
 zfs_datasets:
+  rpool:
+    compression: lz4
   rpool/var:
     canmount: "off"
     mountpoint: /var
