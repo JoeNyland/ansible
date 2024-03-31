@@ -9,15 +9,21 @@ off_site_backup_tasks:
     minute: 30
     tasks:
       - source: syncoid@server:bpool
-        destination: off-site/bpool
+        destination: off-site/server/bpool
       - source: syncoid@server:rpool
-        destination: off-site/rpool
+        destination: off-site/server/rpool
         send_options:
           # For encrypted datasets, send data exactly as it exists on disk.
           # This allows backups to be taken even if encryption keys are not currently loaded.
           - w
-      - source: syncoid@server:tank
-        destination: off-site/tank
+      - source: syncoid@pve:rpool
+        destination: off-site/pve/rpool
+        send_options:
+          # For encrypted datasets, send data exactly as it exists on disk.
+          # This allows backups to be taken even if encryption keys are not currently loaded.
+          - w
+      - source: syncoid@pve:tank
+        destination: off-site/pve/tank
         send_options:
           # For encrypted datasets, send data exactly as it exists on disk.
           # This allows backups to be taken even if encryption keys are not currently loaded.
@@ -72,9 +78,11 @@ zfs_datasets:
   off-site:
     mountpoint: 'none'
     readonly: 'on'
-  off-site/bpool:
+  off-site/server/bpool:
     compression: lz4
-  off-site/rpool:
+  off-site/server/rpool:
+    compression: lz4
+  off-site/pve/rpool:
     compression: lz4
   off-site/tank:
     compression: lz4
