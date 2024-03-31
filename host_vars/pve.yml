@@ -60,9 +60,13 @@ sanoid_policies:
   rpool:
     use_template: default
     recursive: "yes"
+  rpool/var:
+    use_template: none
   rpool/var/cache:
     use_template: none
     recursive: "yes"
+  rpool/var/lib:
+    use_template: none
   rpool/var/lib/nfs:
     use_template: none
     recursive: "yes"
