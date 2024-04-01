@@ -1,6 +1,5 @@
 ---
 hostname: Backup-Pi
-domain: home.cliff.nyland.io
 journalctl_users:
   - joe
 off_site_backup_tasks:

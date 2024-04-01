@@ -1,0 +1,7 @@
+---
+ansible_become_method: su
+root_user_enabled: true
+ssh_authorized_keys:
+  - user: root
+    key: https://github.com/joenyland.keys
+ssh_permit_root_login: true

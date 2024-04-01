@@ -1,0 +1,5 @@
+---
+physical:
+  hosts:
+    backup-pi:
+    pve:

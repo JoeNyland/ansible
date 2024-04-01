@@ -19,7 +19,6 @@ dropbear_initramfs_options: "-c /usr/bin/zfsunlock"
 dropbear_initramfs_ssh_authorized_keys:
   - https://github.com/joenyland.keys
 hostname: Server
-domain: home.joe.nyland.io
 journalctl_users:
   - joe
 postfix_aliases:

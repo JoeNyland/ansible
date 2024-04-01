@@ -1,6 +1,5 @@
 ---
 hostname: VPS
-domain: cloud.joe.nyland.io
 postfix_aliases:
   abuse: postmaster
   mailer-daemon: postmaster

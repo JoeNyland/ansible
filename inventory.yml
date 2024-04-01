@@ -1,8 +1,13 @@
 ---
-all:
+local:
+  hosts:
+    pve:
+    server:
+
+off_site:
   hosts:
     backup-pi:
-    pve:
-      ansible_become_method: su
-    server:
+
+cloud:
+  hosts:
     vps:

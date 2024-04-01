@@ -1,0 +1,4 @@
+---
+pve_hosts: # TODO: Rename
+  hosts:
+    pve:

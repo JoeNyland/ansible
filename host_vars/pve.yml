@@ -10,7 +10,6 @@ certbot_deploy_hooks:
       cp /etc/letsencrypt/live/pve/privkey.pem /etc/pve/local/pveproxy-ssl.key
       systemctl restart pveproxy
 hostname: pve
-domain: home.joe.nyland.io
 nfs_exports:
   /containers:
     client_permissions:
@@ -36,7 +35,6 @@ nfs_exports:
         - rw # Allow read/write access
         - crossmnt # Allow mounts inside to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
-root_user_enabled: true
 sanoid_templates:
   default:
     autosnap: "yes"
@@ -82,10 +80,6 @@ sanoid_policies:
   tank:
     use_template: default
     recursive: "yes"
-ssh_authorized_keys:
-  - user: root
-    key: https://github.com/joenyland.keys
-ssh_permit_root_login: true
 zfs_datasets:
   danube:
     compression: lz4
