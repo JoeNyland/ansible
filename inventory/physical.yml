@@ -2,4 +2,5 @@
 physical:
   hosts:
     backup-pi:
-    pve:
+  children:
+    proxmox_nodes:

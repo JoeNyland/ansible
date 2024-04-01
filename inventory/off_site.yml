@@ -1,0 +1,4 @@
+---
+off_site:
+  hosts:
+    backup-pi:

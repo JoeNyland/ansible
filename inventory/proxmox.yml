@@ -1,0 +1,8 @@
+---
+plugin: community.general.proxmox
+url: https://pve:8006
+want_facts: true # TODO: Is this needed?
+
+# user: root@pam # PROXMOX_USER
+# token_id: ansible # PROXMOX_TOKEN_ID
+# token_secret: aaaa-bbbb-cccc-dddd # PROXMOX_TOKEN_SECRET
