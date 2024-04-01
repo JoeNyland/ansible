@@ -85,6 +85,8 @@ sanoid_policies:
     recursive: "yes"
   rpool/var:
     use_template: none
+  rpool/usr:
+    use_template: none
   rpool/var/cache:
     use_template: none
     recursive: "yes"
@@ -141,12 +143,15 @@ zfs_datasets:
     mountpoint: /
   rpool/usr:
     canmount: "off"
+    syncoid:sync: "false"
   rpool/var:
     canmount: "off"
+    syncoid:sync: "false"
   rpool/var/cache:
     syncoid:sync: "false"
   rpool/var/lib:
     canmount: "off"
+    syncoid:sync: "false"
   rpool/var/lib/docker:
     syncoid:sync: "false"
   rpool/var/tmp:
