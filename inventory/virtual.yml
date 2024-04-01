@@ -1,8 +1,6 @@
 ---
 virtual:
-  hosts:
-    server:
-    vps:
   children:
     proxmox_all_lxc:
     proxmox_all_qemu:
+    cloud:
