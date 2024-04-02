@@ -1,15 +1,4 @@
 ---
-certbot_certs:
-  - domains:
-      - pve
-      - pve.home.joe.nyland.io
-certbot_deploy_hooks:
-  - name: restart-pveproxy
-    content: |
-      cp /etc/letsencrypt/live/pve/fullchain.pem /etc/pve/local/pveproxy-ssl.pem
-      cp /etc/letsencrypt/live/pve/privkey.pem /etc/pve/local/pveproxy-ssl.key
-      systemctl restart pveproxy
-hostname: pve
 nfs_exports:
   /containers:
     client_permissions:
