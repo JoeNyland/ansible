@@ -51,12 +51,10 @@
   become: true
   roles:
     - joenyland.abcde
-    - joenyland.certbot
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.dropbear_initramfs
     - joenyland.docker
-    - joenyland.dovecot
     - joenyland.get_iplayer
 
 - name: Setup Backup-Pi
@@ -85,6 +83,13 @@
     - joenyland.nfs_server
     - joenyland.sanoid
     - joenyland.zfs
+
+- name: Setup mail server container
+  hosts: mta
+  become: true
+  roles:
+    - joenyland.certbot
+    - joenyland.dovecot
 
 - name: Setup file server container
   hosts: netatalk
