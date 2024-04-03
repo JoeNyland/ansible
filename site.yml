@@ -71,3 +71,11 @@
     - joenyland.nfs_server
     - joenyland.sanoid
     - joenyland.zfs
+
+- name: Setup file server container
+  hosts: netatalk
+  become: true
+  roles:
+    - joenyland.updates
+    - joenyland.users
+    - netatalk
