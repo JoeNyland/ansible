@@ -1,0 +1,124 @@
+---
+- name: Setup Netatalk
+  become: true
+  tags: netatalk
+  block:
+    - name: Configure apt to allow netatalk install on Debian 12 bookworm
+      when:
+        - ansible_facts['distribution'] == 'Debian'
+        - ansible_facts['distribution_major_version'] == '12'
+      block:
+        - name: Add unstable repository
+          apt_repository:
+            repo: deb http://deb.debian.org/debian unstable main contrib non-free
+            state: present
+
+        - name: Configure apt package preferences
+          copy:
+            dest: /etc/apt/preferences
+            mode: '0644'
+            content: |
+              Package: *
+              Pin: release a=bookworm
+              Pin-Priority: 500
+
+              Package: netatalk
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
+              Package: libgcrypt20
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
+              Package: libtirpc-common
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
+              Package: openssh-server
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
+              Package: openssh-sftp-server
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
+              Package: openssh-client
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
+              Package: *
+              Pin: release a=unstable
+              Pin-Priority: 100
+          notify: Upgrade packages
+
+    - name: Flush handlers
+      meta: flush_handlers
+
+    - name: Install netatalk
+      package:
+        name: netatalk
+        state: present
+
+    - name: Set server name
+      community.general.ini_file:
+        path: /etc/netatalk/afp.conf
+        section: Global
+        option: hostname
+        value: "{{ netatalk_server_name }}"
+        mode: '0644'
+      notify: Restart netatalk
+
+    - name: Set server type
+      community.general.ini_file:
+        path: /etc/netatalk/afp.conf
+        section: Global
+        option: mimic model
+        value: "{{ netatalk_server_model }}"
+        mode: '0644'
+      notify: Restart netatalk
+
+    - name: Enable Spotlight
+      community.general.ini_file:
+        path: /etc/netatalk/afp.conf
+        section: Global
+        option: spotlight
+        value: "{{ netatalk_spotlight_enabled | ternary('yes', 'no') }}"
+        mode: '0644'
+      notify: Restart netatalk
+
+    - name: Configure Homes
+      community.general.ini_file:
+        path: /etc/netatalk/afp.conf
+        section: Homes
+        option: basedir regex
+        value: /home
+        mode: '0644'
+      notify: Reload netatalk
+
+    - name: Enable Time Capsule
+      community.general.ini_file:
+        path: /etc/netatalk/afp.conf
+        section: "{{ netatalk_time_capsule_share_name }}"
+        option: time machine
+        value: 'yes'
+        mode: '0644'
+      notify: Reload netatalk
+
+    - name: Configure Time Capsule share path
+      community.general.ini_file:
+        path: /etc/netatalk/afp.conf
+        section: "{{ netatalk_time_capsule_share_name }}"
+        option: path
+        value: "{{ netatalk_time_capsule_path }}"
+        mode: '0644'
+      notify: Reload netatalk
+
+    - name: Configure share(s)
+      community.general.ini_file:
+        path: /etc/netatalk/afp.conf
+        section: "{{ item.key }}"
+        option: path
+        value: "{{ item.value }}"
+        mode: '0644'
+      with_dict: "{{ netatalk_shares }}"
+      notify: Reload netatalk
