@@ -12,6 +12,7 @@
     - joenyland.users
     - joenyland.timezone
     - joenyland.updates
+    - root_ca
 
 - name: Setup systems which aren't LXCs
   hosts: all:!proxmox_all_lxc

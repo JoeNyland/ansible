@@ -1,0 +1,21 @@
+---
+- name: Install root CA
+  tags:
+    - ca
+    - root_ca
+    - ssl
+  become: true
+  block:
+    - name: Make sure the folder exists
+      file:
+        path: /usr/local/share/ca-certificates
+        state: directory
+        mode: '0755'
+
+    - name: Download the certificate
+      get_url:
+        url: https://nyland.io/~joe/root_ca.crt
+        dest: /usr/local/share/ca-certificates/joe_nyland_root_ca.crt
+        mode: '0644'
+        force: true # Download new versions when they are available
+      notify: Update CA trust
