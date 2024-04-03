@@ -1,5 +1,6 @@
 ---
 ansible_become_method: su
+ansible_ssh_user: root
 certbot_certs:
   - domains:
       - "{{ ansible_hostname }}"

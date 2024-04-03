@@ -1,0 +1,4 @@
+---
+ansible_ssh_user: root
+ssh_permit_root_login: true
+root_user_enabled: true
