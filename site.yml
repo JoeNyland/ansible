@@ -3,17 +3,22 @@
   hosts: all
   become: true
   roles:
-    - joenyland.homeshick
     - joenyland.hostname
     - joenyland.journalctl
     - joenyland.postfix
     - joenyland.root_user
     - joenyland.ssh
-    - joenyland.step_cli
     - joenyland.sudo
+    - joenyland.users
     - joenyland.timezone
     - joenyland.updates
-    - joenyland.users
+
+- name: Setup systems which aren't LXCs
+  hosts: all:!proxmox_all_lxc
+  become: true
+  roles:
+    - joenyland.homeshick
+    - joenyland.step_cli
     - joenyland.vim
   tasks:
     - name: Install utils
@@ -21,15 +26,23 @@
         name:
           - htop
           - vim
-          - fio
           - git
-          - iperf3
           - tree
           - tmux
           - gnupg
           - rsync
           - bash-completion
           - bsd-mailx
+
+- name: Setup physical systems
+  hosts: physical
+  become: true
+  tasks:
+    - name: Install utils
+      apt:
+        name:
+          - iperf3
+          - fio
           - smartmontools
 
 - name: Setup Server
@@ -76,6 +89,4 @@
   hosts: netatalk
   become: true
   roles:
-    - joenyland.updates
-    - joenyland.users
     - netatalk
