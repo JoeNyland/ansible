@@ -2,6 +2,8 @@
 plugin: community.general.proxmox
 url: https://pve:8006
 want_facts: true # TODO: Is this needed?
+compose:
+  ansible_host: proxmox_net0.ip | ansible.utils.ipaddr('address')
 
 # user: root@pam # PROXMOX_USER
 # token_id: ansible # PROXMOX_TOKEN_ID
