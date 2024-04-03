@@ -28,8 +28,6 @@ roles:
     src: https://github.com/JoeNyland/ansible-postfix-role
   - name: joenyland.root_user
     src: https://github.com/JoeNyland/ansible-root-user-role
-  - name: joenyland.samba
-    src: https://github.com/JoeNyland/ansible-samba-role
   - name: joenyland.sanoid
     src: https://github.com/JoeNyland/ansible-sanoid-role
   - name: joenyland.ssh

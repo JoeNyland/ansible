@@ -43,19 +43,6 @@ postfix_networks:
   - "[::1]/128"
 postfix_smtpd_tls_cert_file: /etc/letsencrypt/live/server/fullchain.pem
 postfix_smtpd_tls_key_file: /etc/letsencrypt/live/server/privkey.pem
-samba_shares:
-  containers:
-    path: /containers
-    valid_users: joe
-    read_only: false
-  downloads:
-    path: /downloads
-    valid_users: joe
-    read_only: false
-  tank:
-    path: /tank
-    valid_users: joe
-    read_only: false
 sanoid_templates:
   default:
     autosnap: "yes"

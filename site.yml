@@ -41,7 +41,6 @@
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.dropbear_initramfs
-    - joenyland.samba
     - joenyland.docker
     - joenyland.dovecot
     - joenyland.get_iplayer
