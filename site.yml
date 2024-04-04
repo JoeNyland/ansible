@@ -46,16 +46,6 @@
           - fio
           - smartmontools
 
-- name: Setup Server
-  hosts: server
-  become: true
-  roles:
-    - joenyland.abcde
-    - joenyland.zfs
-    - joenyland.sanoid
-    - joenyland.dropbear_initramfs
-    - joenyland.get_iplayer
-
 - name: Setup Backup-Pi
   hosts: backup-pi
   become: true
