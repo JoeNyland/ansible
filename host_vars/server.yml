@@ -6,10 +6,6 @@ certbot_certs:
 certbot_deploy_hooks:
   - name: restart-postfix
     content: systemctl restart postfix
-docker_users:
-  - joe
-docker_daemon_config:
-  storage-driver: zfs
 dropbear_initramfs_options: "-c /usr/bin/zfsunlock"
 dropbear_initramfs_ssh_authorized_keys:
   - https://github.com/joenyland.keys
@@ -110,8 +106,6 @@ zfs_datasets:
     syncoid:sync: "false"
   rpool/var/lib:
     canmount: "off"
-    syncoid:sync: "false"
-  rpool/var/lib/docker:
     syncoid:sync: "false"
   rpool/var/tmp:
     syncoid:sync: "false"

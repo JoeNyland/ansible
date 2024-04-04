@@ -54,7 +54,6 @@
     - joenyland.zfs
     - joenyland.sanoid
     - joenyland.dropbear_initramfs
-    - joenyland.docker
     - joenyland.get_iplayer
 
 - name: Setup Backup-Pi
@@ -96,3 +95,9 @@
   become: true
   roles:
     - netatalk
+
+- name: Setup Docker VM
+  hosts: docker_vm
+  become: true
+  roles:
+    - joenyland.docker

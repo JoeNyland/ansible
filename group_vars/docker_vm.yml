@@ -1,0 +1,12 @@
+---
+docker_users:
+  - joe
+journalctl_users:
+  - joe
+ssh_authorized_keys:
+  - user: joe
+    key: https://github.com/joenyland.keys
+sudo_users:
+  - joe
+users:
+  joe:
