@@ -1,5 +1,5 @@
 ---
-docker_host_mounts:
+docker_host_storage_mounts:
   '[fe80::484a:e1ff:fe17:c664%ens19]:/containers': /containers
   '[fe80::484a:e1ff:fe17:c664%ens19]:/downloads': /downloads
   '[fe80::484a:e1ff:fe17:c664%ens19]:/tank': /tank

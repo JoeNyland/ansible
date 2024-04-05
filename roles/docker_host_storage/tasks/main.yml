@@ -8,7 +8,7 @@
     name: "{{ item.value }}"
     state: directory
     mode: '0755'
-  with_dict: "{{ docker_host_mounts }}"
+  with_dict: "{{ docker_host_storage_mounts }}"
 
 - name: Mount shares
   mount:
@@ -17,4 +17,4 @@
     state: mounted
     fstype: nfs
     opts: defaults,_netdev
-  with_dict: "{{ docker_host_mounts }}"
+  with_dict: "{{ docker_host_storage_mounts }}"
