@@ -91,3 +91,4 @@
   become: true
   roles:
     - joenyland.docker
+    - shares

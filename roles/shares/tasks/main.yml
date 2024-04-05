@@ -1,0 +1,20 @@
+---
+- name: Install NFS
+  apt:
+    name: nfs-client
+
+- name: Create directories for mount points
+  file:
+    name: "{{ item.value }}"
+    state: directory
+    mode: '0755'
+  with_dict: "{{ docker_host_mounts }}"
+
+- name: Mount shares
+  mount:
+    src: "{{ item.key }}"
+    path: "{{ item.value }}"
+    state: mounted
+    fstype: nfs
+    opts: defaults,_netdev
+  with_dict: "{{ docker_host_mounts }}"
