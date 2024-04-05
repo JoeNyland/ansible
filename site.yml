@@ -74,7 +74,7 @@
     - joenyland.zfs
 
 - name: Setup mail server container
-  hosts: mta
+  hosts: mail
   become: true
   roles:
     - joenyland.certbot

@@ -5,23 +5,15 @@ certbot_certs:
       - "{{ ansible_fqdn }}"
       - imap.home.joe.nyland.io
       - smtp.home.joe.nyland.io
-      - mail.home.joe.nyland.io
 certbot_deploy_hooks:
   - name: restart-postfix
-    content: systemctl restart postfix
+    content: systemctl restart postfix.service
+  - name: restart-dovecot
+    content: systemctl restart dovecot.service
 dovecot_mailbox_location: maildir:~/.maildir
 dovecot_auth_username_format: "%Ln"
 dovecot_ssl_certificate: "/etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem"
 dovecot_ssl_key: "/etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem"
-postfix_aliases:
-  abuse: postmaster
-  mailer-daemon: postmaster
-  nobody: postmaster
-  postmaster: joe@home.joe.nyland.io
-  hostmaster: root
-  security: root
-  root: joe@home.joe.nyland.io
-  joe: joe@home.joe.nyland.io
 postfix_destinations:
   - localhost
   - "{{ ansible_hostname }}"

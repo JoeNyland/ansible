@@ -1,4 +1,4 @@
 ---
 mail:
-  children:
-    mta:
+  hosts:
+    mx[01:02]:
