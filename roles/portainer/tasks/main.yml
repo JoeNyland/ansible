@@ -1,0 +1,12 @@
+---
+- name: Setup Portainer
+  tags:
+    - docker
+    - portainer
+  block:
+    - name: Setup as master
+      include_tasks: portainer.yml
+      when: not portainer_agent
+    - name: Setup as agent
+      include_tasks: portainer_agent.yml
+      when: portainer_agent

@@ -1,0 +1,15 @@
+---
+- name: Create container
+  docker_container:
+    name: portainer
+    image: portainer/portainer-ce
+    ports:
+      - 9443:9443
+    restart_policy: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /containers/portainer:/data
+    labels:
+      traefik.enable: 'true'
+      traefik.http.services.portainer.loadbalancer.server.port: '9443'
+      traefik.http.services.portainer.loadbalancer.server.scheme: https
