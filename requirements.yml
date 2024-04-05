@@ -2,18 +2,12 @@
 collections:
   - community.general
 roles:
-  - name: joenyland.abcde
-    src: https://github.com/JoeNyland/ansible-abcde-role
   - name: joenyland.certbot
     src: https://github.com/JoeNyland/ansible-certbot-role
   - name: joenyland.docker
     src: https://github.com/JoeNyland/ansible-docker-role
   - name: joenyland.dovecot
     src: https://github.com/JoeNyland/ansible-dovecot-role
-  - name: joenyland.dropbear_initramfs
-    src: https://github.com/JoeNyland/ansible-dropbear-initramfs-role
-  - name: joenyland.get_iplayer
-    src: https://github.com/JoeNyland/ansible-get-iplayer-role
   - name: joenyland.homeshick
     src: https://github.com/JoeNyland/ansible-homeshick-role
   - name: joenyland.hostname
