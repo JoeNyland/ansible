@@ -1,3 +1,4 @@
 ---
 - name: Update CA trust
   command: update-ca-certificates
+  changed_when: true
