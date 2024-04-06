@@ -1,4 +1,4 @@
 ---
-docker_vm:
+docker:
   hosts:
     docker[01:02]:

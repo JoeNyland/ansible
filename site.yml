@@ -87,8 +87,8 @@
   roles:
     - netatalk
 
-- name: Setup Docker VM
-  hosts: docker_vm
+- name: Setup Docker hosts
+  hosts: docker
   become: true
   roles:
     - joenyland.docker
