@@ -1,8 +1,8 @@
 ---
 docker_host_storage_mounts:
-  '[fe80::484a:e1ff:fe17:c664%ens19]:/containers': /containers
-  '[fe80::484a:e1ff:fe17:c664%ens19]:/downloads': /downloads
-  '[fe80::484a:e1ff:fe17:c664%ens19]:/tank': /tank
+  '[fd51:a413:69fb::5]:/containers': /containers
+  '[fd51:a413:69fb::5]:/downloads': /downloads
+  '[fd51:a413:69fb::5]:/tank': /tank
 docker_users:
   - joe
 journalctl_users:
