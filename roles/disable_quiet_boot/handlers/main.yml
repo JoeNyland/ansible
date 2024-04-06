@@ -1,0 +1,4 @@
+---
+- name: Update grub config
+  command: update-grub
+  changed_when: true # Always re-generates the config files

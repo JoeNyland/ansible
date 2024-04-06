@@ -1,0 +1,18 @@
+---
+- name: Disable 'quiet' booting
+  tags:
+    - grub
+    - quiet_boot
+  become: true
+  block:
+    - name: Check that /etc/default/grub exists
+      stat:
+        path: /etc/default/grub
+      register: etc_default_grub
+    - name: Disable 'quiet' booting
+      lineinfile:
+        regexp: ^GRUB_CMDLINE_LINUX=
+        line: GRUB_CMDLINE_LINUX=""
+        path: /etc/default/grub
+      notify: Update grub config
+      when: etc_default_grub.stat.exists
