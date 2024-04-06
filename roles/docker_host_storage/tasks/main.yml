@@ -16,5 +16,4 @@
     path: "{{ item.value }}"
     state: mounted
     fstype: nfs
-    opts: defaults,_netdev
   with_dict: "{{ docker_host_storage_mounts }}"
