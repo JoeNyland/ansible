@@ -65,7 +65,7 @@
       tags: nginx
 
 - name: Setup PVE
-  hosts: pve
+  hosts: proxmox_nodes
   become: true
   roles:
     - joenyland.certbot
