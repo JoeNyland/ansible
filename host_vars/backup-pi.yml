@@ -4,8 +4,8 @@ journalctl_users:
   - joe
 off_site_backup_tasks:
   - name: Server -> Backup-Pi
-    hour: 0
-    minute: 30
+    hour: 1
+    minute: 00
     tasks:
       - source: syncoid@pve:rpool
         destination: off-site/pve/rpool
