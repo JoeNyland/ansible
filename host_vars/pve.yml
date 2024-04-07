@@ -90,8 +90,6 @@ zfs_datasets:
   rpool/var/lib/nfs:
     syncoid:sync: "false"
   rpool/var/lib/vz:
-  rpool/var/lib/vz/dump:
-    compression: "off"
   rpool/var/lib/vz/template:
     syncoid:sync: "false"
   rpool/var/tmp:
@@ -99,9 +97,5 @@ zfs_datasets:
   tank/home:
     mountpoint: /home
   tank/pve:
-  tank/pve/dump:
-    compression: "off"
-  tank/pve/images:
-    compression: "off"
   tank/pve/template:
-    compression: "off"
+    syncoid:sync: "false"
