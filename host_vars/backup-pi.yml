@@ -3,7 +3,7 @@ hostname: Backup-Pi
 journalctl_users:
   - joe
 off_site_backup_tasks:
-  - name: Server -> Backup-Pi
+  - name: PVE -> Backup-Pi
     hour: 1
     minute: 00
     tasks:
