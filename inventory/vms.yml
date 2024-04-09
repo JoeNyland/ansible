@@ -1,5 +1,4 @@
 ---
 vms:
   children:
-    cloud:
     proxmox_all_qemu:
