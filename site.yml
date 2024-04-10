@@ -3,25 +3,20 @@
   hosts: all
   become: true
   roles:
+    - disable_quiet_boot
+    - joenyland.homeshick
     - joenyland.hostname
     - joenyland.journalctl
     - joenyland.postfix
     - joenyland.root_user
     - joenyland.ssh
+    - joenyland.step_cli
     - joenyland.sudo
-    - joenyland.users
     - joenyland.timezone
     - joenyland.updates
-    - disable_quiet_boot
-    - root_ca
-
-- name: Setup systems which aren't LXCs
-  hosts: all:!proxmox_all_lxc
-  become: true
-  roles:
-    - joenyland.homeshick
-    - joenyland.step_cli
+    - joenyland.users
     - joenyland.vim
+    - root_ca
   tasks:
     - name: Install utils
       apt:
@@ -55,33 +50,16 @@
     - joenyland.sanoid
     - joenyland.off_site_backup
 
-- name: Setup PVE
-  hosts: proxmox_nodes
+- name: Setup server
+  hosts: server
   become: true
   roles:
     - joenyland.certbot
+    - joenyland.docker
+    - joenyland.dovecot
     - joenyland.nfs_server
     - joenyland.sanoid
     - joenyland.zfs
-    - zfs_load_key
-
-- name: Setup mail server container
-  hosts: mail
-  become: true
-  roles:
-    - joenyland.certbot
-    - joenyland.dovecot
-
-- name: Setup file server container
-  hosts: netatalk
-  become: true
-  roles:
     - netatalk
-
-- name: Setup Docker hosts
-  hosts: docker
-  become: true
-  roles:
-    - joenyland.docker
-    - docker_host_storage
     - portainer
+    - zfs_load_key
