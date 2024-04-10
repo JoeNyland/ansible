@@ -9,7 +9,3 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /containers/portainer:/data
-    labels:
-      traefik.enable: 'true'
-      traefik.http.services.portainer.loadbalancer.server.port: '9443'
-      traefik.http.services.portainer.loadbalancer.server.scheme: https
