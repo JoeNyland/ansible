@@ -1,0 +1,1 @@
+roles/root_ca/files/root_ca.crt filter=lfs diff=lfs merge=lfs -text
