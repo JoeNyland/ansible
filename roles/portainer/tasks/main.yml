@@ -4,6 +4,9 @@
     - docker
     - portainer
   block:
+    - name: Install Python requests
+      apt:
+        name: python3-requests
     - name: Setup as master
       include_tasks: portainer.yml
       when: not portainer_agent
