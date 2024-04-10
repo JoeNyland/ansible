@@ -11,8 +11,8 @@
       register: etc_default_grub
     - name: Disable 'quiet' booting
       lineinfile:
-        regexp: ^GRUB_CMDLINE_LINUX=
-        line: GRUB_CMDLINE_LINUX=""
+        regexp: ^GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+        line: GRUB_CMDLINE_LINUX_DEFAULT=""
         path: /etc/default/grub
       notify: Update grub config
       when: etc_default_grub.stat.exists
