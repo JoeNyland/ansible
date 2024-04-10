@@ -1,8 +1,4 @@
 ---
 local:
-  children:
-    proxmox_nodes:
-    proxmox_pve_lxc:
-    proxmox_pve_qemu:
   hosts:
     server:

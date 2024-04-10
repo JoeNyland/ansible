@@ -1,4 +1,0 @@
----
-vms:
-  children:
-    proxmox_all_qemu:
