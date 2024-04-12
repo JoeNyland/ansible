@@ -1,0 +1,104 @@
+---
+nfs_exports:
+  /containers:
+    client_permissions:
+      fd51:a413:69fb::/48:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /downloads:
+    client_permissions:
+      fd51:a413:69fb::/48:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /home:
+    client_permissions:
+      fd51:a413:69fb::/48:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /tank:
+    client_permissions:
+      fd51:a413:69fb::/48:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+sanoid_templates:
+  default:
+    autosnap: "yes"
+    autoprune: "yes"
+    frequently: 0
+    hourly: 0
+    daily: 7
+    weekly: 0
+    monthly: 0
+    yearly: 0
+  none:
+    autosnap: "no"
+    autoprune: "yes"
+    frequently: 0
+    hourly: 0
+    daily: 0
+    weekly: 0
+    monthly: 0
+    yearly: 0
+sanoid_policies:
+  rpool:
+    use_template: default
+    recursive: "yes"
+  rpool/downloads:
+    use_template: none
+    recursive: "yes"
+  rpool/var:
+    use_template: none
+  rpool/var/cache:
+    use_template: none
+    recursive: "yes"
+  rpool/var/lib:
+    use_template: none
+  rpool/var/lib/nfs:
+    use_template: none
+    recursive: "yes"
+  rpool/var/lib/vz/template:
+    use_template: none
+    recursive: "yes"
+  rpool/var/tmp:
+    use_template: none
+    recursive: "yes"
+  tank:
+    use_template: default
+    recursive: "yes"
+zfs_datasets:
+  rpool:
+    compression: lz4
+  rpool/containers:
+    mountpoint: /containers
+  rpool/downloads:
+    syncoid:sync: "false"
+    compression: "off"
+    mountpoint: /downloads
+  rpool/var:
+    canmount: "off"
+    mountpoint: /var
+    syncoid:sync: "false"
+  rpool/var/cache:
+    syncoid:sync: "false"
+  rpool/var/lib:
+    canmount: "off"
+    syncoid:sync: "false"
+  rpool/var/lib/nfs:
+    syncoid:sync: "false"
+  rpool/var/lib/vz:
+    syncoid:sync: "true"
+  rpool/var/lib/vz/dump:
+    syncoid:sync: "true"
+  rpool/var/lib/vz/template:
+    syncoid:sync: "false"
+  rpool/var/tmp:
+    syncoid:sync: "false"
+  tank/home:
+    mountpoint: /home
+  tank/pve:
+  tank/pve/template:
+    syncoid:sync: "false"
