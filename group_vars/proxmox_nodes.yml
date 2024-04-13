@@ -8,8 +8,8 @@ certbot_certs:
 certbot_deploy_hooks:
   - name: restart-pveproxy
     content: |
-      cp /etc/letsencrypt/live/pve/fullchain.pem /etc/pve/local/pveproxy-ssl.pem
-      cp /etc/letsencrypt/live/pve/privkey.pem /etc/pve/local/pveproxy-ssl.key
+      cp /etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem /etc/pve/local/pveproxy-ssl.pem
+      cp /etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem /etc/pve/local/pveproxy-ssl.key
       systemctl restart pveproxy
 root_user_enabled: true
 ssh_authorized_keys:
