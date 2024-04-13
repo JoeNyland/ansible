@@ -11,6 +11,8 @@ certbot_deploy_hooks:
       cp /etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem /etc/pve/local/pveproxy-ssl.pem
       cp /etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem /etc/pve/local/pveproxy-ssl.key
       systemctl restart pveproxy
+docker_daemon_config:
+  storage-driver: zfs
 root_user_enabled: true
 ssh_authorized_keys:
   - user: root
