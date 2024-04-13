@@ -83,5 +83,4 @@
   become: true
   roles:
     - joenyland.docker
-    - docker_host_storage
     - portainer
