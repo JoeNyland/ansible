@@ -24,6 +24,7 @@ nfs_exports:
         - rw # Allow read/write access
         - crossmnt # Allow mounts inside to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
+portainer_agent: false
 sanoid_templates:
   default:
     autosnap: "yes"
