@@ -73,15 +73,19 @@ sanoid_policies:
 zfs_datasets:
   rpool:
     compression: lz4
-  rpool/containers:
-    mountpoint: /containers
+    mountpoint: /
+    canmount: 'off'
+  rpool/ROOT:
+    mountpoint: 'none'
+    canmount: 'off'
+  rpool/data:
+    mountpoint: 'none'
+    canmount: 'off'
   rpool/downloads:
     syncoid:sync: "false"
     compression: "off"
-    mountpoint: /downloads
   rpool/var:
     canmount: "off"
-    mountpoint: /var
     syncoid:sync: "false"
   rpool/var/cache:
     syncoid:sync: "false"
@@ -100,6 +104,8 @@ zfs_datasets:
     syncoid:sync: "false"
   tank/home:
     mountpoint: /home
+  tank/home/root:
+    mountpoint: /root
   tank/pve:
   tank/pve/template:
     syncoid:sync: "false"
