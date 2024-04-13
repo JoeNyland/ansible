@@ -2,13 +2,13 @@
 nfs_exports:
   /home:
     client_permissions:
-      fd51:a413:69fb::/48:
+      fdaa:205:2005:10::/64:
         - rw # Allow read/write access
         - crossmnt # Allow mounts inside to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
   /tank:
     client_permissions:
-      fd51:a413:69fb::/48:
+      fdaa:205:2005:10::/64:
         - rw # Allow read/write access
         - crossmnt # Allow mounts inside to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
