@@ -78,7 +78,7 @@
   roles:
     - netatalk
 
-- name: Setup Docker hosts
+- name: Setup Docker machines
   hosts: docker
   become: true
   roles:
