@@ -23,7 +23,7 @@ postfix_aliases:
   abuse: postmaster
   mailer-daemon: postmaster
   nobody: postmaster
-  postmaster: joe@home.joe.nyland.io
+  postmaster: root
   hostmaster: root
   security: root
   root: joe@home.joe.nyland.io
