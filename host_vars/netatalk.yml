@@ -6,4 +6,4 @@ netatalk_shares:
   downloads: /downloads
   tank: /tank
 netatalk_server_model: MacPro
-netatalk_server_name: Joe’s Mac Pro
+netatalk_server_name: Joe’s Mac Pro Server
