@@ -3,6 +3,7 @@ certbot_certs:
   - domains:
       - "{{ ansible_hostname }}"
       - "{{ ansible_fqdn }}"
+      - mail.home.joe.nyland.io
       - imap.home.joe.nyland.io
       - smtp.home.joe.nyland.io
 certbot_deploy_hooks:
