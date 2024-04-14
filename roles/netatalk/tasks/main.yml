@@ -34,6 +34,10 @@
               Pin: release a=unstable
               Pin-Priority: 1000
 
+              Package: libzstd1
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
               Package: openssh-server
               Pin: release a=unstable
               Pin-Priority: 1000
