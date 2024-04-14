@@ -2,5 +2,5 @@
 local:
   children:
     proxmox_nodes:
-    proxmox_pve_lxc:
-    proxmox_pve_qemu:
+    proxmox_all_lxc:
+    proxmox_all_qemu:
