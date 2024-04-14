@@ -20,6 +20,7 @@ off_site_backup_tasks:
           # This allows backups to be taken even if encryption keys are not currently loaded.
           - w
 postfix_aliases:
+  admin: root
   abuse: postmaster
   mailer-daemon: postmaster
   nobody: postmaster

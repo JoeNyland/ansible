@@ -5,6 +5,7 @@ certbot_admin_email: joe@home.joe.nyland.io
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
 postfix_aliases:
+  admin: root
   abuse: postmaster
   mailer-daemon: postmaster
   nobody: postmaster
