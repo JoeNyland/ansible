@@ -79,7 +79,7 @@
     - netatalk
 
 - name: Setup Docker machines
-  hosts: docker
+  hosts: docker_machines
   become: true
   roles:
     - joenyland.docker
