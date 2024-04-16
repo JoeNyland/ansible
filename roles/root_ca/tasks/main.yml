@@ -13,8 +13,8 @@
         mode: '0755'
 
     - name: Install the certificate
-      copy:
-        src: root_ca.crt
+      get_url:
+        url: https://nyland.io/~joe/ca.crt
         dest: /usr/local/share/ca-certificates/joe_nyland_root_ca.crt
         mode: '0644'
       notify: Update CA trust
