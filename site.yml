@@ -55,6 +55,16 @@
     - joenyland.sanoid
     - joenyland.off_site_backup
 
+- name: Setup VPS
+  hosts: vps
+  roles:
+    - joenyland.docker
+    - joenyland.wireguard
+    - role: nginxinc.nginx
+      tags: nginx
+    - role: nginxinc.nginx_config
+      tags: nginx
+
 - name: Setup PVE
   hosts: proxmox_nodes
   become: true

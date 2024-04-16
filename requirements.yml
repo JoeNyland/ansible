@@ -38,5 +38,9 @@ roles:
     src: https://github.com/JoeNyland/ansible-users-role
   - name: joenyland.vim
     src: https://github.com/JoeNyland/ansible-vim-role
+  - name: joenyland.wireguard
+    src: https://github.com/JoeNyland/ansible-wireguard-role
   - name: joenyland.zfs
     src: https://github.com/JoeNyland/ansible-zfs-role
+  - src: nginxinc.nginx
+  - src: nginxinc.nginx_config
