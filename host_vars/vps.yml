@@ -4,11 +4,11 @@ postfix_aliases:
   abuse: postmaster
   mailer-daemon: postmaster
   nobody: postmaster
-  postmaster: joe@home.joe.nyland.io
+  postmaster: root
   hostmaster: root
   security: root
   root: joe@home.joe.nyland.io
-  webmaster: joe@home.joe.nyland.io
+  webmaster: root
   www: webmaster
 ssh_authorized_keys: [] # Authorized keys are managed by the provider (https://console.scaleway.com/project/ssh-keys)
 ssh_permit_root_login: true # Log in as root by default
