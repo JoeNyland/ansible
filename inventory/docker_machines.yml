@@ -2,3 +2,4 @@
 docker_machines:
   hosts:
     pve01:
+    vps:
