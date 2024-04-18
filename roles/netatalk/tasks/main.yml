@@ -38,6 +38,14 @@
               Pin: release a=unstable
               Pin-Priority: 1000
 
+              Package: libtirpc-dev
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
+              Package: libtirpc3
+              Pin: release a=unstable
+              Pin-Priority: 1000
+
               Package: openssh-server
               Pin: release a=unstable
               Pin-Priority: 1000
