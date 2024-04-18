@@ -97,10 +97,3 @@ zfs_datasets:
     mountpoint: /home
   tank/home/root:
     mountpoint: /root
-  tank/pve:
-  tank/pve/containers:
-  tank/pve/dump:
-    compression: 'off'
-  tank/pve/images:
-  tank/pve/template:
-    syncoid:sync: "false"
