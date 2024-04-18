@@ -1,6 +1,0 @@
----
-virtual:
-  children:
-    proxmox_all_lxc:
-    proxmox_all_qemu:
-    cloud:
