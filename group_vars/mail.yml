@@ -1,8 +1,8 @@
 ---
 certbot_certs:
   - domains:
-      - "{{ ansible_hostname }}"
-      - "{{ ansible_fqdn }}"
+      - "{{ ansible_hostname | lower }}"
+      - "{{ ansible_fqdn | lower }}"
       - mail.home.joe.nyland.io
       - imap.home.joe.nyland.io
       - smtp.home.joe.nyland.io
@@ -13,8 +13,8 @@ certbot_deploy_hooks:
     content: systemctl restart dovecot.service
 dovecot_mailbox_location: maildir:~/.maildir
 dovecot_auth_username_format: "%Ln"
-dovecot_ssl_certificate: "/etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem"
-dovecot_ssl_key: "/etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem"
+dovecot_ssl_certificate: "/etc/letsencrypt/live/{{ ansible_hostname | lower }}/fullchain.pem"
+dovecot_ssl_key: "/etc/letsencrypt/live/{{ ansible_hostname | lower }}/privkey.pem"
 postfix_destinations:
   - localhost
   - "{{ ansible_hostname }}"
@@ -27,8 +27,8 @@ postfix_networks:
   - "127.0.0.0/8"
   - "[::ffff:127.0.0.0]/104"
   - "[::1]/128"
-postfix_smtpd_tls_cert_file: "/etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem"
-postfix_smtpd_tls_key_file: "/etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem"
+postfix_smtpd_tls_cert_file: "/etc/letsencrypt/live/{{ ansible_hostname | lower }}/fullchain.pem"
+postfix_smtpd_tls_key_file: "/etc/letsencrypt/live/{{ ansible_hostname | lower }}/privkey.pem"
 users:
   joe:
     shell: /usr/sbin/nologin
