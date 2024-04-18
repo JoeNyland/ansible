@@ -3,17 +3,19 @@ hostname: Backup-Pi
 journalctl_users:
   - joe
 off_site_backup_tasks:
-  - name: PVE01 -> Backup-Pi
+  - name: Server -> Backup-Pi
     hour: '1'
     minute: '00'
     tasks:
-      - source: syncoid@pve01:rpool
-        destination: off-site/pve01/rpool
+      - source: syncoid@server:bpool
+        destination: off-site/server/bpool
+      - source: syncoid@server:rpool
+        destination: off-site/server/rpool
         send_options:
           # For encrypted datasets, send data exactly as it exists on disk.
           # This allows backups to be taken even if encryption keys are not currently loaded.
           - w
-      - source: syncoid@pve01:tank
+      - source: syncoid@server:tank
         destination: off-site/tank
         send_options:
           # For encrypted datasets, send data exactly as it exists on disk.
@@ -53,9 +55,6 @@ sanoid_policies:
   off-site/server:
     use_template: default
     recursive: 'yes'
-  off-site/pve01:
-    use_template: default
-    recursive: 'yes'
 ssh_authorized_keys:
   - user: joe
     key: https://github.com/joenyland.keys
@@ -68,6 +67,4 @@ zfs_datasets:
     mountpoint: 'none'
     readonly: 'on'
   off-site/server:
-    compression: lz4
-  off-site/pve01:
     compression: lz4

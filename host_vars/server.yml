@@ -1,4 +1,31 @@
 ---
+certbot_certs:
+  - domains:
+      - "{{ ansible_hostname | lower }}"
+      - "{{ ansible_fqdn | lower }}"
+      - mail.home.joe.nyland.io
+      - imap.home.joe.nyland.io
+      - smtp.home.joe.nyland.io
+certbot_deploy_hooks:
+  - name: restart-postfix
+    content: systemctl restart postfix.service
+  - name: restart-dovecot
+    content: systemctl restart dovecot.service
+  - name: restart-portainer
+    content: |
+      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/fullchain.pem /containers/portainer/certs/cert.pem
+      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/privkey.pem /containers/portainer/certs/key.pem
+      docker restart portainer
+docker_daemon_config:
+  storage-driver: zfs
+docker_users:
+  - joe
+hostname: Server
+netatalk_server_model: MacPro
+netatalk_server_name: Joe’s Mac Pro Server
+netatalk_shares:
+  downloads: /downloads
+  tank: /tank
 nfs_exports:
   /home:
     client_permissions:
@@ -13,6 +40,7 @@ nfs_exports:
         - crossmnt # Allow mounts inside to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
 portainer_agent: false
+root_user_enabled: true
 sanoid_templates:
   default:
     autosnap: "yes"
@@ -33,26 +61,22 @@ sanoid_templates:
     monthly: 0
     yearly: 0
 sanoid_policies:
+  bpool:
+    use_template: default
+    recursive: "yes"
   rpool:
     use_template: default
     recursive: "yes"
   rpool/downloads:
     use_template: none
     recursive: "yes"
-  rpool/var:
-    use_template: none
   rpool/var/cache:
     use_template: none
     recursive: "yes"
-  rpool/var/lib:
-    use_template: none
   rpool/var/lib/docker:
     use_template: none
     recursive: "yes"
   rpool/var/lib/nfs:
-    use_template: none
-    recursive: "yes"
-  rpool/var/lib/vz/template:
     use_template: none
     recursive: "yes"
   rpool/var/tmp:
@@ -61,7 +85,27 @@ sanoid_policies:
   tank:
     use_template: default
     recursive: "yes"
+ssh_permit_root_login: true
+users:
+  joe:
 zfs_datasets:
+  # Boot
+  bpool:
+    devices: "off"
+    acltype: posix
+    xattr: sa
+    compression: lz4
+    normalization: formD
+    relatime: "on"
+    canmount: "off"
+    mountpoint: /boot
+  bpool/BOOT:
+    canmount: "off"
+    mountpoint: none
+  bpool/BOOT/debian:
+    mountpoint: /boot
+
+  # Root
   rpool:
     compression: lz4
     mountpoint: /
@@ -74,25 +118,18 @@ zfs_datasets:
     compression: "off"
   rpool/var:
     canmount: "off"
-    syncoid:sync: "false"
   rpool/var/cache:
     syncoid:sync: "false"
   rpool/var/lib:
     canmount: "off"
-    syncoid:sync: "false"
   rpool/var/lib/docker:
     syncoid:sync: "false"
   rpool/var/lib/nfs:
     syncoid:sync: "false"
-  rpool/pve:
-  rpool/pve/containers:
-  rpool/pve/dump:
-    compression: 'off'
-  rpool/pve/images:
-  rpool/pve/template:
-    syncoid:sync: "false"
   rpool/var/tmp:
     syncoid:sync: "false"
+
+  # Tank
   tank/home:
     mountpoint: /home
   tank/home/root:

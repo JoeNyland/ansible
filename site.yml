@@ -3,6 +3,7 @@
   hosts: all
   become: true
   roles:
+    - disable_quiet_boot
     - joenyland.hostname
     - joenyland.journalctl
     - joenyland.postfix
@@ -12,40 +13,26 @@
     - joenyland.users
     - joenyland.timezone
     - joenyland.updates
-    - disable_quiet_boot
-    - root_ca
-
-- name: Setup systems which aren't LXCs
-  hosts: all:!proxmox_all_lxc
-  become: true
-  roles:
     - joenyland.homeshick
     - joenyland.step_cli
     - joenyland.vim
+    - root_ca
   tasks:
     - name: Install utils
       apt:
         name:
-          - htop
-          - vim
-          - git
-          - tree
-          - tmux
-          - gnupg
-          - rsync
           - bash-completion
           - bsd-mailx
-
-- name: Setup physical systems
-  hosts: physical
-  become: true
-  tasks:
-    - name: Install utils
-      apt:
-        name:
-          - iperf3
           - fio
+          - git
+          - gnupg
+          - htop
+          - iperf3
+          - rsync
           - smartmontools
+          - tmux
+          - tree
+          - vim
 
 - name: Setup Backup-Pi
   hosts: backup-pi
@@ -65,32 +52,17 @@
     - role: nginxinc.nginx_config
       tags: nginx
 
-- name: Setup PVE
-  hosts: proxmox_nodes
+- name: Setup Server
+  hosts: server
   become: true
   roles:
     - joenyland.certbot
+    - joenyland.docker
+    - joenyland.dovecot
     - joenyland.nfs_server
     - joenyland.sanoid
     - joenyland.zfs
-    - zfs_load_key
-
-- name: Setup mail server container
-  hosts: mail
-  become: true
-  roles:
-    - joenyland.certbot
-    - joenyland.dovecot
-
-- name: Setup file server container
-  hosts: netatalk
-  become: true
-  roles:
+    - dropbear_initramfs
     - netatalk
-
-- name: Setup Docker machines
-  hosts: docker_machine
-  become: true
-  roles:
-    - joenyland.docker
     - portainer
+    - zfs_load_key
