@@ -1,5 +1,5 @@
 ---
-docker_machines:
+docker_machine:
   hosts:
     pve01:
     vps:
