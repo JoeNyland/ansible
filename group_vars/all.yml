@@ -15,4 +15,9 @@ postfix_aliases:
   root: joe@home.joe.nyland.io
 postfix_relay_host:
   host: smtp.home.joe.nyland.io
+ssh_authorized_keys:
+  - user: joe
+    key: https://github.com/joenyland.keys
+sudo_users:
+  - joe
 timezone: Europe/London

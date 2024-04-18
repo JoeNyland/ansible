@@ -56,6 +56,7 @@ nginx_config_http_template:
               autoindex:
                 enable: true
 root_user_enabled: true
+sudo_users: []
 users:
   joe:
     shell: /usr/sbin/nologin
