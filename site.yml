@@ -63,6 +63,5 @@
     - joenyland.sanoid
     - joenyland.zfs
     - dropbear_initramfs
-    - netatalk
     - portainer
     - zfs_load_key
