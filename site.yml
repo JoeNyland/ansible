@@ -47,6 +47,7 @@
   roles:
     - joenyland.docker
     - joenyland.wireguard
+    - github_ipv6_proxy
     - role: nginxinc.nginx
       tags: nginx
     - role: nginxinc.nginx_config
