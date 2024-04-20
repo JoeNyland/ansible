@@ -34,6 +34,20 @@
           - tree
           - vim
 
+- name: Setup Server
+  hosts: server
+  become: true
+  roles:
+    - joenyland.certbot
+    - joenyland.docker
+    - joenyland.dovecot
+    - joenyland.nfs_server
+    - joenyland.sanoid
+    - joenyland.zfs
+    - dropbear_initramfs
+    - portainer
+    - zfs_load_key
+
 - name: Setup Backup-Pi
   hosts: backup-pi
   become: true
@@ -52,17 +66,3 @@
       tags: nginx
     - role: nginxinc.nginx_config
       tags: nginx
-
-- name: Setup Server
-  hosts: server
-  become: true
-  roles:
-    - joenyland.certbot
-    - joenyland.docker
-    - joenyland.dovecot
-    - joenyland.nfs_server
-    - joenyland.sanoid
-    - joenyland.zfs
-    - dropbear_initramfs
-    - portainer
-    - zfs_load_key
