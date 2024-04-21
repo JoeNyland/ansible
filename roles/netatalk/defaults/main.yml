@@ -1,0 +1,9 @@
+---
+netatalk_time_capsule_share_name: Time Capsule
+netatalk_time_capsule_path: /time_capsule
+netatalk_server_name: "{{ ansible_hostname }}"
+# Options: RackMac (same as Xserve), PowerBook, PowerMac, Macmini, iMac,
+# MacBook, MacBookPro, MacBookAir, MacPro, AppleTV1,1, AirPort
+netatalk_server_model: 'RackMac'
+netatalk_shares: {}
+netatalk_spotlight_enabled: true
