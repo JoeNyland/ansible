@@ -28,6 +28,7 @@
           - gnupg
           - htop
           - iperf3
+          - ncdu
           - rsync
           - smartmontools
           - tmux
