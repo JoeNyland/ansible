@@ -10,66 +10,36 @@
       block:
         - name: Add unstable repository
           apt_repository:
-            repo: deb http://deb.debian.org/debian unstable main contrib non-free
+            repo: deb http://deb.debian.org/debian unstable main
+            filename: unstable
             state: present
 
         - name: Configure apt package preferences
+          file:
+            dest: /etc/apt/preferences.d
+            state: directory
+            mode: '0755'
+
+        - name: Configure apt package preferences
           copy:
-            dest: /etc/apt/preferences
+            dest: /etc/apt/preferences.d/unstable
             mode: '0644'
             content: |
               Package: *
-              Pin: release a=bookworm
-              Pin-Priority: 500
-
-              Package: netatalk
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: libgcrypt20
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: libtirpc-common
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: libzstd1
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: libtirpc-dev
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: libtirpc3
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: openssh-server
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: openssh-sftp-server
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: openssh-client
-              Pin: release a=unstable
-              Pin-Priority: 1000
-
-              Package: *
               Pin: release a=unstable
               Pin-Priority: 100
-          notify: Upgrade packages
+          notify: Update package repo caches
 
-    - name: Flush handlers
+    - name: Update package repo caches
       meta: flush_handlers
 
-    - name: Install netatalk
-      package:
-        name: netatalk
-        state: present
+    - name: Install netatalk from unstable (sid) repo
+      apt:
+        name:
+          - netatalk
+          - libgcrypt20 # The version of netatalk in sid depends on a newer version of this lib
+        state: latest
+        default_release: unstable
 
     - name: Set server name
       community.general.ini_file:
