@@ -26,6 +26,7 @@ netatalk_server_name: Joe’s Mac Pro Server
 netatalk_shares:
   downloads: /downloads
   tank: /tank
+netatalk_time_capsule_path: /tank/backups/time_capsule
 nfs_exports:
   /home:
     client_permissions:
