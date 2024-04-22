@@ -24,6 +24,7 @@ hostname: Server
 netatalk_server_model: MacPro
 netatalk_server_name: Joe’s Mac Pro Server
 netatalk_shares:
+  containers: /containers
   downloads: /downloads
   tank: /tank
 netatalk_time_capsule_path: /tank/backups/time_capsule
