@@ -38,7 +38,7 @@
         name:
           - netatalk
           - libgcrypt20 # The version of netatalk in sid depends on a newer version of this lib
-        state: latest
+        state: latest # noqa: package-latest
         default_release: unstable
 
     - name: Set server name
