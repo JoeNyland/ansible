@@ -130,6 +130,8 @@ zfs_datasets:
     syncoid:sync: "false"
 
   # Tank
+  tank/backups/time_capsule:
+    refquota: 500G
   tank/home:
     mountpoint: /home
   tank/home/root:
