@@ -39,12 +39,12 @@
   hosts: server
   become: true
   roles:
-    - joenyland.certbot
     - joenyland.docker
     - joenyland.dovecot
     - joenyland.nfs_server
     - joenyland.sanoid
     - joenyland.zfs
+    - certbot
     - dropbear_initramfs
     - netatalk
     - portainer

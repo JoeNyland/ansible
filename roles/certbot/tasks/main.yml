@@ -1,0 +1,21 @@
+---
+- name: Configure sudo
+  tags: certbot
+  become: true
+  block:
+    - name: Create certbot deploy hook directory
+      file:
+        path: /etc/letsencrypt/renewal-hooks/deploy
+        state: directory
+        mode: '0755'
+      when: certbot_deploy_hooks | length
+    - name: Create certbot deploy hook scripts
+      copy:
+        dest: "/etc/letsencrypt/renewal-hooks/deploy/{{ item.name }}.sh"
+        mode: '744'
+        content: "{{ item.content }}"
+      with_items: "{{ certbot_deploy_hooks }}"
+    - name: Import geerlingguy.certbot role
+      import_role:
+        name: geerlingguy.certbot
+      when: certbot_certs | length

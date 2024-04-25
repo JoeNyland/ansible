@@ -42,5 +42,6 @@ roles:
     src: https://github.com/JoeNyland/ansible-wireguard-role
   - name: joenyland.zfs
     src: https://github.com/JoeNyland/ansible-zfs-role
+  - name: geerlingguy.certbot
   - src: nginxinc.nginx
   - src: nginxinc.nginx_config

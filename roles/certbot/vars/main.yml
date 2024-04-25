@@ -1,0 +1,2 @@
+---
+certbot_auto_renew: false # Certbot package installs a cron to auto-renew, so we don't need to do it again
