@@ -39,31 +39,49 @@
   hosts: server
   become: true
   roles:
-    - joenyland.docker
-    - joenyland.dovecot
     - joenyland.nfs_server
-    - joenyland.sanoid
-    - joenyland.zfs
     - certbot
     - dropbear_initramfs
     - netatalk
-    - portainer
     - zfs_load_key
 
 - name: Setup Backup-Pi
   hosts: backup-pi
   become: true
   roles:
-    - joenyland.zfs
-    - joenyland.sanoid
     - joenyland.off_site_backup
 
-- name: Setup VPS
-  hosts: vps
+- name: Setup storage servers
+  hosts:
+    - backup-pi
+    - server
   roles:
+    - joenyland.zfs
+    - joenyland.sanoid
+
+- name: Setup mail servers
+  hosts: mail
+  roles:
+    - certbot
+    - joenyland.dovecot
+    - joenyland.postfix
+
+- name: Setup Docker machines
+  hosts: docker_machine
+  roles:
+    - certbot
     - joenyland.docker
+    - portainer
+
+- name: Setup cloud hosts
+  hosts: cloud
+  roles:
     - joenyland.wireguard
     - github_ipv6_proxy
+
+- name: Setup web server hosts
+  hosts: vps
+  roles:
     - role: nginxinc.nginx
       tags: nginx
     - role: nginxinc.nginx_config
