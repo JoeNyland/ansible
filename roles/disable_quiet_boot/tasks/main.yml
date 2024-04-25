@@ -9,10 +9,19 @@
       stat:
         path: /etc/default/grub
       register: etc_default_grub
-    - name: Disable 'quiet' booting
+    - name: Disable quiet booting from the grub default config
       lineinfile:
         regexp: ^GRUB_CMDLINE_LINUX_DEFAULT="quiet"
-        line: GRUB_CMDLINE_LINUX_DEFAULT=""
+        line: '#GRUB_CMDLINE_LINUX_DEFAULT="quiet"'
+        backrefs: true
+        path: /etc/default/grub
+      notify: Update grub config
+      when: etc_default_grub.stat.exists
+    - name: Disable quiet booting from custom config
+      lineinfile:
+        regexp: ^GRUB_CMDLINE_LINUX_DEFAULT="(?:quiet)(\s+(.*))"
+        line: GRUB_CMDLINE_LINUX_DEFAULT="\2"
+        backrefs: true
         path: /etc/default/grub
       notify: Update grub config
       when: etc_default_grub.stat.exists
