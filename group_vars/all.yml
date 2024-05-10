@@ -2,12 +2,8 @@
 acme_server_url: https://ca.home.joe.nyland.io:9000/acme/acme/directory
 ansible_python_interpreter: /usr/bin/python3
 certbot_admin_email: joe@home.joe.nyland.io
-dropbear_initramfs_ssh_authorized_keys:
-  - https://github.com/joenyland.keys
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
-journalctl_users:
-  - joe
 postfix_aliases:
   admin: root
   abuse: postmaster

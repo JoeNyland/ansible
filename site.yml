@@ -13,27 +13,41 @@
     - joenyland.users
     - joenyland.timezone
     - joenyland.updates
+    - root_ca
+
+- name: Setup systems which aren't LXCs
+  hosts: all:!proxmox_all_lxc
+  become: true
+  roles:
     - joenyland.homeshick
     - joenyland.step_cli
     - joenyland.vim
-    - root_ca
   tasks:
     - name: Install utils
       apt:
         name:
+          - htop
+          - vim
+          - git
+          - tree
+          - tmux
+          - gnupg
+          - rsync
           - bash-completion
           - bsd-mailx
-          - fio
-          - git
-          - gnupg
-          - htop
+
+- name: Setup physical systems
+  hosts: physical
+  become: true
+  tasks:
+    - name: Install utils
+      apt:
+        name:
           - iperf3
           - ncdu
           - rsync
+          - fio
           - smartmontools
-          - tmux
-          - tree
-          - vim
 
 - name: Setup Server
   hosts: server
@@ -86,3 +100,13 @@
       tags: nginx
     - role: nginxinc.nginx_config
       tags: nginx
+
+- name: Setup PVE
+  hosts: proxmox_nodes
+  become: true
+  roles:
+    - joenyland.certbot
+    - joenyland.nfs_server
+    - joenyland.sanoid
+    - joenyland.zfs
+    - zfs_load_key

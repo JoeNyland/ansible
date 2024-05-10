@@ -1,0 +1,110 @@
+---
+hostname: "{{ ansible_hostname | upper }}"
+nfs_exports:
+  /home:
+    client_permissions:
+      fdaa:205:2005:10::/64:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+  /tank:
+    client_permissions:
+      fdaa:205:2005:10::/64:
+        - rw # Allow read/write access
+        - crossmnt # Allow mounts inside to be visible
+        - no_root_squash # Do not squash root user access to the anonymous user
+portainer_agent: false
+sanoid_templates:
+  default:
+    autosnap: "yes"
+    autoprune: "yes"
+    frequently: 0
+    hourly: 0
+    daily: 7
+    weekly: 0
+    monthly: 0
+    yearly: 0
+  none:
+    autosnap: "no"
+    autoprune: "yes"
+    frequently: 0
+    hourly: 0
+    daily: 0
+    weekly: 0
+    monthly: 0
+    yearly: 0
+sanoid_policies:
+  rpool:
+    use_template: default
+    recursive: "yes"
+  rpool/downloads:
+    use_template: none
+    recursive: "yes"
+  rpool/var:
+    use_template: none
+  rpool/var/cache:
+    use_template: none
+    recursive: "yes"
+  rpool/var/lib:
+    use_template: none
+  rpool/var/lib/docker:
+    use_template: none
+    recursive: "yes"
+  rpool/var/lib/nfs:
+    use_template: none
+    recursive: "yes"
+  rpool/var/lib/vz/template:
+    use_template: none
+    recursive: "yes"
+  rpool/var/tmp:
+    use_template: none
+    recursive: "yes"
+  tank:
+    use_template: default
+    recursive: "yes"
+zfs_datasets:
+  rpool:
+    compression: lz4
+    mountpoint: /
+    canmount: 'off'
+  rpool/ROOT:
+    mountpoint: 'none'
+    canmount: 'off'
+  rpool/downloads:
+    syncoid:sync: "false"
+    compression: "off"
+  rpool/var:
+    canmount: "off"
+    syncoid:sync: "false"
+  rpool/var/cache:
+    syncoid:sync: "false"
+  rpool/var/lib:
+    canmount: "off"
+    syncoid:sync: "false"
+  rpool/var/lib/docker:
+    syncoid:sync: "false"
+  rpool/var/lib/nfs:
+    syncoid:sync: "false"
+  rpool/pve:
+  rpool/pve/containers:
+  rpool/pve/dump:
+    compression: 'off'
+  rpool/pve/images:
+  rpool/pve/template:
+    syncoid:sync: "false"
+  rpool/var/tmp:
+    syncoid:sync: "false"
+  tank/backups/time_capsule:
+    refquota: 500G
+  tank/home:
+    mountpoint: /home
+  tank/home/root:
+    mountpoint: /root
+
+
+ansible_ssh_user: root
+ssh_permit_root_login: true
+root_user_enabled: true
+ssh_authorized_keys:
+  - user: root
+    key: https://github.com/joenyland.keys
