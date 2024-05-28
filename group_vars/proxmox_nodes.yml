@@ -8,13 +8,13 @@ certbot_certs:
 certbot_deploy_hooks:
   - name: restart-pveproxy
     content: |
-      cp /etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem /etc/pve/local/pveproxy-ssl.pem
-      cp /etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem /etc/pve/local/pveproxy-ssl.key
+      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/fullchain.pem /etc/pve/local/pveproxy-ssl.pem
+      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/privkey.pem /etc/pve/local/pveproxy-ssl.key
       systemctl restart pveproxy
   - name: restart-portainer
     content: |
-      cp /etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem /containers/portainer/certs/cert.pem
-      cp /etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem /containers/portainer/certs/key.pem
+      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/fullchain.pem /containers/portainer/certs/cert.pem
+      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/privkey.pem /containers/portainer/certs/key.pem
       docker restart portainer
 docker_daemon_config:
   storage-driver: zfs
