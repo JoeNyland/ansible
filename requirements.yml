@@ -2,8 +2,6 @@
 collections:
   - community.general
 roles:
-  - name: joenyland.certbot
-    src: https://github.com/JoeNyland/ansible-certbot-role
   - name: joenyland.docker
     src: https://github.com/JoeNyland/ansible-docker-role
   - name: joenyland.dovecot
