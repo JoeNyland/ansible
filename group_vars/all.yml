@@ -2,6 +2,7 @@
 acme_server_url: https://ca.home.joe.nyland.io:9000/acme/acme/directory
 ansible_python_interpreter: /usr/bin/python3
 certbot_admin_email: joe@home.joe.nyland.io
+certbot_create_extra_args: "--server {{ acme_server_url }}"
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
 postfix_aliases:
