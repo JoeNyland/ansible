@@ -5,3 +5,7 @@ root_user_enabled: true
 ansible_ssh_common_args: >-
   -o StrictHostKeyChecking=no
   -o UserKnownHostsFile=/dev/null
+ssh_authorized_keys:
+  - user: root
+    key: https://github.com/joenyland.keys
+sudo_users: []
