@@ -99,11 +99,3 @@ zfs_datasets:
     mountpoint: /home
   tank/home/root:
     mountpoint: /root
-
-
-ansible_ssh_user: root
-ssh_permit_root_login: true
-root_user_enabled: true
-ssh_authorized_keys:
-  - user: root
-    key: https://github.com/joenyland.keys
