@@ -2,4 +2,4 @@
 mail:
   hosts:
     server:
-    # mail[01:01]:
+    mail[01:01]:

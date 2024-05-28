@@ -49,16 +49,6 @@
           - fio
           - smartmontools
 
-- name: Setup Server
-  hosts: server
-  become: true
-  roles:
-    - joenyland.nfs_server
-    - certbot
-    - dropbear_initramfs
-    - netatalk
-    - zfs_load_key
-
 - name: Setup Backup-Pi
   hosts: backup-pi
   become: true
