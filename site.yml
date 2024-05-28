@@ -91,7 +91,7 @@
     - role: nginxinc.nginx_config
       tags: nginx
 
-- name: Setup PVE
+- name: Setup PVE nodes
   hosts: proxmox_nodes
   become: true
   roles:
