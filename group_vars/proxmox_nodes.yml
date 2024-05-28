@@ -3,8 +3,8 @@ ansible_become_method: su
 ansible_ssh_user: root
 certbot_certs:
   - domains:
-      - "{{ ansible_hostname }}"
-      - "{{ ansible_fqdn }}"
+      - "{{ ansible_hostname | lower }}"
+      - "{{ ansible_fqdn | lower }}"
 certbot_deploy_hooks:
   - name: restart-pveproxy
     content: |
