@@ -1,6 +1,6 @@
 ---
 docker_machine:
   hosts:
-    PVE01:
+    pve01:
     server:
     vps:

@@ -1,5 +1,4 @@
 ---
-hostname: "{{ ansible_hostname | upper }}"
 nfs_exports:
   /home:
     client_permissions:
