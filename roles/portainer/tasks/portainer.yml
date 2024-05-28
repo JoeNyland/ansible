@@ -3,6 +3,7 @@
   docker_container:
     name: portainer
     image: portainer/portainer-ce
+    network_mode: host
     ports:
       - 9443:9443
     restart_policy: unless-stopped
