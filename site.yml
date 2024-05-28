@@ -100,3 +100,9 @@
     - joenyland.zfs
     - zfs_load_key
     - certbot
+
+- name: Setup Netatalk container
+  hosts: netatalk
+  become: true
+  roles:
+    - netatalk
