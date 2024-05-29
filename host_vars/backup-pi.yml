@@ -50,9 +50,6 @@ sanoid_templates:
     monthly: 0
     yearly: 0
 sanoid_policies:
-  off-site/server:
-    use_template: default
-    recursive: 'yes'
   off-site/pve01:
     use_template: default
     recursive: 'yes'
@@ -67,7 +64,5 @@ zfs_datasets:
   off-site:
     mountpoint: 'none'
     readonly: 'on'
-  off-site/server:
-    compression: lz4
   off-site/pve01:
     compression: lz4

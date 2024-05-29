@@ -2,6 +2,5 @@
 physical:
   hosts:
     backup-pi:
-    server:
   children:
     proxmox_nodes:

@@ -59,7 +59,6 @@
   hosts:
     - backup-pi
     - proxmox_nodes
-    - server
   roles:
     - joenyland.zfs
     - joenyland.sanoid

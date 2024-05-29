@@ -1,7 +1,6 @@
 ---
 local:
   hosts:
-    server:
   children:
     proxmox_nodes:
     proxmox_all_lxc:
