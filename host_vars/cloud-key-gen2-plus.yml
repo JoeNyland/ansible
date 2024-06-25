@@ -1,0 +1,36 @@
+---
+hostname: Cloud-Key-Gen2-Plus
+domain: home.joe.nyland.io
+ssh_permit_root_login: true # Log in as root by default
+root_user_enabled: true
+certbot_certs:
+  - domains:
+      - "{{ ansible_hostname | lower }}"
+      - "{{ ansible_fqdn | lower }}"
+      - "unifi.{{ ansible_domain }}" # Probably unnecesary
+      - unifi.local # Probably unnecesary
+certbot_create_standalone_stop_services:
+  - nginx # Certbot needs to run on port 80 when the cert request is being verified
+certbot_deploy_hooks:
+  - name: install-unifi-cert
+    content: |
+      LE_CERT_DIR=/etc/letsencrypt/live/{{ ansible_hostname | lower }}
+      UNIFI_DATA_DIR=/data/unifi/data
+      openssl pkcs12 \
+        -in ${LE_CERT_DIR}/cert.pem \
+        -inkey ${LE_CERT_DIR}/privkey.pem \
+        -certfile ${LE_CERT_DIR}/fullchain.pem \
+        -export \
+        -out ${LE_CERT_DIR}/cert.p12 \
+        -passout pass:aircontrolenterprise
+      keytool \
+        -importkeystore \
+        -noprompt \
+        -srckeystore ${LE_CERT_DIR}/cert.p12 \
+        -srcstoretype PKCS12 \
+        -srcstorepass aircontrolenterprise \
+        -srcalias 1 \
+        -destkeystore ${UNIFI_DATA_DIR}/keystore \
+        -deststorepass aircontrolenterprise \
+        -destalias unifi
+      systemctl restart unifi.service nginx.service

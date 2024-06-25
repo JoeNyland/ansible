@@ -1,0 +1,4 @@
+---
+appliances:
+  children:
+    unifi:

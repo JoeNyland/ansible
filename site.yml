@@ -1,6 +1,6 @@
 ---
 - name: Setup all systems
-  hosts: all
+  hosts: all:!appliances
   become: true
   roles:
     - disable_quiet_boot
@@ -37,7 +37,7 @@
           - bsd-mailx
 
 - name: Setup physical systems
-  hosts: physical
+  hosts: physical:!appliances
   become: true
   tasks:
     - name: Install utils
@@ -104,3 +104,10 @@
   become: true
   roles:
     - netatalk
+
+- name: Setup UniFi controller
+  hosts: unifi
+  roles:
+    - joenyland.hostname
+    - root_ca
+    - certbot

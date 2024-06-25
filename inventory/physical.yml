@@ -3,4 +3,5 @@ physical:
   hosts:
     backup-pi:
   children:
+    appliances:
     proxmox_nodes:

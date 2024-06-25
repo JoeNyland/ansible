@@ -1,0 +1,4 @@
+---
+unifi:
+  hosts:
+    cloud-key-gen2-plus:
