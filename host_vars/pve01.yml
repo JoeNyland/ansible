@@ -52,9 +52,6 @@ sanoid_policies:
   rpool/var/lib/nfs:
     use_template: none
     recursive: "yes"
-  rpool/var/lib/vz/template:
-    use_template: none
-    recursive: "yes"
   rpool/var/tmp:
     use_template: none
     recursive: "yes"
