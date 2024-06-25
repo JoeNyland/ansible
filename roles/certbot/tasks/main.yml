@@ -9,12 +9,24 @@
         state: directory
         mode: '0755'
       when: certbot_deploy_hooks | length
+    - name: Create certbot post-deploy hook scripts
+      copy:
+        dest: "/etc/letsencrypt/renewal-hooks/post/{{ item.name }}.sh"
+        mode: '744'
+        content: "{{ item.content }}"
+      with_items: "{{ certbot_post_deploy_hooks }}"
     - name: Create certbot deploy hook scripts
       copy:
         dest: "/etc/letsencrypt/renewal-hooks/deploy/{{ item.name }}.sh"
         mode: '744'
         content: "{{ item.content }}"
       with_items: "{{ certbot_deploy_hooks }}"
+    - name: Create certbot pre-deploy hook scripts
+      copy:
+        dest: "/etc/letsencrypt/renewal-hooks/pre/{{ item.name }}.sh"
+        mode: '744'
+        content: "{{ item.content }}"
+      with_items: "{{ certbot_pre_deploy_hooks }}"
     - name: Import geerlingguy.certbot role
       import_role:
         name: geerlingguy.certbot

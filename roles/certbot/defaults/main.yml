@@ -1,3 +1,5 @@
 ---
 certbot_certs: []
+certbot_pre_deploy_hooks: []
 certbot_deploy_hooks: []
+certbot_post_deploy_hooks: []
