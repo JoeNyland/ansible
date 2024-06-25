@@ -9,6 +9,7 @@ certbot_certs:
       - "{{ ansible_fqdn | lower }}"
       - "unifi.{{ ansible_domain }}" # Probably unnecesary
       - unifi.local # Probably unnecesary
+      - unifi # Probably unnecesary
 certbot_create_standalone_stop_services:
   - nginx # Certbot needs to run on port 80 when the cert request is being verified
 certbot_deploy_hooks:
