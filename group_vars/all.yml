@@ -10,14 +10,16 @@ homeshick_dotfiles_repos:
 journalctl_users:
   - joe
 postfix_aliases:
-  admin: root
+  admin: joe
   abuse: postmaster
   mailer-daemon: postmaster
   nobody: postmaster
-  postmaster: root
-  hostmaster: root
-  security: root
-  root: joe@home.joe.nyland.io
+  postmaster: admin
+  hostmaster: admin
+  security: admin
+  joe: joe@home.joe.nyland.io
+  root: admin
+  webmaster: admin
 postfix_relay_host:
   host: smtp.home.joe.nyland.io
 ssh_authorized_keys:

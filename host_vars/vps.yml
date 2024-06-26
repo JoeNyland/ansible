@@ -1,15 +1,5 @@
 ---
 hostname: VPS
-postfix_aliases:
-  abuse: postmaster
-  mailer-daemon: postmaster
-  nobody: postmaster
-  postmaster: root
-  hostmaster: root
-  security: root
-  root: joe@home.joe.nyland.io
-  webmaster: root
-  www: webmaster
 ssh_permit_root_login: true # Log in as root by default
 wireguard_interfaces:
   wg0:
