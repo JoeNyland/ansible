@@ -1,6 +1,5 @@
 ---
 hostname: VPS
-ssh_permit_root_login: true # Log in as root by default
 wireguard_interfaces:
   wg0:
     address: fdff:0205:2005::22/123, 172.16.255.34/27
@@ -44,4 +43,3 @@ nginx_config_http_template:
                 alias: /home/$1/public_html$2
               autoindex:
                 enable: true
-root_user_enabled: true
