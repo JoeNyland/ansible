@@ -86,6 +86,7 @@
 
 - name: Setup web server hosts
   hosts: vps
+  become: true
   roles:
     - role: nginxinc.nginx
       tags: nginx
