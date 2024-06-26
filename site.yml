@@ -1,5 +1,5 @@
 ---
-- name: Setup all systems
+- name: Setup all managed systems
   hosts: all:!appliances
   become: true
   roles:
@@ -15,13 +15,14 @@
     - joenyland.updates
     - root_ca
 
-- name: Setup systems which aren't LXCs
-  hosts: all:!proxmox_all_lxc
+- name: Setup all systems
+  hosts: all
   become: true
   roles:
     - joenyland.homeshick
     - joenyland.step_cli
     - joenyland.vim
+    - root_ca
   tasks:
     - name: Install utils
       apt:
@@ -58,7 +59,7 @@
 - name: Manage ZFS
   hosts:
     - backup-pi
-    - proxmox_nodes
+    - nas
   roles:
     - joenyland.zfs
     - joenyland.sanoid
@@ -91,8 +92,8 @@
     - role: nginxinc.nginx_config
       tags: nginx
 
-- name: Setup PVE nodes
-  hosts: proxmox_nodes
+- name: Setup NAS
+  hosts: nas
   become: true
   roles:
     - joenyland.nfs_server

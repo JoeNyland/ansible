@@ -2,6 +2,6 @@
 physical:
   hosts:
     backup-pi:
+    nas:
   children:
     appliances:
-    proxmox_nodes:

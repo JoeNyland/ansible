@@ -1,4 +1,4 @@
 ---
 mail:
   hosts:
-    mail[01:01]:
+    nas:

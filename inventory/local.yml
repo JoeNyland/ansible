@@ -1,8 +1,6 @@
 ---
 local:
   hosts:
+    nas:
   children:
     unifi:
-    proxmox_nodes:
-    proxmox_all_lxc:
-    proxmox_all_qemu:
