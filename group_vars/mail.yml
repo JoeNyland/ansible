@@ -27,6 +27,3 @@ postfix_networks:
   - "[::1]/128"
 postfix_smtpd_tls_cert_file: "/etc/letsencrypt/live/mail.{{ ansible_domain }}/fullchain.pem"
 postfix_smtpd_tls_key_file: "/etc/letsencrypt/live/mail.{{ ansible_domain }}/privkey.pem"
-users:
-  joe:
-    shell: /usr/sbin/nologin
