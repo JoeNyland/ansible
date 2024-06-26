@@ -1,6 +1,5 @@
 ---
 hostname: Cloud-Key-Gen2-Plus
-domain: home.joe.nyland.io
 ssh_permit_root_login: true # Log in as root by default
 root_user_enabled: true
 certbot_certs:
