@@ -55,7 +55,7 @@
   roles:
     - joenyland.off_site_backup
 
-- name: Setup storage servers
+- name: Manage ZFS
   hosts:
     - backup-pi
     - proxmox_nodes
