@@ -2,4 +2,3 @@
 docker_machine:
   hosts:
     nas:
-    vps:
