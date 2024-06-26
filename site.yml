@@ -99,12 +99,6 @@
     - zfs_load_key
     - certbot
 
-- name: Setup Netatalk container
-  hosts: netatalk
-  become: true
-  roles:
-    - netatalk
-
 - name: Setup UniFi controller
   hosts: unifi
   roles:
