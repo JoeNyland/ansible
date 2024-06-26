@@ -2,4 +2,3 @@
 off_site:
   hosts:
     backup-pi:
-      ansible_user: joe
