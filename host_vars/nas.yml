@@ -12,7 +12,7 @@ certbot_deploy_hooks:
     content: systemctl restart postfix.service
   - name: restart-dovecot
     content: systemctl restart dovecot.service
-  - name: restart-portainer
+  - name: install-portainer-certs
     content: |
       cp /etc/letsencrypt/live/{{ ansible_hostname }}/fullchain.pem /containers/portainer/certs/cert.pem
       cp /etc/letsencrypt/live/{{ ansible_hostname }}/privkey.pem /containers/portainer/certs/key.pem
