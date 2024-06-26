@@ -1,7 +1,5 @@
 ---
 hostname: Backup-Pi
-journalctl_users:
-  - joe
 off_site_backup_tasks:
   - name: NAS -> Backup-Pi
     hour: '1'

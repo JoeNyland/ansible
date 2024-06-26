@@ -7,6 +7,8 @@ docker_users:
   - joe
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
+journalctl_users:
+  - joe
 postfix_aliases:
   admin: root
   abuse: postmaster
