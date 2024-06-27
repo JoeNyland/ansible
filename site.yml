@@ -98,6 +98,7 @@
   become: true
   roles:
     - joenyland.nfs_server
+    - samba
     - zfs_load_key
     - certbot
 

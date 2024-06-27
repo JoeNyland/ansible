@@ -34,6 +34,15 @@ nfs_exports:
         - crossmnt # Allow mounts inside to be visible
         - no_root_squash # Do not squash root user access to the anonymous user
 portainer_agent: false
+samba_shares:
+  downloads:
+    path: /downloads
+    valid_users: joe
+    read_only: false
+  tank:
+    path: /tank
+    valid_users: joe
+    read_only: false
 sanoid_templates:
   default:
     autosnap: "yes"
