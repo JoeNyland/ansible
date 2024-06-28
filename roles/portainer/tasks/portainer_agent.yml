@@ -4,8 +4,6 @@
     name: portainer_agent
     image: portainer/agent
     network_mode: host
-    ports:
-      - 9001:9001
     restart_policy: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
