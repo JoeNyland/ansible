@@ -99,6 +99,8 @@ zfs_datasets:
   rpool/downloads:
     syncoid:sync: "false"
     compression: "off"
+  rpool/usr:
+    canmount: "off"
   rpool/var:
     canmount: "off"
     syncoid:sync: "false"
