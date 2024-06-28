@@ -73,6 +73,7 @@
 
 - name: Setup Docker machines
   hosts: docker_machine
+  become: true
   roles:
     - certbot
     - joenyland.docker
