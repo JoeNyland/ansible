@@ -1,7 +1,0 @@
----
-physical:
-  hosts:
-    backup-pi:
-    nas:
-  children:
-    appliances:

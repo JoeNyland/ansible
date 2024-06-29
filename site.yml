@@ -1,26 +1,20 @@
 ---
-- name: Setup all managed systems
-  hosts: all:!appliances
+- name: Setup all systems
+  hosts: all:!unifi
   become: true
   roles:
     - disable_quiet_boot
+    - joenyland.homeshick
     - joenyland.hostname
     - joenyland.journalctl
+    - joenyland.step_cli
     - joenyland.postfix
     - joenyland.root_user
     - joenyland.ssh
     - joenyland.sudo
-    - joenyland.users
     - joenyland.timezone
     - joenyland.updates
-    - root_ca
-
-- name: Setup all systems
-  hosts: all
-  become: true
-  roles:
-    - joenyland.homeshick
-    - joenyland.step_cli
+    - joenyland.users
     - joenyland.vim
     - root_ca
   tasks:
@@ -36,77 +30,58 @@
           - rsync
           - bash-completion
           - bsd-mailx
-
-- name: Setup physical systems
-  hosts: physical:!appliances
-  become: true
-  tasks:
-    - name: Install utils
-      apt:
-        name:
           - iperf3
           - ncdu
           - rsync
           - fio
           - smartmontools
 
-- name: Setup Backup-Pi
-  hosts: backup-pi
-  become: true
-  roles:
-    - joenyland.off_site_backup
-
-- name: Manage ZFS
-  hosts:
-    - backup-pi
-    - nas
-  roles:
-    - joenyland.zfs
-    - joenyland.sanoid
-
-- name: Setup mail servers
-  hosts: mail
+- name: Setup NAS
+  hosts: nas
   become: true
   roles:
     - certbot
     - joenyland.dovecot
     - joenyland.postfix
-
-- name: Setup Docker machines
-  hosts: docker_machine
-  become: true
-  roles:
-    - certbot
+    - dropbear_initramfs
     - joenyland.docker
     - portainer
+    - samba
+    - joenyland.zfs
+    - joenyland.sanoid
+    - zfs_load_key
 
-- name: Setup cloud hosts
-  hosts: cloud
+- name: Setup Backup-Pi
+  hosts: backup-pi
+  become: true
   roles:
-    - joenyland.wireguard
-    - github_ipv6_proxy
+    - joenyland.off_site_backup
+    - joenyland.zfs
+    - joenyland.sanoid
 
-- name: Setup web server hosts
+- name: Setup VPS
   hosts: vps
   become: true
   roles:
+    - joenyland.wireguard
+    - github_ipv6_proxy
     - role: nginxinc.nginx
       tags: nginx
     - role: nginxinc.nginx_config
       tags: nginx
 
-- name: Setup NAS
-  hosts: nas
-  become: true
-  roles:
-    - dropbear_initramfs
-    - samba
-    - zfs_load_key
-    - certbot
-
 - name: Setup UniFi controller
   hosts: unifi
   roles:
-    - joenyland.hostname
     - root_ca
+    - joenyland.step_cli
     - certbot
+  tasks:
+    - name: Install utils
+      apt:
+        name:
+          - htop
+          - vim
+          - tree
+          - tmux
+          - bash-completion
