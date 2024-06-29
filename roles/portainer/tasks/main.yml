@@ -7,9 +7,12 @@
     - name: Install Python requests
       apt:
         name: python3-requests
-    - name: Setup as master
-      include_tasks: portainer.yml
-      when: not portainer_agent
-    - name: Setup as agent
-      include_tasks: portainer_agent.yml
-      when: portainer_agent
+    - name: Create container
+      docker_container:
+        name: portainer
+        image: portainer/portainer-ce
+        network_mode: host
+        restart_policy: unless-stopped
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - /containers/portainer:/data
