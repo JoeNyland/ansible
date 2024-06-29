@@ -66,6 +66,7 @@
 
 - name: Setup mail servers
   hosts: mail
+  become: true
   roles:
     - certbot
     - joenyland.dovecot
@@ -99,6 +100,7 @@
   become: true
   roles:
     - joenyland.nfs_server
+    - dropbear_initramfs
     - samba
     - zfs_load_key
     - certbot

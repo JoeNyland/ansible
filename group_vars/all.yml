@@ -5,6 +5,9 @@ certbot_admin_email: admin@home.joe.nyland.io
 certbot_create_extra_args: "--server {{ acme_server_url }}"
 docker_users:
   - joe
+dropbear_initramfs_options: '-c /usr/bin/zfsunlock'
+dropbear_initramfs_ssh_authorized_keys:
+  - https://github.com/joenyland.keys
 homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
 journalctl_users:

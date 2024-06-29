@@ -5,6 +5,8 @@ off_site_backup_tasks:
     hour: '1'
     minute: '00'
     tasks:
+      - source: syncoid@nas:bpool
+        destination: off-site/nas/bpool
       - source: syncoid@nas:rpool
         destination: off-site/nas/rpool
         send_options:

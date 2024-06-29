@@ -63,6 +63,9 @@ sanoid_templates:
     monthly: 0
     yearly: 0
 sanoid_policies:
+  bpool:
+    use_template: default
+    recursive: "yes"
   rpool:
     use_template: default
     recursive: "yes"
@@ -89,6 +92,20 @@ sanoid_policies:
     use_template: default
     recursive: "yes"
 zfs_datasets:
+  bpool:
+    devices: "off"
+    acltype: posix
+    xattr: sa
+    compression: lz4
+    normalization: formD
+    relatime: "on"
+    canmount: "off"
+    mountpoint: /boot
+  bpool/BOOT:
+    canmount: "off"
+    mountpoint: none
+  bpool/BOOT/debian:
+    mountpoint: /boot
   rpool:
     canmount: 'off'
     compression: lz4
