@@ -1,0 +1,31 @@
+---
+- name: Install Plex
+  become: true
+  tags: plex
+  block:
+    - name: Add apt key
+      get_url:
+        url: https://downloads.plex.tv/plex-keys/PlexSign.key
+        dest: /etc/apt/trusted.gpg.d/plex.asc
+        mode: '0644'
+        force: true # Download new versions when they are available
+    - name: Install repo
+      apt_repository:
+        repo: deb [signed-by=/etc/apt/trusted.gpg.d/plex.asc] https://downloads.plex.tv/repo/deb/ public main
+        state: present
+        filename: plex
+        update_cache: true
+    - name: Install
+      apt:
+        name: plexmediaserver
+    - name: Configure service
+      service:
+        name: plexmediaserver
+        state: "{{ plex_service_state }}"
+        enabled: "{{ plex_service_enabled }}"
+    - name: Add Plex user to groups
+      user:
+        name: plex
+        groups: "{{ plex_user_groups }}"
+        append: true
+      when: plex_user_groups | length > 0

@@ -1,0 +1,4 @@
+---
+plex_user_groups: []
+plex_service_enabled: true
+plex_service_state: started
