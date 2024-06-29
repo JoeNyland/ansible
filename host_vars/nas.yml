@@ -59,13 +59,9 @@ sanoid_policies:
   rpool/downloads:
     use_template: none
     recursive: "yes"
-  rpool/var:
-    use_template: none
   rpool/var/cache:
     use_template: none
     recursive: "yes"
-  rpool/var/lib:
-    use_template: none
   rpool/var/lib/docker:
     use_template: none
     recursive: "yes"
@@ -105,12 +101,10 @@ zfs_datasets:
     canmount: "off"
   rpool/var:
     canmount: "off"
-    syncoid:sync: "false"
   rpool/var/cache:
     syncoid:sync: "false"
   rpool/var/lib:
     canmount: "off"
-    syncoid:sync: "false"
   rpool/var/lib/docker:
     syncoid:sync: "false"
   rpool/var/tmp:
