@@ -20,19 +20,6 @@ certbot_deploy_hooks:
 docker_daemon_config:
   storage-driver: zfs
 hostname: NAS
-nfs_exports:
-  /home:
-    client_permissions:
-      fdaa:205:2005:10::/64:
-        - rw # Allow read/write access
-        - crossmnt # Allow mounts inside to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
-  /tank:
-    client_permissions:
-      fdaa:205:2005:10::/64:
-        - rw # Allow read/write access
-        - crossmnt # Allow mounts inside to be visible
-        - no_root_squash # Do not squash root user access to the anonymous user
 portainer_agent: false
 samba_shares:
   downloads:
@@ -82,9 +69,6 @@ sanoid_policies:
   rpool/var/lib/docker:
     use_template: none
     recursive: "yes"
-  rpool/var/lib/nfs:
-    use_template: none
-    recursive: "yes"
   rpool/var/tmp:
     use_template: none
     recursive: "yes"
@@ -128,8 +112,6 @@ zfs_datasets:
     canmount: "off"
     syncoid:sync: "false"
   rpool/var/lib/docker:
-    syncoid:sync: "false"
-  rpool/var/lib/nfs:
     syncoid:sync: "false"
   rpool/var/tmp:
     syncoid:sync: "false"

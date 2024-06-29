@@ -12,8 +12,6 @@ roles:
     src: https://github.com/JoeNyland/ansible-hostname-role
   - name: joenyland.journalctl
     src: https://github.com/JoeNyland/ansible-journalctl-role
-  - name: joenyland.nfs_server
-    src: https://github.com/JoeNyland/ansible-nfs-server-role
   - name: joenyland.off_site_backup
     src: https://github.com/JoeNyland/ansible-off-site-backup-role
   - name: joenyland.postfix

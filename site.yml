@@ -99,7 +99,6 @@
   hosts: nas
   become: true
   roles:
-    - joenyland.nfs_server
     - dropbear_initramfs
     - samba
     - zfs_load_key
