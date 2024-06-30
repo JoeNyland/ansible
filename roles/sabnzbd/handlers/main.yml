@@ -1,0 +1,8 @@
+---
+- name: Restart SABnzbd
+  service:
+    name: sabnzbdplus
+    state: restarted
+  when:
+    - sabnzbd_service_enabled
+    - sabnzbd_service_state == 'started'

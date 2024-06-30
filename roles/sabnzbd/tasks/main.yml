@@ -1,0 +1,42 @@
+---
+- name: Install SABnzbd
+  become: true
+  tags: sabnzbd
+  block:
+    - name: Install
+      apt:
+        name: sabnzbdplus
+        install_recommends: false
+    - name: Configure service
+      service:
+        name: sabnzbdplus
+        state: "{{ sabnzbd_service_state }}"
+        enabled: "{{ sabnzbd_service_enabled }}"
+    - name: Add SABnzbd user
+      user:
+        name: sabnzbd
+        system: true
+        home: /var/lib/sabnzbd
+        create_home: true
+        shell: /usr/sbin/nologin
+        skeleton: /dev/null
+        groups: "{{ sabnzbd_user_groups }}"
+        append: true
+    - name: Add any users to the sabnzbd group
+      user:
+        name: "{{ item }}"
+        groups: sabnzbd
+        append: true
+      with_items: "{{ sabnzbd_group_users }}"
+    - name: Configure SABnzbd to use the above user
+      lineinfile:
+        path: /etc/default/sabnzbdplus
+        regexp: ^USER=
+        line: USER=sabnzbd
+      notify: Restart SABnzbd
+    - name: Configure SABnzbd config directory
+      lineinfile:
+        path: /etc/default/sabnzbdplus
+        regexp: ^CONFIG=
+        line: CONFIG=/var/lib/sabnzbd/sabnzbd.ini
+      notify: Restart SABnzbd
