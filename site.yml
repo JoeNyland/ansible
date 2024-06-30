@@ -47,6 +47,7 @@
     - joenyland.docker
     - portainer
     - plex
+    - sabnzbd
     - samba
     - joenyland.zfs
     - joenyland.sanoid

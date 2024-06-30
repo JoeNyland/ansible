@@ -22,6 +22,11 @@ docker_daemon_config:
 hostname: NAS
 plex_user_groups:
   - media # Allow Plex to read from media directories
+sabnzbd_user_groups:
+  - downloads # Allow SABnzbd to store files in downloads directories
+  - media # Allow SABnzbd to store files in media directories
+sabnzbd_group_users:
+  - joe # Put joe in the sabnzbd group, so that he can manage the files that SABnzbd creates
 samba_shares:
   downloads:
     path: /downloads
