@@ -12,11 +12,6 @@ certbot_deploy_hooks:
     content: systemctl restart postfix.service
   - name: restart-dovecot
     content: systemctl restart dovecot.service
-  - name: install-portainer-cert
-    content: |
-      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/fullchain.pem /containers/portainer/certs/cert.pem
-      cp /etc/letsencrypt/live/{{ ansible_hostname | lower }}/privkey.pem /containers/portainer/certs/key.pem
-      docker restart portainer
 docker_daemon_config:
   storage-driver: zfs
 hostname: NAS

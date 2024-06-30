@@ -45,7 +45,6 @@
     - joenyland.postfix
     - dropbear_initramfs
     - joenyland.docker
-    - portainer
     - plex
     - sabnzbd
     - samba
