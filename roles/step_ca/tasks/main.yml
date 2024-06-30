@@ -1,0 +1,28 @@
+---
+- name: Setup Step CA
+  tags:
+    - ca
+    - step_
+    - step_ca
+  block:
+    - name: Manage user
+      user:
+        name: step
+        home: /etc/step-ca
+        system: true
+        skeleton: /dev/null
+        shell: /bin/false
+    - name: Install Step CLI
+      apt:
+        deb: https://dl.smallstep.com/certificates/docs-ca-install/latest/step-ca_amd64.deb
+    - name: Install service file
+      copy:
+        src: step-ca.service
+        dest: "/etc/systemd/system/step-ca.service"
+        mode: '0644'
+      notify: Reload systemd
+    - name: Manage service
+      service:
+        name: step-ca
+        enabled: "{{ step_ca_service_enabled }}"
+        state: "{{ step_ca_service_state }}"

@@ -1,0 +1,3 @@
+---
+step_ca_service_enabled: true
+step_ca_service_state: started
