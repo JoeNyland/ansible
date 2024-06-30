@@ -61,6 +61,15 @@
         name: joe
         groups: media
         append: true
+    - name: Create downloads group
+      group:
+        name: downloads
+        system: true
+    - name: Add joe to downloads group
+      user:
+        name: joe
+        groups: downloads
+        append: true
 
 - name: Setup Backup-Pi
   hosts: backup-pi
