@@ -2,8 +2,6 @@
 collections:
   - community.general
 roles:
-  - name: joenyland.docker
-    src: https://github.com/JoeNyland/ansible-docker-role
   - name: joenyland.dovecot
     src: https://github.com/JoeNyland/ansible-dovecot-role
   - name: joenyland.homeshick
