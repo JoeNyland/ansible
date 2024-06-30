@@ -1,0 +1,63 @@
+---
+- name: Install Servarr apps
+  tags: servarr
+  block:
+    - name: Manage user
+      user:
+        name: servarr
+        system: true
+        home: /var/lib/servarr
+        create_home: false
+        shell: /usr/sbin/nologin
+        groups: "{{ servarr_user_groups }}"
+    - name: Add users to servarr group
+      user:
+        name: "{{ item }}"
+        groups: servarr
+        append: true
+      with_items: "{{ servarr_group_users }}"
+    - name: Install dependencies
+      apt:
+        name:
+          - curl
+          - sqlite3
+          - libchromaprint-tools
+          - mediainfo
+        install_recommends: false
+    - name: Create install directories
+      file:
+        state: directory
+        path: "/usr/share/{{ item.key }}"
+        mode: '0755'
+      with_dict: "{{ servarr_apps }}"
+    - name: Create data directories
+      file:
+        state: directory
+        path: "/var/lib/{{ item.key }}"
+        mode: '0775'
+      with_dict: "{{ servarr_apps }}"
+    - name: Install packages
+      unarchive:
+        src: "{{ item.value.url }}"
+        dest: "/usr/share/{{ item.key }}"
+        remote_src: true
+        owner: root
+        group: root
+        creates: "/usr/share/{{ item.key }}/{{ item.key | capitalize }}"
+        extra_opts:
+          - '--strip-components=1'
+          - '--show-stored-names'
+      with_dict: "{{ servarr_apps }}"
+    - name: Install service file
+      template:
+        src: service.j2
+        dest: "/etc/systemd/system/{{ item.key }}.service"
+        mode: '0644'
+      notify: Reload systemd
+      with_dict: "{{ servarr_apps }}"
+    - name: Manage services
+      service:
+        name: "{{ item.key }}"
+        enabled: "{{ servarr_service_enabled }}"
+        state: "{{ servarr_service_state }}"
+      with_dict: "{{ servarr_apps }}"

@@ -1,0 +1,16 @@
+[Unit]
+Description={{ item.key | capitalize }}
+After=syslog.target network.target
+
+[Service]
+User=servarr
+Group=servarr
+UMask=0002
+Type=simple
+ExecStart=/usr/share/{{ item.key }}/{{ item.key | capitalize }} -nobrowser -data=/var/lib/{{ item.key }}
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
