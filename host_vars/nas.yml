@@ -12,8 +12,6 @@ certbot_deploy_hooks:
     content: systemctl restart postfix.service
   - name: restart-dovecot
     content: systemctl restart dovecot.service
-docker_daemon_config:
-  storage-driver: zfs
 hostname: NAS
 plex_user_groups:
   - media # Allow Plex to read from media directories
@@ -63,9 +61,6 @@ sanoid_policies:
   rpool/var/cache:
     use_template: none
     recursive: "yes"
-  rpool/var/lib/docker:
-    use_template: none
-    recursive: "yes"
   rpool/var/tmp:
     use_template: none
     recursive: "yes"
@@ -112,8 +107,6 @@ zfs_datasets:
     syncoid:sync: "false"
   rpool/var/lib:
     canmount: "off"
-  rpool/var/lib/docker:
-    syncoid:sync: "false"
   rpool/var/tmp:
     syncoid:sync: "false"
   tank/home:

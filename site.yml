@@ -44,7 +44,6 @@
     - joenyland.dovecot
     - joenyland.postfix
     - dropbear_initramfs
-    - joenyland.docker
     - plex
     - sabnzbd
     - samba
