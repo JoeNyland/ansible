@@ -48,6 +48,7 @@
     - sabnzbd
     - samba
     - servarr
+    - step_ca
     - joenyland.zfs
     - joenyland.sanoid
     - zfs_load_key
