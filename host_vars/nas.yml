@@ -77,6 +77,12 @@ sanoid_policies:
   tank:
     use_template: default
     recursive: "yes"
+servarr_group_users:
+  - joe
+servarr_user_groups:
+  - downloads
+  - media
+  - sabnzbd
 zfs_datasets:
   bpool:
     devices: "off"
