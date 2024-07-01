@@ -15,6 +15,11 @@ certbot_deploy_hooks:
 hostname: NAS
 plex_user_groups:
   - media # Allow Plex to read from media directories
+qbittorrent_user_groups:
+  - downloads # Allow qBittorrent to store files in downloads directories
+  - media # Allow qBittorrent to store files in media directories
+qbittorrent_group_users:
+  - joe # Put joe in the sabnzbd group, so that he can manage the files that qBittorrent creates
 sabnzbd_user_groups:
   - downloads # Allow SABnzbd to store files in downloads directories
   - media # Allow SABnzbd to store files in media directories

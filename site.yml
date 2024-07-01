@@ -45,6 +45,7 @@
     - joenyland.postfix
     - dropbear_initramfs
     - plex
+    - qbittorrent
     - sabnzbd
     - samba
     - servarr
