@@ -1,0 +1,5 @@
+---
+qbittorrent_service_enabled: true
+qbittorrent_service_state: started
+qbittorrent_group_users: []
+qbittorrent_user_groups: []

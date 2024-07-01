@@ -1,0 +1,60 @@
+---
+- name: Install qBittorrent
+  become: true
+  tags: qbittorrent
+  block:
+    - name: Create system user
+      user:
+        name: qbittorrent
+        system: true
+        shell: /usr/sbin/nologin
+        home: /var/lib/qbittorrent
+        skeleton: /dev/null
+        groups: "{{ qbittorrent_user_groups }}"
+        append: true
+    - name: Add users to the group
+      user:
+        name: "{{ item }}"
+        groups: qbittorrent
+        append: true
+      with_items: "{{ qbittorrent_group_users }}"
+    - name: Install
+      apt:
+        name: qbittorrent-nox
+        install_recommends: false
+    - name: Create config directory
+      file:
+        name: /var/lib/qbittorrent/.config/qBittorrent/
+        state: directory
+        owner: qbittorrent
+        group: qbittorrent
+        mode: '0755'
+    - name: Accept legal notice
+      community.general.ini_file:
+        path: /var/lib/qbittorrent/.config/qBittorrent/qBittorrent.conf
+        section: LegalNotice
+        option: Accepted
+        value: 'true'
+        owner: qbittorrent
+        group: qbittorrent
+        mode: '0644'
+        no_extra_spaces: true
+      notify: Restart qBittorrent
+    - name: Configure service
+      service:
+        name: qbittorrent-nox@qbittorrent
+        state: "{{ qbittorrent_service_state }}"
+        enabled: "{{ qbittorrent_service_enabled }}"
+    - name: Configure service overrides directory
+      file:
+        path: /etc/systemd/system/qbittorrent-nox@qbittorrent.service.d/
+        state: directory
+        mode: '0755'
+    - name: Configure service overrides
+      copy:
+        src: qbittorrent-nox@qbittorrent.service
+        dest: /etc/systemd/system/qbittorrent-nox@qbittorrent.service.d/override.conf
+        mode: '0644'
+      notify:
+        - Reload systemd
+        - Restart qBittorrent
