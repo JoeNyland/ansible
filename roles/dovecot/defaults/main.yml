@@ -1,0 +1,6 @@
+---
+dovecot_auth_username_format: '%Lu'
+# See https://doc.dovecot.org/configuration_manual/mail_location/
+dovecot_mailbox_location: "mbox:/var/mail/%u"
+dovecot_service_enabled: true
+dovecot_service_state: started
