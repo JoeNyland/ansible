@@ -42,7 +42,7 @@
   become: true
   roles:
     - certbot
-    - joenyland.dovecot
+    - dovecot
     - joenyland.postfix
     - dropbear_initramfs
     - plex
