@@ -10,6 +10,8 @@ homeshick_dotfiles_repos:
   dotfiles: git@github.com:JoeNyland/dotfiles.git
 journalctl_users:
   - joe
+journald_config:
+  MaxRetentionSec: 7day
 postfix_aliases:
   admin: joe
   abuse: postmaster

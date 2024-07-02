@@ -16,6 +16,7 @@
     - joenyland.updates
     - joenyland.users
     - joenyland.vim
+    - journald
     - root_ca
   tasks:
     - name: Install utils
